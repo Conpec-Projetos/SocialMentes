@@ -16,6 +16,4 @@ class SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Container();
   }
-
-
 }
