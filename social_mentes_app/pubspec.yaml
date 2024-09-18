@@ -68,6 +68,7 @@ flutter:
     - images/icon_cadastro.png
     - images/icon_cargos_2.png
     - images/icon_cadastro_2.png
+    - images/maleta_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
