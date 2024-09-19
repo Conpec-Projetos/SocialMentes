@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'src/view/components/app_widget.dart';
 import 'src/view/screens/cargos_page.dart';
-
+import 'src/view/screens/information_page.dart';
 void main() {
   runApp(AppWidget());
 }
@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Socialmentes",
-      home: CargosPage(),
+      home: InformationPage(),
     );
   }
 }

@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class InformationPage extends StatelessWidget {
+class InformationPage extends StatefulWidget {
   const InformationPage({super.key});
 
   @override
+  _InformationPageState createState() => _InformationPageState();
+}
+  class _InformationPageState extends State<InformationPage> {
+    String ? selectedButton;
+
+    void _onButtonPressed(String buttonName){
+      setState(() {
+        selectedButton = buttonName;
+        print("Butão selecionado: $selectedButton");
+      });
+    
+    
+  }
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
@@ -95,7 +108,9 @@ class InformationPage extends StatelessWidget {
         Positioned(
           top: 452*screenHeight/844,
           left: 61*screenWidth/390,
-          child:Container(
+          child:GestureDetector(
+            onTap: () => _onButtonPressed("Paciente"),
+            child:Container(
             height: 42*screenHeight/844,
             width: 110*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
@@ -103,7 +118,8 @@ class InformationPage extends StatelessWidget {
               side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
             ),
-            child: Align(
+            child: 
+            Align(
               alignment: Alignment.center,
               child:Text("Paciente", 
             style: GoogleFonts.firaSans(
@@ -113,11 +129,16 @@ class InformationPage extends StatelessWidget {
             )),
             ) 
             ),
+          ), 
           ),
+          
+          
           Positioned(
           top: 452*screenHeight/844,
           left: screenWidth*186/390,
-          child:Container(
+          child: GestureDetector(
+            onTap: () => _onButtonPressed("Responsável"),
+            child:Container(
             height: 42*screenHeight/844,
             width: 143*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
@@ -136,11 +157,15 @@ class InformationPage extends StatelessWidget {
             ),
             
             ),
-          ) ,
+          ) , 
+          ),
+  
           Positioned(
           top: 514*screenHeight/844,
           left: screenWidth*50/390,
-          child:Container(
+          child:GestureDetector(
+            onTap: () => _onButtonPressed("Administrador"),
+            child:Container(
             height: 42*screenHeight/844,
             width: 157*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
@@ -160,10 +185,13 @@ class InformationPage extends StatelessWidget {
             
             ),
           ) ,
+          ),
           Positioned(
           top: 514*screenHeight/844,
           left: screenWidth*222/390,
-          child:Container(
+          child:GestureDetector(
+            onTap: () => _onButtonPressed("Psicólogo"),
+            child: Container(
             height: 42*screenHeight/844,
             width: 119*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
@@ -183,7 +211,8 @@ class InformationPage extends StatelessWidget {
             
             ),
           ) ,
-            Positioned(
+          ),
+          Positioned(
               bottom: 0,
               right: 0,
               child: Image.asset("images/down_image_information_page.png")),
