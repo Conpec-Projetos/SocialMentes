@@ -28,7 +28,111 @@ class InformationPage extends StatefulWidget {
           Positioned(
             top: screenHeight*35/844,
             left: 30*screenWidth/390,
-            child: Image.asset("images/back_button_information_page.png")),
+            child: GestureDetector(
+              onTap: () {
+                showDialog(context: context, builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Stack(
+                      children: [
+                        Container(
+                        height: screenWidth*300/390,
+                        width: screenWidth*300/390,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2.5),
+                        ),
+                    ),
+                    Positioned(
+                      child: Image.asset("images/LogoSociaMentes2.png"),
+                      top: screenWidth*18/390,
+                      left: screenWidth*87/390,
+                    ),
+                    Positioned(
+                      child: Image.asset("images/Vector.png"),
+                      top: screenWidth*31/390,
+                      left: screenWidth*130/390,
+                    ),
+                    Positioned(
+                      child:Image.asset("images/X.png"),
+                      top: screenWidth*30/390,
+                      left: screenWidth*240/390,),
+                    Positioned(
+                      top: screenWidth*75/390,
+                      child: Container(
+                        width: screenWidth*239/390 ,
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.only(left:31),
+                          child: Text("Você tem certeza que deseja sair?", 
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.firaSans(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            color: Color.fromRGBO(69, 69, 69, 1)
+                          ),
+                        ),
+                      ),
+                    )
+                    ),
+                    Positioned(
+                      top: screenWidth*143/390 ,
+                      child: Container(
+                        width: screenWidth*249/390,
+                        child: Padding(
+                          padding: EdgeInsets.only(left:26),
+                          child: Text("As mudanças que você deseja fazer ainda não foram salvas!",
+                          textAlign: TextAlign.center ,
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            color: Color.fromRGBO(114, 114, 114, 1)
+                          ),),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: screenWidth*216/390,
+                      left:screenWidth*90/390 ,
+                      child:Container(
+                    width: 105,
+                    height: 44,
+                    padding: const EdgeInsets.all(10),
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 2, color: Color(0xFF4F94D4)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'SAIR',
+                          style: TextStyle(
+                            color: Color(0xFF4F94D4),
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            height: 0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                    )
+
+                      ],
+                    )
+                    
+                    
+                  );
+                });
+              },
+              child: Image.asset("images/back_button_information_page.png")
+            )
+          )
+            ,
             Positioned(
               top: 0,
               right: 0,
@@ -113,7 +217,7 @@ class InformationPage extends StatefulWidget {
             child:Container(
             height: 42*screenHeight/844,
             width: 110*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
+            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(shape: RoundedRectangleBorder(
               side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
@@ -123,7 +227,7 @@ class InformationPage extends StatefulWidget {
               alignment: Alignment.center,
               child:Text("Paciente", 
             style: GoogleFonts.firaSans(
-              fontSize: 18,
+              fontSize: screenHeight/844 * 18 ,
               fontWeight: FontWeight.w400,
               color: Color.fromRGBO(114, 114, 114, 1)
             )),
@@ -141,7 +245,7 @@ class InformationPage extends StatefulWidget {
             child:Container(
             height: 42*screenHeight/844,
             width: 143*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
+            padding: EdgeInsets.symmetric(horizontal: 10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(shape: RoundedRectangleBorder(
               side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
@@ -150,7 +254,7 @@ class InformationPage extends StatefulWidget {
               alignment: Alignment.center,
               child: Text("Responsável",
             style: GoogleFonts.firaSans(
-              fontSize: 18,
+              fontSize: screenHeight/844 * 18 ,
               fontWeight: FontWeight.w400,
               color: Color.fromRGBO(114, 114, 114, 1)
             )),
@@ -168,7 +272,7 @@ class InformationPage extends StatefulWidget {
             child:Container(
             height: 42*screenHeight/844,
             width: 157*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
+            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(shape: RoundedRectangleBorder(
               side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
@@ -177,7 +281,7 @@ class InformationPage extends StatefulWidget {
               alignment: Alignment.center,
               child: Text("Administrador",
             style: GoogleFonts.firaSans(
-              fontSize: 18,
+              fontSize: screenHeight/844 * 18 ,
               fontWeight: FontWeight.w400,
               color: Color.fromRGBO(114, 114, 114, 1)
             )),
@@ -194,7 +298,7 @@ class InformationPage extends StatefulWidget {
             child: Container(
             height: 42*screenHeight/844,
             width: 119*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical:10 ), //deixar responsivo
+            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(shape: RoundedRectangleBorder(
               side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
@@ -203,7 +307,7 @@ class InformationPage extends StatefulWidget {
               alignment: Alignment.center,
               child: Text("Psicólogo",
             style: GoogleFonts.firaSans(
-              fontSize: 18,
+              fontSize: screenHeight/844 * 18 ,
               fontWeight: FontWeight.w400,
               color: Color.fromRGBO(114, 114, 114, 1)
             )),

@@ -73,6 +73,9 @@ flutter:
     - images/seiji_info_page.png
     - images/maleta_icon.png
     - images/down_image_information_page.png
+    - images/LogoSociaMentes2.png
+    - images/Vector.png
+    - images/X.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
