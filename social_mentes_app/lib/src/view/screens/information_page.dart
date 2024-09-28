@@ -11,9 +11,13 @@ class InformationPage extends StatefulWidget {
   _InformationPageState createState() => _InformationPageState();
 }
   class _InformationPageState extends State<InformationPage> {
-    LinearGradient ? _containerColor;
+    LinearGradient ? _containerColorPaciente;
+    LinearGradient ? _containerColorAdministrador;
+    LinearGradient ? _containerColorPsicologo;
+     LinearGradient ? _containerColorResponsavel;
+
     String ? selectedButton;
-    // bool gradient = false;
+
     bool gradient_Paciente = false;
     bool gradient_Responsavel = false;
     bool gradient_Administrador = false;
@@ -28,36 +32,51 @@ class InformationPage extends StatefulWidget {
     
   }
 
-    void estadoInicial(){
-      super.initState();
-       _containerColor = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
-    }
-    void changeColor(){ //melhorar essa lógica 
-      setState(() {
-       if (gradient_Paciente == false) {
-        _containerColor = null;
-       } else{
-        _containerColor =  LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
-       }
-       if (gradient_Administrador == false){
-        _containerColor = null;
-       }else{
-        _containerColor =  LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
-       }
-       if (gradient_Responsavel == false){
-        _containerColor = null;
-       }else{
-        _containerColor =  LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
-       }
-       if (gradient_Psicologo == false){
-        _containerColor = null;
-       }else{
-        _containerColor =  LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
-       }
-      });
-      
-    }
+      void changeColorPaciente(){
+        setState(() {
+          if (gradient_Paciente == false){
+          _containerColorPaciente = null;
+        }else{
+          _containerColorPaciente = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
+        }
+        });
+        
+      }
 
+
+      void changeColorResponsavel(){
+        setState(() {
+          if (gradient_Responsavel == false){
+          _containerColorResponsavel = null;
+        }else{
+          _containerColorResponsavel = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
+        }
+        });
+        
+      }
+
+
+      void changeColorAdmnistrador(){
+        setState(() {
+          if (gradient_Administrador == false){
+          _containerColorAdministrador = null;
+        }else{
+          _containerColorAdministrador = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
+        }
+        });
+        
+      }
+
+      void changeColorPsicologo(){
+        setState(() {
+          if (gradient_Psicologo == false){
+          _containerColorPsicologo = null;
+        }else{
+          _containerColorPsicologo = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
+        }
+        });
+      }
+      
 
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -261,14 +280,17 @@ class InformationPage extends StatefulWidget {
           child:GestureDetector(
             onTap: () => setState(() {
               _onButtonPressed("Paciente");
-              if (selectedButton == "Paciente"){
-                gradient_Paciente = true;
-                gradient_Administrador = false;
-                gradient_Psicologo = false;
-                gradient_Responsavel = false;
-              }
-              if (gradient_Paciente = true){
-                changeColor();
+              gradient_Paciente = true;
+              gradient_Administrador = false;
+              gradient_Psicologo = false;
+              gradient_Responsavel = false;
+
+              // Verifica corretamente o valor de 'gradient_Paciente'
+              if (gradient_Paciente == true) {
+                changeColorAdmnistrador();
+                changeColorPaciente();
+                changeColorPsicologo();
+                changeColorResponsavel();
               }
             }),
             child:Container(
@@ -276,7 +298,7 @@ class InformationPage extends StatefulWidget {
             width: 110*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(
-              gradient:  _containerColor,
+              gradient:  _containerColorPaciente,
               shape: RoundedRectangleBorder(
               side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
@@ -302,14 +324,15 @@ class InformationPage extends StatefulWidget {
           child: GestureDetector(
             onTap: () => setState(() {
               _onButtonPressed("Responsável");
-              if (selectedButton == "Responsável"){
-                gradient_Paciente = false;
-                gradient_Administrador = false;
-                gradient_Psicologo = false;
-                gradient_Responsavel = true;
-              }
+              gradient_Responsavel = true;
+              gradient_Administrador = false;
+              gradient_Paciente = false;
+              gradient_Psicologo = false;
               if (gradient_Responsavel == true){
-                changeColor();
+                changeColorAdmnistrador();
+                changeColorPaciente();
+                changeColorPsicologo();
+                changeColorResponsavel();
               }
             }),
             child:Container(
@@ -317,9 +340,9 @@ class InformationPage extends StatefulWidget {
             width: 143*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal: 10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(
-              gradient: _containerColor,
+              gradient: _containerColorResponsavel,
               shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
+              side: BorderSide(width: 2, color:Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
             ),
             child: Align(
@@ -342,14 +365,15 @@ class InformationPage extends StatefulWidget {
           child:GestureDetector(
             onTap: () => setState(() {
                _onButtonPressed("Administrador");
-              if (selectedButton == "Administrador"){
-                gradient_Paciente = false;
-                gradient_Administrador = true;
-                gradient_Psicologo = false;
-                gradient_Responsavel = false;
-              }
+              gradient_Administrador = true;
+              gradient_Paciente =  false;
+              gradient_Psicologo = false;
+              gradient_Responsavel = false;
               if (gradient_Administrador = true){
-                changeColor();
+                changeColorAdmnistrador();
+                changeColorPaciente();
+                changeColorPsicologo();
+                changeColorResponsavel();
               }
             }),
             child:Container(
@@ -357,9 +381,9 @@ class InformationPage extends StatefulWidget {
             width: 157*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(
-              gradient: _containerColor,
+              gradient: _containerColorAdministrador,
               shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
+              side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
             ),
             child: Align(
@@ -381,14 +405,15 @@ class InformationPage extends StatefulWidget {
           child:GestureDetector(
             onTap: () => setState(() {
               _onButtonPressed("Psicólogo");
-              if (selectedButton == "Psicólogo"){
-                gradient_Paciente = false;
-                gradient_Administrador = false;
-                gradient_Psicologo = true;
-                gradient_Responsavel = false;
-              }
+              gradient_Psicologo = true;
+              gradient_Administrador = false;
+              gradient_Paciente = false;
+              gradient_Responsavel = false;
               if (gradient_Psicologo = true){
-              changeColor();
+                changeColorAdmnistrador();
+                changeColorPaciente();
+                changeColorPsicologo();
+                changeColorResponsavel();
               }
             }),
             child: Container(
@@ -396,9 +421,9 @@ class InformationPage extends StatefulWidget {
             width: 119*screenWidth/390,
             padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
             decoration: ShapeDecoration(
-              gradient: _containerColor,
+              gradient: _containerColorPsicologo,
               shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)), //deixar responsivo
+              side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
               borderRadius: BorderRadius.circular(5)),
             ),
             child: Align(
