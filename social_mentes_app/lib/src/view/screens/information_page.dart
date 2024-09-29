@@ -14,25 +14,28 @@ class InformationPage extends StatefulWidget {
     LinearGradient ? _containerColorPaciente;
     LinearGradient ? _containerColorAdministrador;
     LinearGradient ? _containerColorPsicologo;
-     LinearGradient ? _containerColorResponsavel;
+    LinearGradient ? _containerColorResponsavel;
 
-    String ? selectedButton;
+    String selectedButton = "";
+    String ? pastState;
+    String ? presentState;
+    bool appearImage = true;
+    bool ? isChangeConfirmded;
 
     bool gradient_Paciente = false;
     bool gradient_Responsavel = false;
     bool gradient_Administrador = false;
     bool gradient_Psicologo = false;
 
-    void _onButtonPressed(String buttonName){
+
+     void _onButtonPressed(String buttonName){ //vê qual estado ("profissão") está selecionado
       setState(() {
         selectedButton = buttonName;
         print("Butão selecionado: $selectedButton");
       });
-    
-    
   }
 
-      void changeColorPaciente(){
+      void changeColorPaciente(){ //função que altera background quando a tela o botão de paciente foi pressionado
         setState(() {
           if (gradient_Paciente == false){
           _containerColorPaciente = null;
@@ -40,11 +43,10 @@ class InformationPage extends StatefulWidget {
           _containerColorPaciente = LinearGradient(colors:<Color>[Color.fromRGBO(175, 214, 250, 1), Color.fromRGBO(125, 185, 240, 1)] );
         }
         });
-        
       }
 
 
-      void changeColorResponsavel(){
+      void changeColorResponsavel(){ //função que altera background quando a tela o botão de responsável foi pressionado
         setState(() {
           if (gradient_Responsavel == false){
           _containerColorResponsavel = null;
@@ -55,8 +57,7 @@ class InformationPage extends StatefulWidget {
         
       }
 
-
-      void changeColorAdmnistrador(){
+      void changeColorAdmnistrador(){ //função que altera background quando a tela o botão de administrador foi pressionado
         setState(() {
           if (gradient_Administrador == false){
           _containerColorAdministrador = null;
@@ -67,7 +68,7 @@ class InformationPage extends StatefulWidget {
         
       }
 
-      void changeColorPsicologo(){
+      void changeColorPsicologo(){ //função que altera background quando a tela o botão de psicólogo foi pressionado
         setState(() {
           if (gradient_Psicologo == false){
           _containerColorPsicologo = null;
@@ -76,11 +77,12 @@ class InformationPage extends StatefulWidget {
         }
         });
       }
-      
+
+ 
 
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height; //pega o tamanho vertical da tela
+    var screenWidth = MediaQuery.of(context).size.width; //pega o tamanho horizontal da tela
 
     return Scaffold(
       body: Stack(
@@ -90,8 +92,16 @@ class InformationPage extends StatefulWidget {
             left: 30*screenWidth/390,
             child: GestureDetector(
               onTap: () {
-                showDialog(context: context, builder: (BuildContext context) {
-                  return AlertDialog(
+                setState(() {
+                  if (pastState == presentState){
+                  isChangeConfirmded = true;
+                }
+                });
+                setState(() {
+                  if (isChangeConfirmded == false){
+                  print("Estou na primeira rota");
+                  showDialog(context: context, builder: (BuildContext context) {
+                  return AlertDialog( //card de anúncio quando usuário sai da tela sem salvar as alterações
                     content: Stack(
                       children: [
                         Container(
@@ -193,6 +203,14 @@ class InformationPage extends StatefulWidget {
                     )      
                   );
                 });
+                }else{
+                  print("Estou na segunda rota");
+                   setState(() {
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => CargosPage()));
+                   });
+                };
+                });
+                
               },
               child: Image.asset("images/back_button_information_page.png")
             )
@@ -292,6 +310,15 @@ class InformationPage extends StatefulWidget {
                 changeColorPsicologo();
                 changeColorResponsavel();
               }
+              pastState = presentState;
+              presentState = selectedButton;
+              print(presentState);
+              print(pastState);
+              if (pastState != presentState){
+                appearImage = true;
+                isChangeConfirmded = false;
+              }
+              print(isChangeConfirmded);
             }),
             child:Container(
             height: 42*screenHeight/844,
@@ -334,6 +361,15 @@ class InformationPage extends StatefulWidget {
                 changeColorPsicologo();
                 changeColorResponsavel();
               }
+              pastState = presentState;
+              presentState = selectedButton;
+              print(presentState);
+              print(pastState);
+              if (pastState != presentState){
+                appearImage = true;
+                isChangeConfirmded = false;
+              }
+              print(isChangeConfirmded);
             }),
             child:Container(
             height: 42*screenHeight/844,
@@ -375,6 +411,14 @@ class InformationPage extends StatefulWidget {
                 changeColorPsicologo();
                 changeColorResponsavel();
               }
+              pastState = presentState;
+              presentState = selectedButton;
+              print(presentState);
+              print(pastState);
+              if (pastState != presentState){
+                appearImage = true;
+                isChangeConfirmded = false;
+              }
             }),
             child:Container(
             height: 42*screenHeight/844,
@@ -415,6 +459,14 @@ class InformationPage extends StatefulWidget {
                 changeColorPsicologo();
                 changeColorResponsavel();
               }
+              pastState = presentState;
+              presentState = selectedButton;
+              print(presentState);
+              print(pastState);
+              if (pastState != presentState){
+                appearImage = true;
+                isChangeConfirmded = false;
+              }
             }),
             child: Container(
             height: 42*screenHeight/844,
@@ -439,6 +491,22 @@ class InformationPage extends StatefulWidget {
             ),
           ) ,
           ),
+          
+          
+          if(pastState != presentState && appearImage == true)
+            Positioned(
+              top: screenHeight*606/844,
+              left: screenWidth*20/390,
+              child:GestureDetector(
+                onTap: () => setState(() {
+                  appearImage = false;
+                  isChangeConfirmded = true;
+                  print(isChangeConfirmded);
+                }),
+                child:Image.asset("images/confirm_change.png", height: screenHeight*44/844, width: screenWidth*350/390,) ,
+              )
+              ),
+
           Positioned(
               bottom: 0,
               right: 0,
