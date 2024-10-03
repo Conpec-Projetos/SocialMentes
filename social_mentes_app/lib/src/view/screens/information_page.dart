@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'cargos_page.dart';
 
 class InformationPage extends StatefulWidget {
-  InformationPage({super.key});
+  //InformationPage({super.key});
 
   @override
   _InformationPageState createState() => _InformationPageState();
@@ -26,7 +26,6 @@ class InformationPage extends StatefulWidget {
     bool gradient_Responsavel = false;
     bool gradient_Administrador = false;
     bool gradient_Psicologo = false;
-
 
      void _onButtonPressed(String buttonName){ //vê qual estado ("profissão") está selecionado
       setState(() {
@@ -78,8 +77,7 @@ class InformationPage extends StatefulWidget {
         });
       }
 
- 
-
+  @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height; //pega o tamanho vertical da tela
     var screenWidth = MediaQuery.of(context).size.width; //pega o tamanho horizontal da tela
