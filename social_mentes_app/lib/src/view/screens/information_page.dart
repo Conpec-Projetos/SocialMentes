@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'cargos_page.dart';
 
 class InformationPage extends StatefulWidget {
-  const InformationPage({super.key});
+  InformationPage({super.key});
 
   @override
   _InformationPageState createState() => _InformationPageState();
