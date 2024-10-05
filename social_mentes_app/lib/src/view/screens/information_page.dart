@@ -15,6 +15,7 @@ class InformationPage extends StatefulWidget {
     LinearGradient ? _containerColorAdministrador;
     LinearGradient ? _containerColorPsicologo;
     LinearGradient ? _containerColorResponsavel;
+    
 
     String selectedButton = "";
     String ? pastState;
