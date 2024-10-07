@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'cargos_page.dart';
 
 class InformationPage extends StatefulWidget {
-  //InformationPage({super.key});
+  InformationPage({super.key});
 
   @override
   _InformationPageState createState() => _InformationPageState();
@@ -80,8 +80,8 @@ class InformationPage extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height; //pega o tamanho vertical da tela
-    var screenWidth = MediaQuery.of(context).size.width; //pega o tamanho horizontal da tela
+    double screenHeight = MediaQuery.of(context).size.height; //pega o tamanho vertical da tela
+    double screenWidth = MediaQuery.of(context).size.width; //pega o tamanho horizontal da tela
 
     return Scaffold(
       body: Stack(
