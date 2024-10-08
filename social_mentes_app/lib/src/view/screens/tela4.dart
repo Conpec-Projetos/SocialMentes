@@ -56,18 +56,14 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                       ),
                       child: Stack(
                         children: [
-                          Positioned(
-                            top: screenHeight*5/844,
-                            left: screenWidht*8/390,
-                            child: Image.asset("images/icon_tabela.png", height: 11*screenHeight/844,width: 11*screenHeight/844,)),
-                          Positioned(
-                            top: screenHeight*2.5/844,
-                            right: screenHeight*3/390,
-                            child: Text("Tabela", style: GoogleFonts.firaSans(
-                              fontSize: 12,
+                          Padding(padding: EdgeInsets.symmetric(horizontal: 7*screenWidht/390, vertical: 5*screenHeight/844),
+                          child: Image.asset("images/icon_tabela.png", height: 11*screenHeight/844,width: 11*screenHeight/844,)),
+                          Padding(padding: EdgeInsets.only(left: 18*screenWidht/390, top: 2*screenWidht/390),
+                          child: Text("Tabela", style: GoogleFonts.firaSans(
+                              fontSize: 12*screenWidht/390,
                               fontWeight: FontWeight.w400,
                               color: Color.fromRGBO(114, 114, 114, 1)
-                            ),)),
+                            ),) ),
                         ],
                       ),
                     ),
@@ -85,15 +81,11 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                       ),
                       child: Stack(
                         children: [
-                          Positioned(
-                            top: screenHeight*5/844,
-                            left: screenWidht*8/390,
-                            child: Image.asset("images/grafico_icon.png", height: 11*screenHeight/844,width: 11*screenHeight/844,)),
-                          Positioned(
-                            top: screenHeight*2.5/844,
-                            right: screenHeight*2/390,
-                            child: Text("Gráfico", style: GoogleFonts.firaSans(
-                              fontSize: 12,
+                          Padding(padding:EdgeInsets.symmetric(horizontal: 5*screenWidht/390, vertical: 5*screenHeight/844) ,
+                          child: Image.asset("images/grafico_icon.png", height: 11*screenHeight/844,width: 11*screenHeight/844,)),
+                          Padding(padding: EdgeInsets.only(left: 16*screenWidht/390, top: 2*screenWidht/390),
+                          child: Text("Gráfico", style: GoogleFonts.firaSans(
+                              fontSize: 12*screenWidht/390,
                               fontWeight: FontWeight.w400,
                               color: Color.fromRGBO(114, 114, 114, 1)
                             ),)),
@@ -114,18 +106,14 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                       ),
                       child: Stack(
                         children: [
-                          Positioned(
-                            top: screenHeight*5/844,
-                            left: screenWidht*8/390,
-                            child: Image.asset("images/relatorio_icon.png", height: 11*screenHeight/844,width: 11*screenHeight/844,)),
-                          Positioned(
-                            top: screenHeight*2.5/844,
-                            right: screenHeight*4/390,
-                            child: Text("Relatório", style: GoogleFonts.firaSans(
-                              fontSize: 12,
+                          Padding(padding:EdgeInsets.symmetric(horizontal: 5*screenWidht/390, vertical: 5*screenHeight/844),
+                          child: Image.asset("images/relatorio_icon.png", height: 11*screenHeight/844,width: 11*screenHeight/844,),),
+                          Padding(padding:EdgeInsets.only(left: 18*screenWidht/390, top: 2*screenWidht/390) ,
+                          child:Text("Relatório", style: GoogleFonts.firaSans(
+                              fontSize: 12*screenWidht/390,
                               fontWeight: FontWeight.w400,
                               color: Color.fromRGBO(114, 114, 114, 1)
-                            ),)),
+                            ),) ,),
                         ],
                       ),
                     ),
@@ -249,7 +237,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                   left: 29*screenWidht/390,
                   child: Text("competência",style:GoogleFonts.poppins(
                   color: Color.fromRGBO(114, 114, 114, 1),
-                  fontSize: 24, 
+                  fontSize: 24*screenHeight/844, 
                   fontWeight: FontWeight.w700), 
                 )),
                 Positioned( //mudar para icon de seta certo
@@ -294,7 +282,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                   left: 29*screenWidht/390,
                   child: Text("checklist", style: GoogleFonts.poppins(
                     color: Color.fromRGBO(114, 114, 114, 1),
-                    fontSize: 24,
+                    fontSize: 24*screenHeight/844,
                     fontWeight: FontWeight.w700
                   ),)),
                 
@@ -307,7 +295,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                     child: Center(
                       child:Text("Não há testes ainda",style: GoogleFonts.inter(
                   fontStyle: FontStyle.italic,
-                  fontSize: 20,
+                  fontSize: 20*screenHeight/844,
                   fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(171, 171, 171, 1)
                 ),) ,
@@ -332,7 +320,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                   left: 29*screenWidht/390,
                   child: Text("intervenção", style: GoogleFonts.poppins(
                     color: Color.fromRGBO(114, 114, 114, 1),
-                    fontSize: 24,
+                    fontSize: 24*screenHeight/844,
                     fontWeight: FontWeight.w700
                   ),)),
                 Positioned(
@@ -344,7 +332,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                     child: Center(
                       child:Text("Não há planos ainda",style: GoogleFonts.inter(
                   fontStyle: FontStyle.italic,
-                  fontSize: 20,
+                  fontSize: 20*screenHeight/844,
                   fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(171, 171, 171, 1)
                 ),) ,
@@ -367,14 +355,14 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                           top: 10*screenHeight/844,
                           left: 10*screenWidht/390,
                           child: Text("CRIAR INTERVENÇÃO", style: GoogleFonts.poppins(
-                            fontSize: 16,
+                            fontSize: 16*screenWidht/390,
                             fontWeight: FontWeight.w600,
                             color: Color.fromRGBO(248, 61, 112, 1)
                           ),)),
                           Positioned(
                             right: screenWidht*10/390,
-                            top: screenHeight*15/844,
-                            child: Center(child: Image.asset("images/red_icon.png") ,)
+                            top: screenHeight*17/844,
+                            child: Center(child: Image.asset("images/red_icon.png",height: 8*screenHeight/844, width: 14*screenWidht/390,) ,)
                            )
                       ],
                     ) ,
@@ -383,7 +371,7 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                 Positioned(
                   top: 582*screenHeight/844,
                   right: 21*screenWidht/390,
-                  child: Image.asset("images/save_button.png")),
+                  child: Image.asset("images/save_button.png", width: 131*screenWidht/390, height: 44*screenHeight/844,)),
                   
                 Positioned(
                   bottom: 0,
