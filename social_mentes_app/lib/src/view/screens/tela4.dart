@@ -3,14 +3,53 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateProtocols extends StatefulWidget {
-  const CreateProtocols({super.key});
+  CreateProtocols({super.key});
 
   @override
-  State<CreateProtocols> createState() => _CreateProtocolsState();
+  _CreateProtocolsState createState() => _CreateProtocolsState();
 }
 
-class _CreateProtocolsState extends State<CreateProtocols> {
+  class _CreateProtocolsState extends State<CreateProtocols> {
+    bool state_button1 = false;
+    bool state_button2 = false;
+    bool state_button3 = false;
+    bool state_button4 = false;
 
+    Color bordaButton = Color.fromRGBO(171, 171, 171, 1);
+
+    Color bordaButton1 = Color.fromRGBO(171, 171, 171, 1);
+    Color  bordaButton2 = Color.fromRGBO(171, 171, 171, 1);
+    Color  bordaButton3 = Color.fromRGBO(171, 171, 171, 1);
+    Color  bordaButton4 = Color.fromRGBO(171, 171, 171, 1);
+
+
+
+    void stateButton(bool state1, bool state2, bool state3, bool state4){
+
+      if (state1 == true){
+        bordaButton1 =Color.fromRGBO(125, 185, 240, 1);
+      } else{
+        bordaButton1 = bordaButton;
+      }
+      
+      if(state2 == true){
+        bordaButton2 =Color.fromRGBO(125, 185, 240, 1);
+      } else{
+        bordaButton2 = bordaButton;
+      }
+      
+      if(state3 == true){
+        bordaButton3 =Color.fromRGBO(125, 185, 240, 1);
+      }else{
+        bordaButton3 = bordaButton;
+      }
+      
+      if(state4 == true){
+        bordaButton4 =Color.fromRGBO(125, 185, 240, 1);
+      }else{
+        bordaButton4 = bordaButton;
+      }
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +159,6 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                         ],
                       ),
                     ),
-
                   ],
                 )),
 
@@ -159,64 +197,108 @@ class _CreateProtocolsState extends State<CreateProtocols> {
                     top: screenHeight*260/844, left: 21*screenWidht/390,
                     child: Row(
                     children: [
-                      Container(
+                      GestureDetector(
+                        child: Container(
                         height: 80*screenWidht/844,
                         width: 80*screenWidht/844,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
-                          width: 4),
-                          borderRadius: BorderRadius.circular(6),
+                        decoration: ShapeDecoration(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 4, color: bordaButton1),
+                            borderRadius: BorderRadius.circular(6)
+                          ) 
                         ),
                         child: Center(child: Text("1", style: GoogleFonts.firaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(171, 171, 171, 1)
+                          color: bordaButton1
                         ),),),
                       ),
+                      onTap: () => setState(() {
+                        state_button1 = true;
+                        state_button2 = false;
+                        state_button3 = false;
+                        state_button4 = false;
+                        setState(() {
+                          stateButton(state_button1, state_button2, state_button3, state_button4);
+                        });
+                      }),),
                       SizedBox(width: 17.5*screenWidht/390),
-                      Container(
+                      GestureDetector(
+                        onTap: () => setState(() {
+                          state_button2 = true;
+                          state_button1 = false;
+                          state_button3 = false;
+                          state_button4 = false;
+                          setState(() {
+                            stateButton(state_button1, state_button2, state_button3, state_button4);
+                          });
+                          
+                        }),
+                      child:Container(
                         height: 80*screenWidht/844,
                         width: 80*screenWidht/844,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
-                          width: 4),
-                          borderRadius: BorderRadius.circular(6),
+                        decoration: ShapeDecoration(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(width: 4, color: bordaButton2),
+                            borderRadius: BorderRadius.circular(6)
+                          )
+                          
                         ),
                         child: Center(child: Text("2", style: GoogleFonts.firaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(171, 171, 171, 1)
+                          color: bordaButton2
                         ),),),
+                      ), 
                       ),
                       SizedBox(width: 17.5*screenWidht/390),
-                      Container(
+                      GestureDetector(
+                        child: Container(
                         height: 80*screenWidht/844,
                         width: 80*screenWidht/844,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
+                          border: Border.all(color: bordaButton3,
                           width: 4),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Center(child: Text("3", style: GoogleFonts.firaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(171, 171, 171, 1)
+                          color: bordaButton3
                         ),),),
                       ),
+                      onTap: () => setState(() {
+                        state_button3 = true;
+                        state_button1 = false;
+                        state_button2 = false;
+                        state_button4 = false;
+                        stateButton(state_button1, state_button2, state_button3,state_button4);
+                      }),
+                      )
+                      ,
                       SizedBox(width: 17.5*screenWidht/390),
-                      Container(
+                      GestureDetector(
+                        child: Container(
                         height: 80*screenWidht/844,
                         width: 80*screenWidht/844,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
+                          border: Border.all(color: bordaButton4,
                           width: 4),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Center(child: Text("4", style: GoogleFonts.firaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(171, 171, 171, 1)
+                          color: bordaButton4
                         ),),),
+                      ),
+                      onTap: () => setState(() {
+                        state_button4 = true;
+                        state_button1 = false;
+                        state_button2 = false;
+                        state_button3 = false;
+                        stateButton(state_button1, state_button2, state_button3, state_button4);
+                      }),
                       ),
                     ],
                   )),
