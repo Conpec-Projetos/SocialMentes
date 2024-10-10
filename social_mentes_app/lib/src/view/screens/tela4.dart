@@ -15,6 +15,7 @@ class CreateProtocols extends StatefulWidget {
     bool state_button3 = false;
     bool state_button4 = false;
     bool state_icon_arrow = false;
+    bool iconTapped = false;
 
     Color bordaButton = Color.fromRGBO(171, 171, 171, 1);
 
@@ -57,6 +58,11 @@ class CreateProtocols extends StatefulWidget {
       }
     }
 
+    void uptade_iconTap(bool iconTap){
+      setState(() {
+        iconTapped = iconTap;
+      });
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -483,58 +489,118 @@ class CreateProtocols extends StatefulWidget {
   }
 }
 
-class CompetenciasList extends StatelessWidget{
+class CompetenciasList extends StatefulWidget {
+  @override
+  _CompetenciasListState createState() => _CompetenciasListState();
+}
+
+class _CompetenciasListState extends State<CompetenciasList> {
   final List<String> competencias = [
-    'Comunicação receptiva','Comunicação expressiva',
-    'Competências sociais', "Imitação","Cognição","Jogo","Motricidade fina",
-    "Motricidade Grossa", "Comportamento","Independência pessoal"
+    'Comunicação receptiva', 'Comunicação expressiva',
+    'Competências sociais', "Imitação", "Cognição", "Jogo",
+    "Motricidade fina", "Motricidade Grossa", "Comportamento", "Independência pessoal"
   ];
-  
+
+  int ? index_selecionado; 
+
+  bool state_image = false;
+  Color color_word = Color.fromRGBO(114, 114, 114, 1);
+  ImageProvider image_button = AssetImage('images/choose_button.png');
+
+  void check_color(bool stateColor) {
+    setState(() {
+      if (stateColor == true) {
+        color_word = Color.fromRGBO(125, 185, 240, 1); // Cor quando ativo
+      } else {
+        color_word = Color.fromRGBO(114, 114, 114, 1); // Cor quando inativo
+      }
+    });
+  }
+
+  void appear_image(bool state_image){
+    if(state_image == true){
+      image_button = AssetImage('images/choose_button.png');
+    }else{
+      image_button = Null as ImageProvider<Object>;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidht = MediaQuery.of(context).size.width;
 
     return Container(
-      height:screenHeight*463/844 ,
+      height: screenHeight * 463 / 844,
       width: screenWidht,
       child: Stack(
         children: [
           Positioned(
-            top: screenHeight*10/844,
-            left: screenWidht*161/390,
-            child: Image.asset("images/rectangle_detail.png")),
+            top: screenHeight * 10 / 844,
+            left: screenWidht * 161 / 390,
+            child: Image.asset("images/rectangle_detail.png"),
+          ),
           Positioned(
-            top: screenHeight*25/844,
-            left: 76*screenWidht/390,
-            child: Text("Escolha a competência", style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: Color.fromRGBO(69, 69, 69, 1)
-            ),)),
-            SizedBox(height:97*screenHeight/844 ,),
-            Expanded(
+            top: screenHeight * 25 / 844,
+            left: 76 * screenWidht / 390,
+            child: Text(
+              "Escolha a competência",
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Color.fromRGBO(69, 69, 69, 1),
+              ),
+            ),
+          ),
+          SizedBox(height: 97 * screenHeight / 844),
+          Expanded(
             child: ListView.builder(
               itemCount: competencias.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: index == 0
-                 ? EdgeInsets.only(top:screenHeight*59/844)
-                 : EdgeInsets.all(3.5*screenHeight/844),
-                  child: Center(
-                    child: Text(competencias[index], style:GoogleFonts.firaSans(
-                    fontSize: 20*screenHeight/844,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(114, 114, 114,1), ),
-                  ) ,),
+                return GestureDetector(
+                  child: Padding(
+                    padding: index == 0
+                        ? EdgeInsets.only(top: screenHeight * 59 / 844)
+                        : EdgeInsets.all(3.5 * screenHeight / 844),
+                    child: Center(
+                      child: Text(
+                        competencias[index],
+                        style: GoogleFonts.firaSans(
+                          fontSize: 20 * screenHeight / 844,
+                          fontWeight: FontWeight.w400,
+                          color: index_selecionado == index
+                          ? Color.fromRGBO(125, 185, 240, 1) 
+                          : Color.fromRGBO(114, 114, 114, 1),
+                        ),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    // Alterando o estado e mudando a cor quando clicar
+                    setState(() {
+                      index_selecionado = index;
+                      state_image = true;
+                      appear_image(state_image);
+                    });
+                  },
                 );
-              }
-              ) ,
+              },
             ),
+          ),
+          if(state_image == true)
             Positioned(
-              top:420*screenHeight/844 ,
-              left: 19*screenWidht/390,
-              child: Image.asset("images/choose_button.png", height:44*screenHeight/844 ,width: 350*screenWidht/390,))
+              top: 420 * screenHeight / 844,
+              left: 19 * screenWidht / 390,
+              child: GestureDetector(
+                child:Image(image: image_button,
+              height: 44*screenHeight/844 ,
+              width: 350*screenWidht/390,
+              ) ,
+              onTap: () => setState(() {
+                state_image = false;
+              }),
+              ) 
+            ),
         ],
       ),
     );
