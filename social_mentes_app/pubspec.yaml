@@ -71,6 +71,9 @@ flutter:
   - images/relatorio_icon.png
   - images/save_button.png
   - images/red_icon.png
+  - images/container_arrow.png
+  - images/rectangle_detail.png
+  - images/choose_button.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

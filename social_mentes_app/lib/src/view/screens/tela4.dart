@@ -14,6 +14,7 @@ class CreateProtocols extends StatefulWidget {
     bool state_button2 = false;
     bool state_button3 = false;
     bool state_button4 = false;
+    bool state_icon_arrow = false;
 
     Color bordaButton = Color.fromRGBO(171, 171, 171, 1);
 
@@ -21,8 +22,13 @@ class CreateProtocols extends StatefulWidget {
     Color  bordaButton2 = Color.fromRGBO(171, 171, 171, 1);
     Color  bordaButton3 = Color.fromRGBO(171, 171, 171, 1);
     Color  bordaButton4 = Color.fromRGBO(171, 171, 171, 1);
+    Color arrow_conatiner = Color.fromRGBO(171, 171, 171, 1);
 
-
+    void stateArrow(bool stateArrow){
+      if (stateArrow == true){
+        arrow_conatiner = Color.fromRGBO(125, 185, 240, 1);
+      }
+    }
 
     void stateButton(bool state1, bool state2, bool state3, bool state4){
 
@@ -50,6 +56,7 @@ class CreateProtocols extends StatefulWidget {
         bordaButton4 = bordaButton;
       }
     }
+
 
   @override
   Widget build(BuildContext context) {
@@ -332,22 +339,25 @@ class CreateProtocols extends StatefulWidget {
                     height: 50*screenHeight/844,
                     width: 314*screenWidht/390,
                   decoration: BoxDecoration(
-                    border:Border.all(color: Color.fromRGBO(171, 171, 171, 1,), width: 3 ), 
+                    border:Border.all(color: arrow_conatiner, width: 3 ), 
                     borderRadius: BorderRadius.circular(15)),
-                    child: DropdownButton<String>(
-                      isExpanded: true,
-                      hint: Padding(padding: EdgeInsets.only(right: 15*screenWidht/390)),
-                      items: <String>['Opção 1', 'Opção 2', 'Opção 3', 'Opção 4'].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(value),
-                            ),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 270*screenWidht/390),
+                      child: GestureDetector(
+                        child: Image.asset("images/container_arrow.png"),
+                        onTap: () => setState(() {
+                          state_icon_arrow = true;
+                          stateArrow(state_icon_arrow);
+                          showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context){
+                            return CompetenciasList() ;
+                          }
                           );
-                        }).toList(),
-                        onChanged: (String? newValue) {}
-                  )),
+                        })
+
+                      )
+                      ) ),
                 ),
 
                 Positioned(top: 416*screenHeight/844,
@@ -468,6 +478,64 @@ class CreateProtocols extends StatefulWidget {
                   child: Image.asset("images/blue_ball_down.png"))
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CompetenciasList extends StatelessWidget{
+  final List<String> competencias = [
+    'Comunicação receptiva','Comunicação expressiva',
+    'Competências sociais', "Imitação","Cognição","Jogo","Motricidade fina",
+    "Motricidade Grossa", "Comportamento","Independência pessoal"
+  ];
+  
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidht = MediaQuery.of(context).size.width;
+
+    return Container(
+      height:screenHeight*463/844 ,
+      width: screenWidht,
+      child: Stack(
+        children: [
+          Positioned(
+            top: screenHeight*10/844,
+            left: screenWidht*161/390,
+            child: Image.asset("images/rectangle_detail.png")),
+          Positioned(
+            top: screenHeight*25/844,
+            left: 76*screenWidht/390,
+            child: Text("Escolha a competência", style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Color.fromRGBO(69, 69, 69, 1)
+            ),)),
+            SizedBox(height:97*screenHeight/844 ,),
+            Expanded(
+            child: ListView.builder(
+              itemCount: competencias.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: index == 0
+                 ? EdgeInsets.only(top:screenHeight*59/844)
+                 : EdgeInsets.all(3.5*screenHeight/844),
+                  child: Center(
+                    child: Text(competencias[index], style:GoogleFonts.firaSans(
+                    fontSize: 20*screenHeight/844,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromRGBO(114, 114, 114,1), ),
+                  ) ,),
+                );
+              }
+              ) ,
+            ),
+            Positioned(
+              top:420*screenHeight/844 ,
+              left: 19*screenWidht/390,
+              child: Image.asset("images/choose_button.png", height:44*screenHeight/844 ,width: 350*screenWidht/390,))
+        ],
       ),
     );
   }
