@@ -99,6 +99,21 @@ class _SocialSkillsState extends State<SocialSkills> {
                   width:2 ),
                   borderRadius: BorderRadius.circular(15)
                 ),
+                child: TextFormField(
+                  autofocus: true,
+                  decoration: InputDecoration(
+                    labelText: " \u200B\u200BComentários\u200B\u200B",
+                    labelStyle: TextStyle(
+                      backgroundColor: Colors.white,
+                      fontSize: 16*screenHeight/844,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(171, 171, 171,1),
+                      fontFamily: "FiraSans"
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    contentPadding: EdgeInsets.only(top:screenHeight*(-4)/844, left:screenWidht*14/390)
+                  ),
+                ),
               ) ),
               //container 2
               //texto 2
