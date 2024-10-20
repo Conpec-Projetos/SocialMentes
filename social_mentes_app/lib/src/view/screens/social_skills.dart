@@ -94,27 +94,40 @@ class _SocialSkillsState extends State<SocialSkills> {
               child: Container(
                 width: 330*screenWidht/390,
                 height: 40*screenHeight/844,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
-                  width:2 ),
-                  borderRadius: BorderRadius.circular(15)
-                ),
                 child: TextFormField(
                   autofocus: true,
+                  keyboardType: TextInputType.numberWithOptions(),
                   decoration: InputDecoration(
-                    labelText: " \u200B\u200BComentários\u200B\u200B",
-                    labelStyle: TextStyle(
+                    labelText: " Comentários",
+                    labelStyle: GoogleFonts.firaSans(
                       backgroundColor: Colors.white,
                       fontSize: 16*screenHeight/844,
                       fontWeight: FontWeight.w400,
-                      color: Color.fromRGBO(171, 171, 171,1),
-                      fontFamily: "FiraSans"
+                      color: Color.fromRGBO(171, 171, 171,1)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2
+                      ),
+                      borderRadius: BorderRadius.circular(15)
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     contentPadding: EdgeInsets.only(top:screenHeight*(-4)/844, left:screenWidht*14/390)
                   ),
                 ),
               ) ),
+              // decoration: BoxDecoration(
+              //     border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
+              //     width:2 ),
+              //     borderRadius: BorderRadius.circular(15)
+              //   ),
               //container 2
               //texto 2
               Positioned(
@@ -128,15 +141,38 @@ class _SocialSkillsState extends State<SocialSkills> {
                 ),
                 )),
               Positioned(
-              top: 400*screenHeight/844,
+              top: 405*screenHeight/844,
               left: 30*screenWidht/390,
               child: Container(
                 width: 330*screenWidht/390,
                 height: 40*screenHeight/844,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
-                  width:2 ),
-                  borderRadius: BorderRadius.circular(15)
+                child: TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.numberWithOptions(),
+                  decoration: InputDecoration(
+                    labelText: " Comentários",
+                    labelStyle: GoogleFonts.firaSans(
+                      backgroundColor: Colors.white,
+                      fontSize: 16*screenHeight/844,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(171, 171, 171,1)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2
+                      ),
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    contentPadding: EdgeInsets.only(top:screenHeight*(-4)/844, left:screenWidht*14/390)
+                  ),
                 ),
               ) ),
               //texto 3
@@ -150,15 +186,38 @@ class _SocialSkillsState extends State<SocialSkills> {
               color: Color.fromRGBO(114, 114, 114, 1)
                 ),)),
               Positioned(
-              top: 535*screenHeight/844,
+              top: 540*screenHeight/844,
               left: 30*screenWidht/390,
               child: Container(
                 width: 330*screenWidht/390,
                 height: 40*screenHeight/844,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromRGBO(171, 171, 171, 1),
-                  width:2 ),
-                  borderRadius: BorderRadius.circular(15)
+                child: TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.numberWithOptions(),
+                  decoration: InputDecoration(
+                    labelText: " Comentários",
+                    labelStyle: GoogleFonts.firaSans(
+                      backgroundColor: Colors.white,
+                      fontSize: 16*screenHeight/844,
+                      fontWeight: FontWeight.w400,
+                      color: Color.fromRGBO(171, 171, 171,1)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color.fromRGBO(171, 171, 171, 1), width: 2
+                      ),
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    contentPadding: EdgeInsets.only(top:screenHeight*(-4)/844, left:screenWidht*14/390)
+                  ),
                 ),
               ) ),
               Positioned(
