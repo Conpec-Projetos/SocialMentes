@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/view/components/app_widget.dart';
+//import 'src/view/components/app_widget.dart';
 import 'src/view/screens/tela4.dart';
 
 void main() {
@@ -9,6 +9,7 @@ void main() {
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "socialmentes", home: CreateProtocols());
+    return MaterialApp(title: "socialmentes", 
+    home: CreateProtocols());
   }
 }
