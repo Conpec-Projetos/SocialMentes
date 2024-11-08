@@ -5,7 +5,9 @@ import 'package:social_mentes/class.dart';
 class CompetenciasList extends StatefulWidget {
 
   final ValueNotifier<bool> stateButtonNotifer;
-  CompetenciasList({required this.stateButtonNotifer});
+  final String competenceText;
+
+  CompetenciasList({super.key, required this.stateButtonNotifer, required this.competenceText});
 
   @override
   _CompetenciasListState createState() => _CompetenciasListState();
@@ -18,10 +20,11 @@ class _CompetenciasListState extends State<CompetenciasList> {
     "Motricidade fina", "Motricidade Grossa", "Comportamento", "Independência pessoal"
   ];
 
-  int? index_selecionado;
+  int ? index_selecionado;
   bool state_image = false;
   Color color_word = Color.fromRGBO(114, 114, 114, 1);
   ImageProvider image_button = AssetImage('images/choose_button.png');
+  dynamic texto;
 
   void check_color(bool stateColor) {
     setState(() {
@@ -88,8 +91,8 @@ class _CompetenciasListState extends State<CompetenciasList> {
                               fontSize: 20 * screenHeight / 844,
                               fontWeight: FontWeight.w400,
                               color: index_selecionado == index
-                                  ? Color.fromRGBO(125, 185, 240, 1)
-                                  : Color.fromRGBO(114, 114, 114, 1),
+                                  ? const Color.fromRGBO(125, 185, 240, 1)
+                                  : const Color.fromRGBO(114, 114, 114, 1),
                             ),
                           ),
                         ),
@@ -98,6 +101,8 @@ class _CompetenciasListState extends State<CompetenciasList> {
                         setState(() {
                           index_selecionado = index;
                           state_image = true;
+                          print(index_selecionado);
+                          print(competencias[index_selecionado!]);
                           appear_image(state_image);
                         });
                       },
@@ -116,9 +121,12 @@ class _CompetenciasListState extends State<CompetenciasList> {
                       width: 350 * screenWidht / 390,
                     ),
                     onTap: () {
-                      // Chama a função para alternar o estado do botão compartilhado
                       widget.stateButtonNotifer.value = !widget.stateButtonNotifer.value;
-                      Navigator.pop(context, widget.stateButtonNotifer.value);
+                      if(index_selecionado != null){
+                        Navigator.pop(context,{'stateButton': widget.stateButtonNotifer.value, 'competencia': competencias[index_selecionado!]});
+                        
+        
+                      }
                     },
                   ),
                 ),
