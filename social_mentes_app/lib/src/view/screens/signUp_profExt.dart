@@ -29,7 +29,16 @@ class SignUpProfExtState extends State<SignupProfExt> {
   bool p4 = false;
   List<List<String>> dadosIntervencao = [];
 
-  Future<void> setUpFirebase(UserPaciente data) async {
+  Future<void> setUpFirebase() async {
+    final data = Provider.of<UserPaciente>(context, listen: false);
+    List<Map<String, String>> profissionais = data.profissionais.map((prof) {
+    return {
+      'nome': prof[0],
+      'email': prof[1],
+      'celular': prof[2],
+      'cargo': prof[3],
+    };
+    }).toList();
     Map<String, dynamic> userData = {
     'address': {
       'addressDetails': data.getComplemento(),
@@ -65,7 +74,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
       'dateBirth': data.getNascimento('Paciente'),
       'name': data.getNome('Paciente'),
     },
-    'externalMonitoring': data.profissionais,
+    'externalMonitoring': profissionais,
     'financialResponsible': data.getNome('Resp1'),
     'interventionTeams': data.intervencao,
     };
@@ -96,8 +105,6 @@ class SignUpProfExtState extends State<SignupProfExt> {
         dadosIntervencao = result;
       });
     }
-    _logger.i(dadosIntervencao);
-    _logger.i(Provider.of<UserPaciente>(context, listen: false).intervencao);
   }
 
   void mostrarCargos(Size size, context) async {
@@ -141,8 +148,8 @@ class SignUpProfExtState extends State<SignupProfExt> {
   }
 
   void concluirCadastro() {
-    final userData = Provider.of<UserPaciente>(context, listen: false);
-    setUpFirebase(userData);
+    _logger.i(Provider.of<UserPaciente>(context, listen: false).toString());
+    setUpFirebase();
   }
 
   void returnTap() {

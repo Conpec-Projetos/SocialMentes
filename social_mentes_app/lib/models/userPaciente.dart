@@ -45,6 +45,11 @@ class UserPaciente with ChangeNotifier {
       profissionais = profissionais ?? [],
       intervencao = intervencao ?? [];
 
+  @override
+  String toString() {
+    return 'UserPaciente(nome: $nome, cep: $cep, cpf: $cpf, celular: $celular, nascimento: $nascimento, uf: $uf, cidade: $cidade, bairro: $bairro, logradouro: $logradouro, numero: $numero, complemento: $complemento, fotoPath: $fotoPath, resp1: ${resp1.toString()}, resp2: ${resp2.toString()}, profissionais: $profissionais, intervencao: $intervencao)';
+  }
+
   void addIntervencao(String lista) {
     intervencao.add(lista);
     notifyListeners();
@@ -80,6 +85,12 @@ class UserPaciente with ChangeNotifier {
       setComplemento(value);
     }  else if (index == 11) {
       setFotoPath(value);
+    } else if (index == 12) {
+      setParentesco(key, value);
+    } else if (index == 13) {
+      setEmail(key, value);
+    } else if (index == 14) {
+      setRg(key, value);
     }
     notifyListeners();
   }
@@ -109,6 +120,12 @@ class UserPaciente with ChangeNotifier {
       return getComplemento();
     }  else if (index == 11) {
       return getFotoPath();
+    } else if (index == 12) {
+      return getParentesco(key);
+    } else if (index == 13) {
+      return getEmail(key);
+    } else if (index == 14) {
+      return getRg(key);
     }
     return '';
   }

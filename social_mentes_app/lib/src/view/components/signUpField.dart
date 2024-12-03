@@ -152,15 +152,9 @@ class _SignUpFieldState extends State<SignUpField> {
   }
 
   void _updateData() {
-    if (widget.userType == 'Paciente') {
+    if (widget.userType == 'Paciente' || widget.userType == 'Resp1' || widget.userType == 'Resp2') {
       final userData = Provider.of<UserPaciente>(context, listen: false);
-      userData.updatePaciente('Paciente', widget.index, widget.controller.text);
-    } else if (widget.userType == 'Resp1') {
-      final userData = Provider.of<UserPaciente>(context, listen: false);
-      userData.updatePaciente('Resp1', widget.index, widget.controller.text);
-    } else if (widget.userType == 'Resp2') {
-      final userData = Provider.of<UserPaciente>(context, listen: false);
-      userData.updatePaciente('Resp2', widget.index, widget.controller.text);
+      userData.updatePaciente(widget.userType, widget.index, widget.controller.text);
     } else if (widget.userType == 'Profissional') {
       final userData = Provider.of<UserProfissional>(context, listen: false);
       userData.updateProfissional(widget.index, widget.controller.text);

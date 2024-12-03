@@ -20,6 +20,11 @@ class Responsavel with ChangeNotifier {
     String email = 'nome'
   });
 
+  @override
+  String toString() {
+    return 'Responsavel(nome: $nome, parentesco: $parentesco, cpf: $cpf, celular: $celular, nascimento: $nascimento, rg: $rg, email: $email)';
+  }
+
   String getNome() {
     return nome;
   }

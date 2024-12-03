@@ -313,7 +313,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                 icon: true,
                                 identifierIcon: Icons.family_restroom_rounded,
                                 userType: 'Resp1',
-                                index: 1  
+                                index: 12
                               ),
                               SizedBox(width: size.width * 15/390),
                               SignUpField(
@@ -345,7 +345,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                 icon: true,
                                 identifierIcon: Icons.credit_card,
                                 userType: 'Resp1',
-                                index: 5                              
+                                index: 14                              
                               ),
                               SizedBox(width: size.width * 15/390),
                               SignUpField(
@@ -375,7 +375,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                             icon: true,
                             identifierIcon: Icons.email_sharp,
                             userType: 'Resp1',
-                            index: 6                         
+                            index: 13                         
                           ),
                           SizedBox(height: size.height * 20/844),
                           Padding(
@@ -425,7 +425,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                 icon: true,
                                 identifierIcon: Icons.family_restroom_rounded,
                                 userType: 'Resp2',
-                                index: 1
+                                index: 12
                               ),
                               SizedBox(width: size.width * 15/390),
                               SignUpField(
@@ -457,7 +457,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                 icon: true,
                                 identifierIcon: Icons.credit_card,
                                 userType: 'Resp2',
-                                index: 5                               
+                                index: 14                               
                               ),
                               SizedBox(width: size.width * 15/390),
                               SignUpField(
@@ -487,7 +487,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                             icon: true,
                             identifierIcon: Icons.email_sharp,
                             userType: 'Resp2',
-                            index: 6                         
+                            index: 13                         
                           ),
                           SizedBox(height: size.height * 20/844),
                           Padding(
