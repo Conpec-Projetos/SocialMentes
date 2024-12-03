@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "822396829515",
+    "project_id": "social-mentes",
+    "storage_bucket": "social-mentes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822396829515:android:47af2414305b51d4fe72ce",
+        "android_client_info": {
+          "package_name": "com.example.social_mentes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822396829515-nu33jo15mhou8maqot6b8qg29bh6hq1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzs2q9u8GhLSIjwv5TPs7fo9IYXJ5SlX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822396829515-nu33jo15mhou8maqot6b8qg29bh6hq1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "822396829515-qickkn8n173383pdaleritcd4sqqi6rb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.socialMentes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
