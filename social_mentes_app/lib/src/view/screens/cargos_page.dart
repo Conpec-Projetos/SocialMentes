@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_mentes/src/view/components/componente.dart';
 
 class CargosPage extends StatelessWidget {
   const CargosPage({super.key});
@@ -106,286 +107,329 @@ Widget build(BuildContext context) {
             ),
             // Conteúdo dos cards
             Row(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    // Primeira coluna
+    Column(
+      children: [
+        for (int i = 0; i < 4; i++)
+          if (i % 2 == 0)
+            Column(
               children: [
-                SizedBox(width: screenWidth * (39 / 390)),
                 SizedBox(height: screenHeight * (20 / 844)),
-                Column(
-                  children: [
-                    SizedBox(height: screenHeight * (20 / 844)),
-                    Container(
-                      width: screenWidth * (146 / 390),
-                      height: screenHeight * (138 / 844),
-                      padding: const EdgeInsets.all(30),
-                      decoration: ShapeDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment(0.74, -0.68),
-                          end: Alignment(-0.74, 0.68),
-                          colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            color: Color(0xFFE4E4E4),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: screenHeight * (1 / 844),
-                            left: screenWidth * (30 / 390),
-                            child: Image.asset("images/seiji_lindo.png"),
-                          ),
-                          Positioned(
-                            top: screenHeight * (42 / 844),
-                            left: screenWidth * (3.5 / 390),
-                            child: Text(
-                              "Fábio Satoh",
-                              style: GoogleFonts.firaSans(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(69, 69, 69, 1),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10 / 138),
-                            left: screenWidth * (21 / 390),
-                            child: Container(
-                              width: screenWidth * (7.5 / 390),
-                              height: 20,
-                              child: Image.asset("images/maleta_icon.png"),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10.5 / 138),
-                            left: screenWidth * (31 / 390),
-                            child: Container(
-                              width: screenWidth * (86 / 390),
-                              height: 20,
-                              child: Text(
-                                "Psicólogo",
-                                style: GoogleFonts.firaSans(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(69, 69, 69, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenWidth * (20 / 390)),
-                    SizedBox(height: screenHeight * (20 / 844)),
-                    Container(
-                      width: screenWidth * (146 / 390),
-                      height: screenHeight * (138 / 844),
-                      padding: const EdgeInsets.all(30),
-                      decoration: ShapeDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment(0.74, -0.68),
-                          end: Alignment(-0.74, 0.68),
-                          colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            color: Color(0xFFE4E4E4),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: screenHeight * (1 / 844),
-                            left: screenWidth * (30 / 390),
-                            child: Image.asset("images/seiji_lindo.png"),
-                          ),
-                          Positioned(
-                            top: screenHeight * (42 / 844),
-                            left: screenWidth * (3.5 / 390),
-                            child: Text(
-                              "Fábio Satoh",
-                              style: GoogleFonts.firaSans(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(69, 69, 69, 1),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10 / 138),
-                            left: screenWidth * (21 / 390),
-                            child: Container(
-                              width: screenWidth * (7.5 / 390),
-                              height: 20,
-                              child: Image.asset("images/maleta_icon.png"),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10.5 / 138),
-                            left: screenWidth * (31 / 390),
-                            child: Container(
-                              width: screenWidth * (86 / 390),
-                              height: 20,
-                              child: Text(
-                                "Psicólogo",
-                                style: GoogleFonts.firaSans(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(69, 69, 69, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                WidgetPaciente(
+                  nome: "TesteNome$i", // Substitua pelo dado do Firebase
+                  cargo: "TesteCargo$i", // Substitua pelo dado do Firebase
+                  foto: "Testefoto$i", // Substitua pelo dado do Firebase
                 ),
-                SizedBox(width: screenWidth * (20 / 390)),
-                Column(
-                  children: [
-                    SizedBox(height: screenHeight * 20 / (844)),
-                    Container(
-                      width: screenWidth * (146 / 390),
-                      height: screenHeight * (138 / 844),
-                      padding: const EdgeInsets.all(30),
-                      decoration: ShapeDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment(0.74, -0.68),
-                          end: Alignment(-0.74, 0.68),
-                          colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            color: Color(0xFFE4E4E4),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: screenHeight * (1 / 844),
-                            left: screenWidth * (30 / 390),
-                            child: Image.asset("images/seiji_lindo.png"),
-                          ),
-                          Positioned(
-                            top: screenHeight * (42 / 844),
-                            left: screenWidth * (3.5 / 390),
-                            child: Text(
-                              "Fábio Satoh",
-                              style: GoogleFonts.firaSans(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(69, 69, 69, 1),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10 / 138),
-                            left: screenWidth * (21 / 390),
-                            child: Container(
-                              width: screenWidth * (7.5 / 390),
-                              height: 20,
-                              child: Image.asset("images/maleta_icon.png"),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10.5 / 138),
-                            left: screenWidth * (31 / 390),
-                            child: Container(
-                              width: screenWidth * (86 / 390),
-                              height: 20,
-                              child: Text(
-                                "Psicólogo",
-                                style: GoogleFonts.firaSans(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(69, 69, 69, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenWidth * 20 / 390),
-                    SizedBox(height: screenHeight * (20 / 844)),
-                    Container(
-                      width: screenWidth * (146 / 390),
-                      height: screenHeight * (138 / 844),
-                      padding: const EdgeInsets.all(30),
-                      decoration: ShapeDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment(0.74, -0.68),
-                          end: Alignment(-0.74, 0.68),
-                          colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            color: Color(0xFFE4E4E4),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: screenHeight * (1 / 844),
-                            left: screenWidth * (30 / 390),
-                            child: Image.asset("images/seiji_lindo.png"),
-                          ),
-                          Positioned(
-                            top: screenHeight * (42 / 844),
-                            left: screenWidth * (3.5 / 390),
-                            child: Text(
-                              "Fábio Satoh",
-                              style: GoogleFonts.firaSans(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(69, 69, 69, 1),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10 / 138),
-                            left: screenWidth * (21 / 390),
-                            child: Container(
-                              width: screenWidth * (7.5 / 390),
-                              height: 20,
-                              child: Image.asset("images/maleta_icon.png"),
-                            ),
-                          ),
-                          Positioned(
-                            top: screenHeight * (10.5 / 138),
-                            left: screenWidth * (31 / 390),
-                            child: Container(
-                              width: screenWidth * (86 / 390),
-                              height: 20,
-                              child: Text(
-                                "Psicólogo",
-                                style: GoogleFonts.firaSans(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromRGBO(69, 69, 69, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                SizedBox(height: screenHeight * (20 / 844)),
               ],
-            ),
+            )
+      ],
+    ),
+    // Segunda coluna
+    Column(
+      children: [
+        for (int i = 0; i < 4; i++)
+          if (i % 2 != 0)
+            Column(
+              children: [
+                SizedBox(height: screenHeight * (20 / 844)),
+                WidgetPaciente(
+                  nome: "TesteNome$i",
+                  cargo: "TesteCargo$i",
+                  foto: "Testefoto$i",
+                ),
+                SizedBox(height: screenHeight * (20 / 844)),
+              ],
+            )
+      ],
+    ),
+  ],
+)
+
+            // Row(
+            //   children: [
+            //     SizedBox(width: screenWidth * (39 / 390)),
+            //     SizedBox(height: screenHeight * (20 / 844)),
+            //     Column(
+            //       children: [
+            //         SizedBox(height: screenHeight * (20 / 844)),
+            //         Container(
+            //           width: screenWidth * (146 / 390),
+            //           height: screenHeight * (138 / 844),
+            //           padding: const EdgeInsets.all(30),
+            //           decoration: ShapeDecoration(
+            //             gradient: LinearGradient(
+            //               begin: Alignment(0.74, -0.68),
+            //               end: Alignment(-0.74, 0.68),
+            //               colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
+            //             ),
+            //             shape: RoundedRectangleBorder(
+            //               side: BorderSide(
+            //                 width: 1,
+            //                 color: Color(0xFFE4E4E4),
+            //               ),
+            //               borderRadius: BorderRadius.circular(10),
+            //             ),
+            //           ),
+            //           child: Stack(
+            //             children: [
+            //               Positioned(
+            //                 top: screenHeight * (1 / 844),
+            //                 left: screenWidth * (30 / 390),
+            //                 child: Image.asset("images/seiji_lindo.png"),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (42 / 844),
+            //                 left: screenWidth * (3.5 / 390),
+            //                 child: Text(
+            //                   "Fábio Satoh",
+            //                   style: GoogleFonts.firaSans(
+            //                     fontSize: 16,
+            //                     fontWeight: FontWeight.w500,
+            //                     color: Color.fromRGBO(69, 69, 69, 1),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10 / 138),
+            //                 left: screenWidth * (21 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (7.5 / 390),
+            //                   height: 20,
+            //                   child: Image.asset("images/maleta_icon.png"),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10.5 / 138),
+            //                 left: screenWidth * (31 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (86 / 390),
+            //                   height: 20,
+            //                   child: Text(
+            //                     "Psicólogo",
+            //                     style: GoogleFonts.firaSans(
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.w400,
+            //                       color: Color.fromRGBO(69, 69, 69, 1),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         SizedBox(width: screenWidth * (20 / 390)),
+            //         SizedBox(height: screenHeight * (20 / 844)),
+            //         Container(
+            //           width: screenWidth * (146 / 390),
+            //           height: screenHeight * (138 / 844),
+            //           padding: const EdgeInsets.all(30),
+            //           decoration: ShapeDecoration(
+            //             gradient: LinearGradient(
+            //               begin: Alignment(0.74, -0.68),
+            //               end: Alignment(-0.74, 0.68),
+            //               colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
+            //             ),
+            //             shape: RoundedRectangleBorder(
+            //               side: BorderSide(
+            //                 width: 1,
+            //                 color: Color(0xFFE4E4E4),
+            //               ),
+            //               borderRadius: BorderRadius.circular(10),
+            //             ),
+            //           ),
+            //           child: Stack(
+            //             children: [
+            //               Positioned(
+            //                 top: screenHeight * (1 / 844),
+            //                 left: screenWidth * (30 / 390),
+            //                 child: Image.asset("images/seiji_lindo.png"),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (42 / 844),
+            //                 left: screenWidth * (3.5 / 390),
+            //                 child: Text(
+            //                   "Fábio Satoh",
+            //                   style: GoogleFonts.firaSans(
+            //                     fontSize: 16,
+            //                     fontWeight: FontWeight.w500,
+            //                     color: Color.fromRGBO(69, 69, 69, 1),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10 / 138),
+            //                 left: screenWidth * (21 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (7.5 / 390),
+            //                   height: 20,
+            //                   child: Image.asset("images/maleta_icon.png"),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10.5 / 138),
+            //                 left: screenWidth * (31 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (86 / 390),
+            //                   height: 20,
+            //                   child: Text(
+            //                     "Psicólogo",
+            //                     style: GoogleFonts.firaSans(
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.w400,
+            //                       color: Color.fromRGBO(69, 69, 69, 1),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //     SizedBox(width: screenWidth * (20 / 390)),
+            //     Column(
+            //       children: [
+            //         SizedBox(height: screenHeight * 20 / (844)),
+            //         Container(
+            //           width: screenWidth * (146 / 390),
+            //           height: screenHeight * (138 / 844),
+            //           padding: const EdgeInsets.all(30),
+            //           decoration: ShapeDecoration(
+            //             gradient: LinearGradient(
+            //               begin: Alignment(0.74, -0.68),
+            //               end: Alignment(-0.74, 0.68),
+            //               colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
+            //             ),
+            //             shape: RoundedRectangleBorder(
+            //               side: BorderSide(
+            //                 width: 1,
+            //                 color: Color(0xFFE4E4E4),
+            //               ),
+            //               borderRadius: BorderRadius.circular(10),
+            //             ),
+            //           ),
+            //           child: Stack(
+            //             children: [
+            //               Positioned(
+            //                 top: screenHeight * (1 / 844),
+            //                 left: screenWidth * (30 / 390),
+            //                 child: Image.asset("images/seiji_lindo.png"),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (42 / 844),
+            //                 left: screenWidth * (3.5 / 390),
+            //                 child: Text(
+            //                   "Fábio Satoh",
+            //                   style: GoogleFonts.firaSans(
+            //                     fontSize: 16,
+            //                     fontWeight: FontWeight.w500,
+            //                     color: Color.fromRGBO(69, 69, 69, 1),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10 / 138),
+            //                 left: screenWidth * (21 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (7.5 / 390),
+            //                   height: 20,
+            //                   child: Image.asset("images/maleta_icon.png"),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10.5 / 138),
+            //                 left: screenWidth * (31 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (86 / 390),
+            //                   height: 20,
+            //                   child: Text(
+            //                     "Psicólogo",
+            //                     style: GoogleFonts.firaSans(
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.w400,
+            //                       color: Color.fromRGBO(69, 69, 69, 1),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         SizedBox(width: screenWidth * 20 / 390),
+            //         SizedBox(height: screenHeight * (20 / 844)),
+            //         Container(
+            //           width: screenWidth * (146 / 390),
+            //           height: screenHeight * (138 / 844),
+            //           padding: const EdgeInsets.all(30),
+            //           decoration: ShapeDecoration(
+            //             gradient: LinearGradient(
+            //               begin: Alignment(0.74, -0.68),
+            //               end: Alignment(-0.74, 0.68),
+            //               colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
+            //             ),
+            //             shape: RoundedRectangleBorder(
+            //               side: BorderSide(
+            //                 width: 1,
+            //                 color: Color(0xFFE4E4E4),
+            //               ),
+            //               borderRadius: BorderRadius.circular(10),
+            //             ),
+            //           ),
+            //           child: Stack(
+            //             children: [
+            //               Positioned(
+            //                 top: screenHeight * (1 / 844),
+            //                 left: screenWidth * (30 / 390),
+            //                 child: Image.asset("images/seiji_lindo.png"),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (42 / 844),
+            //                 left: screenWidth * (3.5 / 390),
+            //                 child: Text(
+            //                   "Fábio Satoh",
+            //                   style: GoogleFonts.firaSans(
+            //                     fontSize: 16,
+            //                     fontWeight: FontWeight.w500,
+            //                     color: Color.fromRGBO(69, 69, 69, 1),
+            //                   ),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10 / 138),
+            //                 left: screenWidth * (21 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (7.5 / 390),
+            //                   height: 20,
+            //                   child: Image.asset("images/maleta_icon.png"),
+            //                 ),
+            //               ),
+            //               Positioned(
+            //                 top: screenHeight * (10.5 / 138),
+            //                 left: screenWidth * (31 / 390),
+            //                 child: Container(
+            //                   width: screenWidth * (86 / 390),
+            //                   height: 20,
+            //                   child: Text(
+            //                     "Psicólogo",
+            //                     style: GoogleFonts.firaSans(
+            //                       fontSize: 10,
+            //                       fontWeight: FontWeight.w400,
+            //                       color: Color.fromRGBO(69, 69, 69, 1),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ],
+            // ),
           ],
         ),
 
