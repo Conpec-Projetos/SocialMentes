@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/src/view/components/componente.dart';
+import 'package:social_mentes/src/view/screens/information_page.dart';
 import 'package:social_mentes/src/view/user_quantity.dart';
 
 class CargosPage extends StatelessWidget {
@@ -112,43 +113,58 @@ class CargosPage extends StatelessWidget {
               ),
               // FutureBuilder para obter a quantidade de usuários
       FutureBuilder<List<Map<String, dynamic>>>(
-          future: DataUser(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Center(child: Text('Erro ao carregar dados'));
-            } else {
-              List<Map<String, dynamic>> users = snapshot.data ?? [];
+  future: DataUser(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return Center(child: CircularProgressIndicator());
+    } else if (snapshot.hasError) {
+      return Center(child: Text('Erro ao carregar dados'));
+    } else {
+      List<Map<String, dynamic>> users = snapshot.data ?? [];
 
-              return Expanded(
-                child: GridView.builder(
-                  padding: EdgeInsets.only(left: 16, right: 16), 
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 2,
-                    mainAxisSpacing: 2,
-                    childAspectRatio: 1,
+      return Expanded(
+        child: GridView.builder(
+          padding: EdgeInsets.only(left: 16, right: 16), 
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 2,
+            mainAxisSpacing: 2,
+            childAspectRatio: 1,
+          ),
+          itemCount: users.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InformationPage(
+                      name: users[index]['fullName'] ?? 'sem nome',
+                      cargo: users[index]['position'] ?? 'sem cargo',
+                      foto: users[index]['photoUrl'] ?? 'https://cdn-icons-png.flaticon.com/512/4519/4519678.png',
+                    ),
                   ),
-                  itemCount: users.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        SizedBox(height: 20*screenHeight/844),
-                        WidgetPaciente(
-                          nome: users[index]['fullName'] ?? 'Sem Nome',
-                          cargo: users[index]['position'] ?? 'Sem Cargo',
-                          foto: users[index]['photo'] ?? 'Sem Foto',
-                        ),
-                        SizedBox(height: 20*screenHeight/844),
-                      ],
-                    );
-                  },
-                ),
-              );
-              }
-            },
-          )
+                );
+              },
+              child: Column(
+                children: [
+                  SizedBox(height: 20 * screenHeight / 844),
+                  WidgetPaciente(
+                    name: users[index]['fullName'] ?? 'Sem Nome',
+                    cargo: users[index]['position'] ?? 'Sem Cargo',
+                    foto: users[index]['photoUrl'] ?? 'https://cdn-icons-png.flaticon.com/512/4519/4519678.png',
+                  ),
+                  SizedBox(height: 20 * screenHeight / 844),
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    }
+  },
+)
+
             ],
           ),
           // Container com os botões na parte inferior

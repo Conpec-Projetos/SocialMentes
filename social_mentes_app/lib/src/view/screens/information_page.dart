@@ -3,9 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'cargos_page.dart';
+import 'package:social_mentes/src/view/update_user.dart';
 
 class InformationPage extends StatefulWidget {
-  InformationPage({super.key});
+  final String name;
+  final String cargo;
+  final String foto;
+  InformationPage({super.key, required this.name, required this.cargo, required this.foto});
 
   @override
   _InformationPageState createState() => _InformationPageState();
@@ -16,7 +20,7 @@ class InformationPage extends StatefulWidget {
     LinearGradient ? _containerColorPsicologo;
     LinearGradient ? _containerColorResponsavel;
     
-
+    
     String selectedButton = "";
     String ? pastState;
     String ? presentState;
@@ -27,6 +31,9 @@ class InformationPage extends StatefulWidget {
     bool gradient_Responsavel = false;
     bool gradient_Administrador = false;
     bool gradient_Psicologo = false;
+
+
+
 
      void _onButtonPressed(String buttonName){ //vê qual estado ("profissão") está selecionado
       setState(() {
@@ -235,12 +242,12 @@ class InformationPage extends StatefulWidget {
             Positioned(
               top: 205*screenHeight/844,
               left: 145*screenWidth/390,
-              child: Image.asset("images/seiji_info_page.png"), //pensar na responsiidade do tamanho das imagens
+              child: Image.network(widget.foto), //pensar na responsiidade do tamanho das imagens
             ),
             Positioned(
               top: 320*screenHeight/844,
               left: 130*screenWidth/390,
-              child: Text("Fábio Satoh",
+              child: Text(widget.name,
                       style: GoogleFonts.firaSans(
                         fontSize: 24,
                         color: Color.fromRGBO(69, 69, 69, 1),
@@ -255,7 +262,7 @@ class InformationPage extends StatefulWidget {
             Positioned(
               top: 351*screenHeight/844,
               left: 168*screenWidth/390,
-              child: Text("Psicólogo",
+              child: Text(widget.cargo,
                       style: GoogleFonts.firaSans(
                         fontSize: 16,
                         color: Color.fromRGBO(69, 69, 69, 1),
@@ -501,6 +508,7 @@ class InformationPage extends StatefulWidget {
                   appearImage = false;
                   isChangeConfirmded = true;
                   print(isChangeConfirmded);
+                  updatePositions(selectedButton);
                 }),
                 child:Image.asset("images/confirm_change.png", height: screenHeight*44/844, width: screenWidth*350/390,) ,
               )

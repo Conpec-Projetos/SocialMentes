@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WidgetPaciente extends StatelessWidget {
-  final String nome;
+  final String name;
   final String cargo;
   final String foto;
-  const WidgetPaciente({super.key,required this.nome, required this.cargo, required this.foto});
+  const WidgetPaciente({super.key,required this.name, required this.cargo, required this.foto});
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,13 @@ class WidgetPaciente extends StatelessWidget {
                           Positioned(
                             top: screenHeight * (1 / 844),
                             left: screenWidth * (30 / 390),
-                            child: Image.asset("images/seiji_lindo.png"),
+                            child: Image.network(foto),
                           ),
                           Positioned(
                             top: screenHeight * (42 / 844),
                             left: screenWidth * (3.5 / 390),
                             child: Text(
-                              nome,
+                              name,
                               style: GoogleFonts.firaSans(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,

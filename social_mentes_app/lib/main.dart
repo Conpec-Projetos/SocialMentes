@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:social_mentes/src/view/screens/cargos_page.dart';
 import 'firebase_options.dart';
 import 'src/view/screens/information_page.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SocialMentes',
-      home: InformationPage(),
+      home: CargosPage(),
     );
   }
 }
