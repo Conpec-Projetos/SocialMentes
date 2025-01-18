@@ -111,63 +111,44 @@ class CargosPage extends StatelessWidget {
                 ),
               ),
               // FutureBuilder para obter a quantidade de usuários
-              FutureBuilder<List<Map<String, dynamic>>>(
-                future: DataUser(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return Center(child: Text('Erro ao carregar dados'));
-                  } else {
-                    List<Map<String, dynamic>> users = snapshot.data ?? [];
-                    int userQuantity = users.length;
+      FutureBuilder<List<Map<String, dynamic>>>(
+          future: DataUser(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Erro ao carregar dados'));
+            } else {
+              List<Map<String, dynamic>> users = snapshot.data ?? [];
 
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              return Expanded(
+                child: GridView.builder(
+                  padding: EdgeInsets.only(left: 16, right: 16), 
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 2,
+                    mainAxisSpacing: 2,
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: users.length,
+                  itemBuilder: (context, index) {
+                    return Column(
                       children: [
-                        // Primeira coluna
-                        Column(
-                          children: [
-                            for (int i = 0; i < userQuantity; i++)
-                              if (i % 2 == 0)
-                                Column(
-                                  children: [
-                                    SizedBox(height: screenHeight * (20 / 844)),
-                                    WidgetPaciente(
-                                      nome: users[i]['fullName'] ?? 'Sem Nome',
-                                      cargo: users[i]['position'] ?? 'Sem Cargo',
-                                      foto: users[i]['photo'] ?? 'Sem Foto', 
-                                    ),
-                                    SizedBox(height: screenHeight * (20 / 844)),
-                                  ],
-                                )
-                          ],
+                        SizedBox(height: 20*screenHeight/844),
+                        WidgetPaciente(
+                          nome: users[index]['fullName'] ?? 'Sem Nome',
+                          cargo: users[index]['position'] ?? 'Sem Cargo',
+                          foto: users[index]['photo'] ?? 'Sem Foto',
                         ),
-                        // Segunda coluna
-                        Column(
-                          children: [
-                            for (int i = 0; i < userQuantity; i++)
-                              if (i % 2 != 0)
-                                Column(
-                                  children: [
-                                    SizedBox(height: screenHeight * (20 / 844)),
-                                    WidgetPaciente(
-                                      nome: users[i]['fullName'] ?? 'Sem Nome',
-                                      cargo: users[i]['position'] ?? 'Sem Cargo',
-                                      foto: users[i]['photo'] ?? 'Sem Foto', 
-                                    ),
-                                    SizedBox(height: screenHeight * (20 / 844)),
-                                  ],
-                                )
-                          ],
-                        ),
+                        SizedBox(height: 20*screenHeight/844),
                       ],
                     );
-                  }
-                },
-              )
-
+                  },
+                ),
+              );
+              }
+            },
+          )
             ],
           ),
           // Container com os botões na parte inferior

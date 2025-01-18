@@ -1,17 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<int> UserQuantity () async {
-  try {
-    CollectionReference colecao = FirebaseFirestore.instance.collection('userProfiles');
-    QuerySnapshot snapshot = await colecao.get();
-    // Retorne a quantidade de documentos
-    return snapshot.docs.length;
-  } catch (e) {
-    print('Deu ruim, não consiguiu pegar a quantidade de elementos');
-    return 0; 
-  }
-}
-
 Future<List<Map<String, dynamic>>>  DataUser() async {
   try {
     // Obtenha a referência à coleção "userProfiles"
