@@ -243,7 +243,7 @@ class InformationPage extends StatefulWidget {
             Positioned(
               top: 205*screenHeight/844,
               left: 145*screenWidth/390,
-              child: Image.network(widget.foto), //pensar na responsiidade do tamanho das imagens
+              child: Image.network(widget.foto, height:100*screenHeight/844, width: 100*screenWidth/390,), //pensar na responsiidade do tamanho das imagens
             ),
             Positioned(
               top: 320*screenHeight/844,

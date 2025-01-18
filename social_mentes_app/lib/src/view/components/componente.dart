@@ -36,7 +36,7 @@ class WidgetPaciente extends StatelessWidget {
                           Positioned(
                             top: screenHeight * (1 / 844),
                             left: screenWidth * (30 / 390),
-                            child: Image.network(foto),
+                            child: Image.network(foto, height: 40*screenHeight/844,width: 40*screenWidth/396,),
                           ),
                           Positioned(
                             top: screenHeight * (42 / 844),
