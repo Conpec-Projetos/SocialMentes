@@ -1,18 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<List<Map<String, dynamic>>>  DataUser() async {
+Future<List<Map<String, dynamic>>> DataUser() async {
   try {
-    CollectionReference colecao = FirebaseFirestore.instance.collection('userProfiles');
-    // Obtenha todos os documentos da coleção
-    QuerySnapshot snapshot = await colecao.get();
-    // Extraia os cargos de cada documento e converta para List<String>
-     List<Map<String, dynamic>> users = snapshot.docs.map((doc) {
-      return doc.data() as Map<String, dynamic>;
+    // Obtenha os documentos da coleção "userProfiles"
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('userProfiles').get();
+    // Mapeie os documentos para incluir o ID
+    return querySnapshot.docs.map((doc) {
+      return {
+        'id': doc.id, // Incluindo o ID do documento
+        ...doc.data() as Map<String, dynamic>, // Adicionando os dados do documento
+      };
     }).toList();
-
-    return users;
   } catch (e) {
-    print('Erro ao obter os perfis de usuários: $e');
+    print('Erro ao buscar os dados: $e');
     return [];
   }
 }
+

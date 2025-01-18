@@ -9,7 +9,8 @@ class InformationPage extends StatefulWidget {
   final String name;
   final String cargo;
   final String foto;
-  InformationPage({super.key, required this.name, required this.cargo, required this.foto});
+  final String id;
+  InformationPage({super.key, required this.name, required this.cargo, required this.foto, required this.id});
 
   @override
   _InformationPageState createState() => _InformationPageState();
@@ -508,7 +509,8 @@ class InformationPage extends StatefulWidget {
                   appearImage = false;
                   isChangeConfirmded = true;
                   print(isChangeConfirmded);
-                  updatePositions(selectedButton);
+                  updatePosition(widget.id,selectedButton);
+                  
                 }),
                 child:Image.asset("images/confirm_change.png", height: screenHeight*44/844, width: screenWidth*350/390,) ,
               )

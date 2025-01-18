@@ -1,21 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<void> updatePositions(String newPosition) async {
+Future<void> updatePosition(String uid, String newPosition) async {
   try {
-    // Obtenha a referência à coleção "userProfiles"
-    CollectionReference collection = FirebaseFirestore.instance.collection('userProfiles');
-
-    // Obtenha todos os documentos da coleção
-    QuerySnapshot snapshot = await collection.get();
-
-    // Itere sobre cada documento e atualize o campo "position"
-    for (QueryDocumentSnapshot doc in snapshot.docs) {
-      await doc.reference.update({'position': newPosition});
-      print('Campo "position" atualizado para o documento com ID: ${doc.id}');
-    }
-
-    print('Todos os documentos atualizados com sucesso!');
+    // Obtenha a referência ao documento específico pela sua ID
+    DocumentReference document = FirebaseFirestore.instance.collection('userProfiles').doc(uid);
+    //DocumentSnapshot snapshot = await document.get();
+      // Atualiza o campo "position" do documento
+      await document.update({'position': newPosition});
+      print('Campo "position" atualizado com sucesso para o documento com ID: $uid e nova posição $newPosition');
   } catch (e) {
-    print('Erro ao atualizar os campos "position" nos documentos: $e');
+    print('Erro ao atualizar o campo "position" no documento: $e');
   }
 }

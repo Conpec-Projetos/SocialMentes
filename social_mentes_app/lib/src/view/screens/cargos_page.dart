@@ -142,6 +142,7 @@ class CargosPage extends StatelessWidget {
                       name: users[index]['fullName'] ?? 'sem nome',
                       cargo: users[index]['position'] ?? 'sem cargo',
                       foto: users[index]['photoUrl'] ?? 'https://cdn-icons-png.flaticon.com/512/4519/4519678.png',
+                      id: users[index]['id'],
                     ),
                   ),
                 );
@@ -153,6 +154,7 @@ class CargosPage extends StatelessWidget {
                     name: users[index]['fullName'] ?? 'Sem Nome',
                     cargo: users[index]['position'] ?? 'Sem Cargo',
                     foto: users[index]['photoUrl'] ?? 'https://cdn-icons-png.flaticon.com/512/4519/4519678.png',
+                    
                   ),
                   SizedBox(height: 20 * screenHeight / 844),
                 ],
