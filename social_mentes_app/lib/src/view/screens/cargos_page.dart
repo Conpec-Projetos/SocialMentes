@@ -13,7 +13,7 @@ class CargosPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Color(0xFFF4F4F4),
+      backgroundColor: const Color(0xFFF4F4F4),
       body: Stack(
         children: [
           Column(
@@ -23,7 +23,7 @@ class CargosPage extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: screenHeight * (105 / 844),
-                decoration: ShapeDecoration(
+                decoration: const ShapeDecoration(
                   gradient: LinearGradient(
                     begin: Alignment(-0.10, -0.99),
                     end: Alignment(0.1, 0.99),
@@ -112,7 +112,7 @@ class CargosPage extends StatelessWidget {
                 ),
               ),
               // FutureBuilder para obter a quantidade de usuários
-      FutureBuilder<List<Map<String, dynamic>>>(
+  FutureBuilder<List<Map<String, dynamic>>>(
   future: DataUser(),
   builder: (context, snapshot) {
     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -125,7 +125,7 @@ class CargosPage extends StatelessWidget {
       return Expanded(
         child: GridView.builder(
           padding: EdgeInsets.only(left: 16, right: 16), 
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 2,
             mainAxisSpacing: 2,

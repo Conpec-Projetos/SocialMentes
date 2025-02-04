@@ -179,13 +179,13 @@ class InformationPage extends StatefulWidget {
                     padding: const EdgeInsets.all(10),
                     decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 2, color: Color(0xFF4F94D4)),
+                        side: const BorderSide(width: 2, color: Color(0xFF4F94D4)),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     child: GestureDetector(
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CargosPage())),
-                      child:Row(
+                      child:const Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -251,7 +251,7 @@ class InformationPage extends StatefulWidget {
               child: Text(widget.name,
                       style: GoogleFonts.firaSans(
                         fontSize: 24,
-                        color: Color.fromRGBO(69, 69, 69, 1),
+                        color: const Color.fromRGBO(69, 69, 69, 1),
                         fontWeight:FontWeight.w500)
                         ),
             ),
