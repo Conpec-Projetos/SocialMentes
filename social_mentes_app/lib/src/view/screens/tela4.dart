@@ -21,7 +21,7 @@ class CreateProtocols extends StatefulHookWidget {
     bool iconTapped = false;
     bool status_texto = false;
     String competence_text = "";
-    ImageProvider container_image = AssetImage("images/container_arrow.png");
+    ImageProvider container_image = const AssetImage("images/container_arrow.png");
 
     Color bordaButton = const Color.fromRGBO(171, 171, 171, 1);
 
@@ -33,7 +33,7 @@ class CreateProtocols extends StatefulHookWidget {
 
     void change_Icon_container(String type_competencia){
       if(type_competencia != ""){
-        container_image = AssetImage("images/check_image.png");
+        container_image = const AssetImage("images/check_image.png");
       }
     }
 
