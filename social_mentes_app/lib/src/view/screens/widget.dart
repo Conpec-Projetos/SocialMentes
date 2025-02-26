@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/class.dart';
+import 'create_cheaklist.dart';
 
 class CompetenciasList extends StatefulWidget {
 
@@ -101,8 +102,8 @@ class _CompetenciasListState extends State<CompetenciasList> {
                         setState(() {
                           index_selecionado = index;
                           state_image = true;
-                          print(index_selecionado);
-                          print(competencias[index_selecionado!]);
+                          //print(index_selecionado);
+                          //print(competencias[index_selecionado!]);
                           appear_image(state_image);
                         });
                       },
