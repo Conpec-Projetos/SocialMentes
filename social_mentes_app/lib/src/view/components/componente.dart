@@ -18,13 +18,13 @@ class WidgetPaciente extends StatelessWidget {
                       height: screenHeight * (138 / 844),
                       padding: const EdgeInsets.all(30),
                       decoration: ShapeDecoration(
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           begin: Alignment(0.74, -0.68),
                           end: Alignment(-0.74, 0.68),
                           colors: [Color(0xFFECECEC), Color(0xFFD9D9D9)],
                         ),
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(
+                          side: const BorderSide(
                             width: 1,
                             color: Color(0xFFE4E4E4),
                           ),
@@ -39,7 +39,7 @@ class WidgetPaciente extends StatelessWidget {
                             child: Image.network(foto, height: 40*screenHeight/844,width: 40*screenWidth/396,),
                           ),
                           Positioned(
-                            top: screenHeight * (42 / 844),
+                            top: screenHeight * (37 / 844),
                             left: screenWidth * (3.5 / 390),
                             child: Text(
                               name,
@@ -51,24 +51,24 @@ class WidgetPaciente extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            top: screenHeight * (10 / 138),
+                            top: screenHeight * (8.5 / 138),
                             left: screenWidth * (21 / 390),
-                            child: Container(
+                            child: SizedBox(
                               width: screenWidth * (7.5 / 390),
                               height: 20,
                               child: Image.asset("images/maleta_icon.png"),
                             ),
                           ),
                           Positioned(
-                            top: screenHeight * (10.5 / 138),
+                            top: screenHeight * (9 / 138),
                             left: screenWidth * (31 / 390),
-                            child: Container(
+                            child: SizedBox(
                               width: screenWidth * (86 / 390),
                               height: 20,
                               child: Text(
                                 cargo,
                                 style: GoogleFonts.firaSans(
-                                  fontSize: 10,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.w400,
                                   color: Color.fromRGBO(69, 69, 69, 1),
                                 ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_mentes/src/view/height_text.dart';
 import 'cargos_page.dart';
 import 'package:social_mentes/src/view/update_user.dart';
 
@@ -248,20 +249,27 @@ class InformationPage extends StatefulWidget {
             Positioned(
               top: 320*screenHeight/844,
               left: 130*screenWidth/390,
-              child: Text(widget.name,
+              child: SizedBox(
+                width: 128*screenWidth/390,
+                height: calculateHeightText(widget.name,128*screenWidth/390) + 50,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(widget.name,
                       style: GoogleFonts.firaSans(
-                        fontSize: 24,
-                        color: const Color.fromRGBO(69, 69, 69, 1),
-                        fontWeight:FontWeight.w500)
-                        ),
+                      fontSize: 24,
+                      color: const Color.fromRGBO(69, 69, 69, 1),
+                      fontWeight:FontWeight.w500)
+                      ),
+                ),
+              ),
             ),
             Positioned(
-              top: 355.5*screenHeight/844,
+              top: 360.5*screenHeight/844,
               left: 153*screenWidth/390,
               child: Image.asset("images/maleta_icon.png"),
             ),
             Positioned(
-              top: 351*screenHeight/844,
+              top: 357*screenHeight/844,
               left: 168*screenWidth/390,
               child: Text(widget.cargo,
                       style: GoogleFonts.firaSans(
