@@ -90,15 +90,14 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                         fontWeight: FontWeight.w400,),
                     )],),),),
                     SizedBox(
-                      width: screenWidht - (120*screenWidht/390 + 40*screenWidht/390 + 10*screenWidht/390 + screenWidht*129/390)
+                      width: screenWidht - (120*screenWidht/390 + 40*screenWidht/390 + 10*screenWidht/390  + 127.86)
                     ),
-                    Positioned(
-                      top: 0,
-                      right: 35,
-                      child: Image.asset("images/balls_up.png",
-                      width: screenWidht*150/390,
-                      height: screenWidht*150/390,),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(left: 0) ,
+                    //   child: Image.asset("images/balls_up.png",
+                    //   width: screenWidht*150/390,
+                    //   height: screenWidht*150/390,),
+                    // ),
                     ],),       
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -451,7 +450,6 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                                       "level":level_checklist,
                                       "id": uuid.v4()
                                     });
-                                    counter = selectedCompetences.length;
                                   });
                                 }
                               });
@@ -475,10 +473,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                         fontSize: 24 * screenHeight / 844,
                         fontWeight: FontWeight.w700),
                   ))
-            ]),
-          SizedBox(
-            height: 10 * screenHeight / 844,
-          ),    
+            ]),   
           Column(
             children: [
               selectedCompetences.isEmpty
@@ -592,7 +587,6 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      //print(getDataChecklist("Jogo", "2"));
                       setState(() {
                         
                       });
@@ -607,12 +601,10 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
             SizedBox(
               height: 50 * screenHeight / 844,
             ),
-            Stack(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                    padding: EdgeInsets.only(top: 60 * screenHeight / 844),
-                    child: Image.asset("images/yellow_ball_down.png")),
-                Image.asset("images/blue_ball_down.png")
+                Image.asset("images/balls_down.png")
               ],
             )
           ])),

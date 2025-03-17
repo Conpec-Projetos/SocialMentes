@@ -98,7 +98,7 @@ class _ObjetiveQuestionsState extends State<ObjetiveQuestions> {
           Text(
             titulo,
             style: GoogleFonts.firaSans(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               color: isSelected ? Colors.blue : const Color.fromRGBO(171, 171, 171, 1),
             ),
