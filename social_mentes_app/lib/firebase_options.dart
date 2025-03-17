@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -73,4 +67,25 @@ class DefaultFirebaseOptions {
     iosClientId: '822396829515-qickkn8n173383pdaleritcd4sqqi6rb.apps.googleusercontent.com',
     iosBundleId: 'com.example.socialMentes',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDP-Ud2X8XpYxmunfqE_Mcha4fHmdGm9Fo',
+    appId: '1:822396829515:ios:9cd59ab3657c59d8fe72ce',
+    messagingSenderId: '822396829515',
+    projectId: 'social-mentes',
+    storageBucket: 'social-mentes.appspot.com',
+    iosClientId: '822396829515-qickkn8n173383pdaleritcd4sqqi6rb.apps.googleusercontent.com',
+    iosBundleId: 'com.example.socialMentes',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDRf2z_EtQpMcFfj4_0ALIPM7IQw8LFX6Q',
+    appId: '1:822396829515:web:45a58f9214e16eb0fe72ce',
+    messagingSenderId: '822396829515',
+    projectId: 'social-mentes',
+    authDomain: 'social-mentes.firebaseapp.com',
+    storageBucket: 'social-mentes.appspot.com',
+    measurementId: 'G-QL6MBL0SCT',
+  );
+
 }
