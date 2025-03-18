@@ -29,6 +29,7 @@ class _TestState extends State<Test> {
   late ScrollController _scrollController;
   double lastScrollOffset = 0.0;
   bool showSaveButton = false; // Define se o botão será exibido
+  late double space;
   @override
   void initState() {
     super.initState();
@@ -85,6 +86,11 @@ class _TestState extends State<Test> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidht = MediaQuery.of(context).size.width;
+    if(screenWidht > 400){
+      space = 70*screenWidht/390;
+    }else{
+      space = 49*screenWidht/390;
+    }
     return Scaffold(
       bottomNavigationBar: 
       SizedBox(
@@ -229,6 +235,9 @@ class _TestState extends State<Test> {
                         context: context,
                         builder: (BuildContext context) {
                             return AlertDialog(
+                              shape:RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),  
+                            ),
                               content: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
@@ -236,110 +245,115 @@ class _TestState extends State<Test> {
                                 ),
                                 height: 300*screenWidht/390,
                                 width: 300*screenWidht/390,
-                                child: Column(
+                                child: Stack(
                                   children: [
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 103*screenWidht/390,),
-                                        Image.asset("images/logo_socialmentes.png"),
-                                        SizedBox(width: 58*screenWidht/390,),
-                                        GestureDetector(
-                                          onTap: (){
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: Image.asset("images/X_icon.png", height: 14*screenWidht/390, width: 14*screenWidht/390,),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 15*screenWidht/390),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    height:60*screenHeight/844 ,
-                                    width: 239*screenWidht/390,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: 10*screenWidht/390),
-                                      child: Text(
-                                          "Você deseja finalizar o seu teste?",
-                                        // overflow: TextOverflow.,
-                                        textAlign: TextAlign.center,
-                                        style: GoogleFonts.poppins(
-                                        fontSize: 20*screenHeight/844,
-                                        fontWeight: FontWeight.w500,
+                                    Column(
+                                    children: [
+                                      Container(
+                                        width: 350*screenWidht/390,
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding:  EdgeInsets.only(left: 90*screenWidht/390),
+                                              child: Image.asset("images/logo_socialmentes.png", width: 100*screenWidht/390,),
+                                            ),
+                                            SizedBox(width: space,),
+                                            GestureDetector(
+                                                onTap: (){
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: Image.asset("images/X_icon.png", height: 14*screenWidht/390, width: 14*screenWidht/390,),
+                                              )
+                                            
+                                          ],
                                         ),
                                       ),
-                                                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 30*screenHeight/844,),
-                              SizedBox(
-                                height:60*screenHeight/844 ,
-                                width: 239*screenWidht/390,
-                                child: Text(
-                                'Caso finalizado, você não poderá alterá-lo depois!',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(
-                                fontSize: 16*screenHeight/844,
-                                fontWeight: FontWeight.w500,
-                                ),
-                                                            ),
-                              ),
-                            SizedBox(height: 40*screenWidht/390,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                height: 44 * screenHeight / 844,
-                                width: 105 * screenWidht / 390,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                  color: const Color(0xFFF83D70),
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                  "Finalizar",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: const Color(0xFFF83D70),
-                                  ),
-                                  ),
-                                ),
-                                ),
-                                SizedBox(width: 20),
-                                Container(
-                                height: 44 * screenHeight / 844,
-                                width: 105 * screenWidht / 390,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                  color: const Color(0xFF7DB9F0),
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                  "Salvar",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: const Color(0xFF7DB9F0),
-                                  ),
-                                  ),
-                                ),
-                                ),
-                              ],
-                              ),
+                                      SizedBox(height: 15*screenWidht/390),
+                                                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height:60*screenHeight/844 ,
+                                      width: 239*screenWidht/390,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(left: 10*screenWidht/390),
+                                        child: Text(
+                                            "Você deseja finalizar o seu teste?",
+                                          // overflow: TextOverflow.,
+                                          textAlign: TextAlign.center,
+                                          style: GoogleFonts.poppins(
+                                          fontSize: 20*screenHeight/844,
+                                          fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ],
-                                ),
+                                                                ),
+                                                                SizedBox(height: 30*screenHeight/844,),
+                                                                SizedBox(
+                                  height:60*screenHeight/844 ,
+                                  width: 239*screenWidht/390,
+                                  child: Text(
+                                  'Caso finalizado, você não poderá alterá-lo depois!',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins(
+                                  fontSize: 16*screenHeight/844,
+                                  fontWeight: FontWeight.w500,
+                                  ),
+                                                              ),
+                                                                ),
+                                                              SizedBox(height: 40*screenWidht/390,),
+                                                              Row(
+                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                children: [
+                                  Container(
+                                  height: 44 * screenHeight / 844,
+                                  width: 105 * screenWidht / 390,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                    color: const Color(0xFFF83D70),
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                    "Finalizar",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFFF83D70),
+                                    ),
+                                    ),
+                                  ),
+                                  ),
+                                  SizedBox(width: 20),
+                                  Container(
+                                  height: 44 * screenHeight / 844,
+                                  width: 105 * screenWidht / 390,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                    color: const Color(0xFF7DB9F0),
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                    "Salvar",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFF7DB9F0),
+                                    ),
+                                    ),
+                                  ),
+                                  ),
+                                  ],),
+                                    ],
+                                  ),
+                                  ]),
                               ),
                               
-                            // shape: RoundedRectangleBorder(
-                            //   borderRadius: BorderRadius.circular(10),
-                              
-                            // ),
+                            // 
                             // title: Column(
                             //   children: [
                             //   Row(
