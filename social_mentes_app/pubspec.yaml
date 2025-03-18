@@ -87,6 +87,11 @@ flutter:
   - images/delete.png
   - images/balls_up.png
   - images/balls_down.png
+  - images/bolas_baixo.png
+  - images/checklist_icon.png
+  - images/arrow_checklist.png
+  - images/logo_socialmentes.png
+  - images/X_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

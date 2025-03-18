@@ -49,7 +49,7 @@ class _ObjetiveQuestionsState extends State<ObjetiveQuestions> {
             Row(
               children: [
                 _buildOpcao("Adquirido    "),
-                const SizedBox(width:36),
+                SizedBox(width:widget.screenWidht*20/390),
                 _buildOpcao("Não adquirido"),
               ],
             ),
@@ -57,7 +57,7 @@ class _ObjetiveQuestionsState extends State<ObjetiveQuestions> {
             Row(
               children: [
                 _buildOpcao("Parcialmente"),
-                const SizedBox(width: 30,),
+                SizedBox(width: widget.screenWidht*20/390),
                 _buildOpcao("Sem oportunidade"),
 
               ],
