@@ -60,45 +60,46 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidht = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: Stack(
-          children:[ SingleChildScrollView(
+        bottomNavigationBar: SizedBox(
+        height: 110*screenHeight/844,
+        width: screenWidht,
+        child:Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset("images/bolas_baixo.png"),
+                ],
+              ),),
+        body:SingleChildScrollView(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                      padding: EdgeInsets.only(left:30*screenWidht/392),
-                      child: SizedBox(
-                        height: 78*screenHeight/840,
-                        width: 120*screenWidht/390,
-                        child: Row(
-                          children: [
-                            Image.asset("images/back_button.png",
-                            width: 40*screenWidht/390,
-                            height: 40*screenWidht/390,
-                            ),
-                            SizedBox(
-                              width: 10*screenWidht/390,
-                            ),
-                            Text(
-                      "Voltar",
-                      style: GoogleFonts.firaSans(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w400,),
-                    )],),),),
-                    SizedBox(
-                      width: screenWidht - (120*screenWidht/390 + 40*screenWidht/390 + 10*screenWidht/390  + 127.86)
-                    ),
-                    // Padding(
-                    //   padding: EdgeInsets.only(left: 0) ,
-                    //   child: Image.asset("images/balls_up.png",
-                    //   width: screenWidht*150/390,
-                    //   height: screenWidht*150/390,),
-                    // ),
-                    ],),       
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Image.asset("images/back_button.png") ,
+                ),
+                SizedBox(
+                  width:10*screenWidht/392 ,
+                ),
+                Text(
+                  "Voltar",
+                  style: GoogleFonts.firaSans(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 24,
+                    color: const Color.fromRGBO(69, 69, 69, 1)
+                  ),
+                ),
+                SizedBox(
+                  width: 40*screenWidht/390,
+                ),
+                Image.asset("images/balls_up.png"),
+              ],
+            ),      
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -601,13 +602,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
             SizedBox(
               height: 50 * screenHeight / 844,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset("images/balls_down.png")
-              ],
-            )
-          ])),
-        ]));
+          ])));
+        
   }
 }

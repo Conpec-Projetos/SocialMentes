@@ -88,7 +88,7 @@ class _TestState extends State<Test> {
     return Scaffold(
       bottomNavigationBar: 
       SizedBox(
-        height: 110*screenHeight/844,
+        height: 100*screenHeight/844,
         width: screenWidht,
         child:Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -100,11 +100,8 @@ class _TestState extends State<Test> {
         child: Column(
             children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SizedBox(
-                  width: 30*screenWidht/392,
-                ),
                 GestureDetector(
                   onTap: (){
                     Navigator.pop(context);
@@ -123,13 +120,12 @@ class _TestState extends State<Test> {
                   ),
                 ),
                 SizedBox(
-                  width: 56.5*screenWidht/392,
+                  width: 40*screenWidht/390,
                 ),
                 Image.asset("images/balls_up.png"),
-                
-                
-              ],   
+              ],
             ),
+            
             Row(
               children: [
                 SizedBox(
@@ -230,6 +226,10 @@ class _TestState extends State<Test> {
                         context: context,
                         builder: (BuildContext context) {
                             return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              
+                            ),
                             title: Column(
                               children: [
                               Row(
