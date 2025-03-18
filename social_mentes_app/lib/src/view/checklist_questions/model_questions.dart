@@ -48,7 +48,7 @@ class _ModelQuestionsState extends State<ModelQuestions> {
                 width: 10*widget.screenWidht/390,
               ),
               Text(
-                "${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16,),
+                "${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 16*widget.screenWidht/390,),
               ),
               SizedBox(
                 width: 10*widget.screenWidht/390,
@@ -58,7 +58,7 @@ class _ModelQuestionsState extends State<ModelQuestions> {
                 onTap: () {
                   widget.onDelete();
                 },
-                child: Image.asset("images/delete.png"))
+                child: Image.asset("images/delete.png", width: 40*widget.screenWidht/390,))
           ],
         ),
       ),

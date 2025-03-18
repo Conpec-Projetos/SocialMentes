@@ -109,7 +109,7 @@ class _TestState extends State<Test> {
                   child: Image.asset("images/back_button.png") ,
                 ),
                 SizedBox(
-                  width:10*screenWidht/392 ,
+                  width:10*screenWidht/390 ,
                 ),
                 Text(
                   "Voltar",
@@ -132,13 +132,13 @@ class _TestState extends State<Test> {
                   width: 15*screenWidht/390,
                 ),
                 Container(
-                height: 30*screenHeight/844 ,
+                height: 40*screenHeight/844 ,
                 width: 269*screenWidht/390,
                 child: Row(
                   children: [
                     Image.asset("images/arrow_checklist.png"),
                     SizedBox(width: 15,),
-                    Text("${widget.competence} - ${widget.level}", style: GoogleFonts.poppins(
+                    Text("${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w600
                     ),)
@@ -186,6 +186,9 @@ class _TestState extends State<Test> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20*screenHeight/844,
+            ),
             if (showSaveButton)
             Positioned(
               bottom: 20,
@@ -213,8 +216,8 @@ class _TestState extends State<Test> {
                           fontSize: 14,
                           fontWeight: FontWeight.w600
                         ),),
-                        const SizedBox(
-                          width: 10
+                         SizedBox(
+                          width: 10*screenWidht/390
                         ),
                         Image.asset("images/checklist_icon.png")
                                     ])),
@@ -226,44 +229,64 @@ class _TestState extends State<Test> {
                         context: context,
                         builder: (BuildContext context) {
                             return AlertDialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              
-                            ),
-                            title: Column(
-                              children: [
+                              content: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  // color: const Color(0xFFF4F4F4)
+                                ),
+                                height: 300*screenWidht/390,
+                                width: 300*screenWidht/390,
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SizedBox(width: 103*screenWidht/390,),
+                                        Image.asset("images/logo_socialmentes.png"),
+                                        SizedBox(width: 58*screenWidht/390,),
+                                        GestureDetector(
+                                          onTap: (){
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Image.asset("images/X_icon.png", height: 14*screenWidht/390, width: 14*screenWidht/390,),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 15*screenWidht/390),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SizedBox(width: 80,),
-                                  Image.asset("images/logo_socialmentes.png"),
-                                  SizedBox(width: 60,),
-                                    GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Image.asset("images/X_icon.png"))
+                                  SizedBox(
+                                    height:60*screenHeight/844 ,
+                                    width: 239*screenWidht/390,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 10*screenWidht/390),
+                                      child: Text(
+                                          "Você deseja finalizar o seu teste?",
+                                        // overflow: TextOverflow.,
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.poppins(
+                                        fontSize: 20*screenHeight/844,
+                                        fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                                                     ),
+                                  ),
                                 ],
-                              ), // Adicione a imagem aqui
-                              SizedBox(height: 10),
-                              Text(
-                                "Você deseja finalizar o seu teste?",
+                              ),
+                              SizedBox(height: 30*screenHeight/844,),
+                              SizedBox(
+                                height:60*screenHeight/844 ,
+                                width: 239*screenWidht/390,
+                                child: Text(
+                                'Caso finalizado, você não poderá alterá-lo depois!',
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
-                                fontSize: 20,
+                                fontSize: 16*screenHeight/844,
                                 fontWeight: FontWeight.w500,
                                 ),
+                                                            ),
                               ),
-                              ],
-                            ),
-                            content: Text(
-                              'Caso finalizado, você não poderá alterá-lo depois!',
-                              style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            actions: [
-                              Row(
+                            SizedBox(height: 40*screenWidht/390,),
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
@@ -309,7 +332,94 @@ class _TestState extends State<Test> {
                                 ),
                               ],
                               ),
-                            ],
+                                  ],
+                                ),
+                              ),
+                              
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: BorderRadius.circular(10),
+                              
+                            // ),
+                            // title: Column(
+                            //   children: [
+                            //   Row(
+                            //     mainAxisAlignment: MainAxisAlignment.start,
+                            //     children: [
+                            //       SizedBox(width: 80,),
+                            //       Image.asset("images/logo_socialmentes.png"),
+                            //       SizedBox(width: 60,),
+                            //         GestureDetector(
+                            //         onTap: () {
+                            //           Navigator.of(context).pop();
+                            //         },
+                            //         child: Image.asset("images/X_icon.png"))
+                            //     ],
+                            //   ), // Adicione a imagem aqui
+                            //   SizedBox(height: 10),
+                            //   Text(
+                            //     "Você deseja finalizar o seu teste?",
+                            //     style: GoogleFonts.poppins(
+                            //     fontSize: 20,
+                            //     fontWeight: FontWeight.w500,
+                            //     ),
+                            //   ),
+                            //   ],
+                            // ),
+                            // content: Text(
+                            //   'Caso finalizado, você não poderá alterá-lo depois!',
+                            //   style: GoogleFonts.poppins(
+                            //   fontSize: 16,
+                            //   fontWeight: FontWeight.w500,
+                            //   ),
+                            // ),
+                            // actions: [
+                            //   Row(
+                            //   mainAxisAlignment: MainAxisAlignment.center,
+                            //   children: [
+                            //     Container(
+                            //     height: 44 * screenHeight / 844,
+                            //     width: 105 * screenWidht / 390,
+                            //     decoration: BoxDecoration(
+                            //       border: Border.all(
+                            //       color: const Color(0xFFF83D70),
+                            //       ),
+                            //       borderRadius: BorderRadius.circular(10),
+                            //     ),
+                            //     child: Center(
+                            //       child: Text(
+                            //       "Finalizar",
+                            //       style: GoogleFonts.poppins(
+                            //         fontSize: 16,
+                            //         fontWeight: FontWeight.w500,
+                            //         color: const Color(0xFFF83D70),
+                            //       ),
+                            //       ),
+                            //     ),
+                            //     ),
+                            //     SizedBox(width: 20),
+                            //     Container(
+                            //     height: 44 * screenHeight / 844,
+                            //     width: 105 * screenWidht / 390,
+                            //     decoration: BoxDecoration(
+                            //       border: Border.all(
+                            //       color: const Color(0xFF7DB9F0),
+                            //       ),
+                            //       borderRadius: BorderRadius.circular(10),
+                            //     ),
+                            //     child: Center(
+                            //       child: Text(
+                            //       "Salvar",
+                            //       style: GoogleFonts.poppins(
+                            //         fontSize: 16,
+                            //         fontWeight: FontWeight.w500,
+                            //         color: const Color(0xFF7DB9F0),
+                            //       ),
+                            //       ),
+                            //     ),
+                            //     ),
+                            //   ],
+                            //   ),
+                            // ],
                             );
                         },
                       );

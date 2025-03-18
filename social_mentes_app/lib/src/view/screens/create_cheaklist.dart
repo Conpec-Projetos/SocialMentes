@@ -409,20 +409,21 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                   decoration: BoxDecoration(
                       border: Border.all(color: arrow_conatiner, width: 3),
                       borderRadius: BorderRadius.circular(15)),
-                  child: Stack(children: [
+                  child: Stack(
+                    children: [
                     Padding(
                       padding: EdgeInsets.only(
                         top: screenHeight * 10 / 844,
                         left: screenHeight * 5 / 390,
                       ),
-                      child: Text(
-                        competence_text,
-                        style: GoogleFonts.firaSans(
-                          fontSize: screenHeight * 20 / 844,
-                          color: const Color.fromRGBO(171, 171, 171, 1),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                      // child: Text(
+                      //   competence_text,
+                      //   style: GoogleFonts.firaSans(
+                      //     fontSize: screenHeight * 20 / 844,
+                      //     color: const Color.fromRGBO(171, 171, 171, 1),
+                      //     fontWeight: FontWeight.w400,
+                      //   ),
+                      // ),
                     ),
                     Padding(
                         padding: EdgeInsets.only(
@@ -488,7 +489,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                   color: const Color.fromRGBO(171, 171, 171, 1)),
             ))
           : SizedBox(
-              height: 100 * screenHeight / 844,
+              height: 80 * screenHeight / 844,
               child: ListView.builder(
                 itemCount: selectedCompetences.length,
                 itemBuilder: (BuildContext context, int index) {
