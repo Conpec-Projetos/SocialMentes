@@ -416,14 +416,6 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                         top: screenHeight * 10 / 844,
                         left: screenHeight * 5 / 390,
                       ),
-                      // child: Text(
-                      //   competence_text,
-                      //   style: GoogleFonts.firaSans(
-                      //     fontSize: screenHeight * 20 / 844,
-                      //     color: const Color.fromRGBO(171, 171, 171, 1),
-                      //     fontWeight: FontWeight.w400,
-                      //   ),
-                      // ),
                     ),
                     Padding(
                         padding: EdgeInsets.only(
@@ -567,7 +559,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                               child: Text(
                                 "CRIAR INTERVENÇÃO",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 16 * screenWidht / 390,
+                                    fontSize: 14 * screenWidht / 390,
                                     fontWeight: FontWeight.w600,
                                     color: const Color.fromRGBO(248, 61, 112, 1)),
                               )),

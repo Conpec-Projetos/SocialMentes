@@ -94,7 +94,7 @@ class _TestState extends State<Test> {
     return Scaffold(
       bottomNavigationBar: 
       SizedBox(
-        height: 100*screenHeight/844,
+        height: 80*screenHeight/844,
         width: screenWidht,
         child:Row(
                 mainAxisAlignment: MainAxisAlignment.start,
