@@ -76,7 +76,7 @@ class _CompetenciasListState extends State<CompetenciasList> {
                 ),
               ),
               SizedBox(height: 97 * screenHeight / 844),
-              Expanded(
+              SizedBox(
                 child: ListView.builder(
                   itemCount: competencias.length,
                   itemBuilder: (context, index) {

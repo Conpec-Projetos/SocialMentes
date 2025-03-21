@@ -411,17 +411,15 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Stack(
                     children: [
-                    Padding(
-                      padding: EdgeInsets.only(
+                    Positioned(
                         top: screenHeight * 10 / 844,
                         left: screenHeight * 5 / 390,
-                      ),
+                        child: Container(),
+                      
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(
+                    Positioned(
                           top: 15 * screenHeight / 844,
                           left: 280 * screenWidht / 390,
-                        ),
                         child: GestureDetector(
                           onTap: () => setState(() {
                             state_icon_arrow = true;
