@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/test/test.dart';
+import 'package:social_mentes/src/view/screens/checklist_page.dart';
 
 
 class ModelQuestions extends StatefulWidget {
@@ -30,7 +30,7 @@ class _ModelQuestionsState extends State<ModelQuestions> {
       padding: EdgeInsets.only(),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Test(screenHeight: widget.screenHeight, screenWidht: widget.screenWidht, competence: widget.competence, level: widget.level, index: widget.index
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ChecklistPage(screenHeight: widget.screenHeight, screenWidht: widget.screenWidht, competence: widget.competence, level: widget.level, index: widget.index
           ,)));
           print(
             widget.competence
