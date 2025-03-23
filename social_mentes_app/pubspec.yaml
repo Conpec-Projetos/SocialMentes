@@ -40,8 +40,7 @@ dependencies:
   google_fonts: ^6.2.1
   cloud_firestore: ^5.6.5
   firebase_database: ^11.3.4
-  
-  
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +64,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  
+
   assets:
     - images/exit.png
     - images/imagem_inferior.png
@@ -99,6 +98,7 @@ flutter:
     - images/blue_ball_up.png
     - images/red_ball_down.png
     - images/yellow_ball_up.png
+    - assets/images/back_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
