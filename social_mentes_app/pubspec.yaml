@@ -94,6 +94,11 @@ flutter:
     - images/yellow_ball_down.png
     - images/eye_opened.png
     - images/eye_closed.png
+    - images/back_button.png
+    - images/blue_ball_down.png
+    - images/blue_ball_up.png
+    - images/red_ball_down.png
+    - images/yellow_ball_up.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
