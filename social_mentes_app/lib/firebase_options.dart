@@ -74,14 +74,4 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.socialMentes',
   );
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDRf2z_EtQpMcFfj4_0ALIPM7IQw8LFX6Q',
-    appId: '1:822396829515:web:36af07f5425a84d9fe72ce',
-    messagingSenderId: '822396829515',
-    projectId: 'social-mentes',
-    authDomain: 'social-mentes.firebaseapp.com',
-    storageBucket: 'social-mentes.appspot.com',
-    measurementId: 'G-6VXGXT687G',
-  );
-
 }
