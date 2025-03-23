@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.0.0
+  flutter_hooks: ^0.18.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,6 +43,8 @@ dependencies:
   cloud_firestore: ^5.6.5
   firebase_database: ^11.3.4
   percent_indicator: ^4.2.3
+  auto_size_text: ^3.0.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -99,6 +103,20 @@ flutter:
     - images/red_ball_down.png
     - images/yellow_ball_up.png
     - assets/images/back_image.png
+    - images/blue_ball_up.png
+    - images/red_ball_up.png
+    - images/back_button.png
+    - images/yellow_ball_down.png
+    - images/blue_ball_down.png
+    - images/icon_tabela.png
+    - images/grafico_icon.png
+    - images/relatorio_icon.png
+    - images/save_button.png
+    - images/red_icon.png
+    - images/container_arrow.png
+    - images/rectangle_detail.png
+    - images/choose_button.png
+    - images/check_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
