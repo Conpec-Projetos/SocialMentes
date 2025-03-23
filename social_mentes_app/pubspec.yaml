@@ -38,6 +38,10 @@ dependencies:
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.1
   google_fonts: ^6.2.1
+  cloud_firestore: ^5.6.5
+  firebase_database: ^11.3.4
+  
+  
 
 dev_dependencies:
   flutter_test:
@@ -48,8 +52,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
-  google_fonts: ^6.2.1
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -80,6 +83,17 @@ flutter:
     - images/Vector.png
     - images/X.png
     - images/confirm_change.png
+    - images/Button.png
+    - images/Logo.png
+    - images/Balls.png
+    - images/blue_ball_up.png
+    - images/blue_ball_down.png
+    - images/red_ball_up.png
+    - images/red_ball_down.png
+    - images/yellow_ball_up.png
+    - images/yellow_ball_down.png
+    - images/eye_opened.png
+    - images/eye_closed.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
