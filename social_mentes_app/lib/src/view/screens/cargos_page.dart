@@ -111,7 +111,7 @@ class CargosPage extends StatelessWidget {
                   ],
                 ),
               ),
-              // FutureBuilder para obter a quantidade de usuários
+      
   FutureBuilder<List<Map<String, dynamic>>>(
   future: DataUser(),
   builder: (context, snapshot) {
