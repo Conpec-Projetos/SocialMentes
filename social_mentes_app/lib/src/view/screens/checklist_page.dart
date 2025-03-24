@@ -118,7 +118,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                 Image.asset("../images/arrow_checklist.png"),
                 SizedBox(width: 15,),
                 Text("${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(
-                  fontSize: 18,
+                  //fontSize: 18,
                   fontWeight: FontWeight.w600
                 ),)
           

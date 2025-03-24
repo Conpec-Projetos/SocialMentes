@@ -89,7 +89,7 @@ class SignUpPageState extends State<SignUpPage> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              // back();
+                              back();
                             },
                             icon: const Image(image: AssetImage('../assets/images/back_image.png'))
                           ),

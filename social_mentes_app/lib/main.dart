@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:social_mentes/src/view/screens/adm_navegacao.dart';
 import 'package:social_mentes/src/view/screens/login_page.dart';
 import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 import 'firebase_options.dart';
@@ -44,7 +45,8 @@ class RoteadorTela extends StatelessWidget {
     return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
       if(snapshot.hasData){
         //user logado
-        return PsicoNavegacao(user: snapshot.data!,);
+        //return PsicoNavegacao(user: snapshot.data!,);
+        return AdmNavegacao(user: snapshot.data!);
       } else {
         //user deslogado
         return LoginPage();

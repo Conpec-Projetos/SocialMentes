@@ -15,9 +15,9 @@ class CompetenciasList extends StatefulWidget {
 
 class _CompetenciasListState extends State<CompetenciasList> {
   final List<String> competencias = [
-    'Comunicação receptiva', 'Comunicação expressiva',
-    'Competências sociais', "Imitação", "Cognição", "Jogo",
-    "Motricidade fina", "Motricidade Grossa", "Comportamento", "Independência pessoal"
+    'Comunicação Receptiva', 'Comunicação Expressiva',
+    'Competências Sociais', "Imitação", "Cognição", "Jogo",
+    "Motricidade Fina", "Motricidade Grossa", "Comportamento", "Independência Pessoal"
   ];
 
   int ? index_selecionado;

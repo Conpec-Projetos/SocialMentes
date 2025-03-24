@@ -5,7 +5,6 @@ import 'package:social_mentes/src/view/models/TesteModelo.dart';
 import 'package:social_mentes/src/view/services/testes_servico.dart';
 import '../common/Cores.dart';
 
-import 'package:social_mentes/src/view/screens/tela4.dart';
 import 'package:social_mentes/src/view/screens/create_cheaklist.dart';
 
 

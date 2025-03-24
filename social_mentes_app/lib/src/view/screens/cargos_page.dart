@@ -17,6 +17,7 @@ Widget build(BuildContext context) {
           children: [
             // Conteúdo da página (incluindo o container azul e os cards)
             // Container azul
+            /*
             Container(
               width: double.infinity,
               height: screenHeight * (105 / 844),
@@ -103,7 +104,9 @@ Widget build(BuildContext context) {
                   ),
                 ],
               ),
-            ),
+            ),*/
+
+            
             // Conteúdo dos cards
             Row(
               children: [
@@ -389,6 +392,8 @@ Widget build(BuildContext context) {
           ],
         ),
 
+
+        /*
         // Container com os botões na parte inferior
         Positioned(
           bottom: 30, // Define o espaço de 30 pixels da borda inferior
@@ -424,7 +429,7 @@ Widget build(BuildContext context) {
               ],
             ),
           ),
-        ),
+        ),*/
       ],
     ),
   );
