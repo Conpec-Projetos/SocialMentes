@@ -1,15 +1,18 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/screens/Psico_pacientes.dart';
+import 'package:social_mentes/src/view/screens/psico_pacientes.dart';
 
 import '../common/Cores.dart';
 
 
 class PsicoNavegacao extends StatefulWidget {
-  const PsicoNavegacao({super.key});
+  final User user;
+
+  const PsicoNavegacao({super.key, required this.user});
 
   @override
   State<PsicoNavegacao> createState() => _PsicoNavegacaoState();
@@ -19,7 +22,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
   //TESTES
   final String nome = "Victor Satoh";
 
-  
+  //Páginas
   int _paginaAtualIndex = 2;
   final List<Widget> _navigator = [Placeholder(), Placeholder(color: Colors.red,), PsicoPacientes(), Placeholder(color: Colors.amber,)];
   
@@ -80,7 +83,9 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
               padding: EdgeInsets.only(right: (20.0 / 390) * screenWidth),
               child: IconButton(
                 //BOTAO DE SAIR DO PERFIL
-                onPressed: (){},
+                onPressed: (){
+                  FirebaseAuth.instance.signOut();
+                },
                 icon: Image.asset("../images/Logout.png"),
               ),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 import 'forget_password_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -29,6 +30,14 @@ class _LoginPageState extends State<LoginPage> {
       User? user = userCredential.user;
       if (user != null) {
         print('Usuário autenticado: ${user.email}');
+
+        /*
+        Navigator.push(
+          context, 
+          MaterialPageRoute(
+            builder: (context) => PsicoNavegacao(),
+          ),
+        );*/
       }
     } catch (e) {
       print('Erro ao autenticar: $e');

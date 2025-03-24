@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:social_mentes/src/view/screens/login_page.dart';
+import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 import 'firebase_options.dart';
-
-import 'src/view/screens/cargos_page.dart';
-import 'src/view/screens/information_page.dart';
-import 'src/view/screens/sign_up_page.dart';
+import 'package:social_mentes/src/view/models/userPaciente.dart';
+import 'package:social_mentes/src/view/models/userProfissional.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,9 +21,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserPaciente()),
+        ChangeNotifierProvider(create: (context) => UserProfissional()),
+      ],
+      child: MaterialApp(
       title: 'SocialMentes',
-      home: InformationPage(),
+      home: RoteadorTela(),
+      )
     );
+    
+  }
+}
+
+class RoteadorTela extends StatelessWidget {
+  const RoteadorTela({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
+      if(snapshot.hasData){
+        //user logado
+        return PsicoNavegacao(user: snapshot.data!,);
+      } else {
+        //user deslogado
+        return LoginPage();
+      }
+    },);
   }
 }
