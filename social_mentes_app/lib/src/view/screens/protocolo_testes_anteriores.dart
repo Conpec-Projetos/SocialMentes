@@ -3,8 +3,12 @@ import 'package:social_mentes/src/view/components/teste_anterior_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/src/view/models/TesteModelo.dart';
 import 'package:social_mentes/src/view/services/testes_servico.dart';
-
 import '../common/Cores.dart';
+
+import 'package:social_mentes/src/view/screens/tela4.dart';
+import 'package:social_mentes/src/view/screens/create_cheaklist.dart';
+
+
 
 class ProtocoloTestesAnteriores extends StatefulWidget {
   //TESTES
@@ -138,7 +142,7 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
                         child: ElevatedButton(
                           //FUNÇÃO DE CRIAR TESTE
                           onPressed: () {
-                            //Navigator.push(context, MaterialPageRoute(builder: (context) => ,));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => CreateProtocols2(),));
                           },
                           style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, shadowColor: Colors.transparent),
                           child: Row(

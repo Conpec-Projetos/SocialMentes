@@ -8,6 +8,7 @@ import 'package:social_mentes/src/view/models/userPaciente.dart';
 import 'package:social_mentes/src/view/models/userProfissional.dart';
 import 'package:provider/provider.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

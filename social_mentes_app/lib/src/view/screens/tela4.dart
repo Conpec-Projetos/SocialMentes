@@ -88,15 +88,16 @@ class CreateProtocols extends StatefulHookWidget {
           Positioned(
             top: 0,
             right: 0,
-            child: Image.asset("images/blue_ball_up3.png")),
+            child: Image.asset("../images/blue_ball_up3.png")),
             Positioned(
             top: screenHeight*16/844,
             right: 0,
-            child: Image.asset("images/red_ball_up2.png")),
+            child: Image.asset("../images/red_ball_up2.png")),
             Positioned(
               top: screenHeight*35/844,
               left: 30*screenWidht/390,
-              child: Image.asset("images/back_button.png")),
+              child: IconButton(onPressed: ()=>Navigator.pop(context), icon: Image.asset("images/back_button.png"))
+              ),
               Positioned(
                 top: screenHeight*41/844,
                 left: 80*screenWidht/390,
@@ -509,11 +510,11 @@ class CreateProtocols extends StatefulHookWidget {
               Positioned(
                 bottom: 0,
                 left: 0,
-                child: Image.asset("images/yellow_ball_down2.png")),
+                child: Image.asset("../images/yellow_ball_down2.png")),
               Positioned(
                 left: 0,
                 bottom: 0,
-                child: Image.asset("images/blue_ball_down3.png"))
+                child: Image.asset("../images/blue_ball_down3.png"))
         ],
       ),
     );
