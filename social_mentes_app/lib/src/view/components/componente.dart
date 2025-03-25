@@ -15,7 +15,7 @@ class WidgetPaciente extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double space_name;
     if(screenWidth < 370){
-      space_name = 90 * (screenWidth / 390) + 20;
+      space_name = 90 * (screenWidth / 390);
     }else{
       space_name = 90 * (screenWidth / 390);
     }
@@ -51,7 +51,7 @@ class WidgetPaciente extends StatelessWidget {
                       child: Text(
                         name,
                         style: GoogleFonts.firaSans(
-                        fontSize: 13*screenWidth/390,
+                        fontSize: 12*screenWidth/390,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromRGBO(69, 69, 69, 1),
                         ),

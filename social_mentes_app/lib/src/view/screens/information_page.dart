@@ -236,7 +236,7 @@ class InformationPage extends StatefulWidget {
                 height: 35*screenHeight/844,
                 child: Text("Voltar",
                 style: GoogleFonts.firaSans(
-                  fontSize:24,//pensar em forma de deixar responsivo
+                  fontSize:24*screenWidth/390,//pensar em forma de deixar responsivo
                   color: Color.fromRGBO(69,69,69,1),
                   fontWeight: FontWeight.w400),
                   ),
@@ -254,7 +254,7 @@ class InformationPage extends StatefulWidget {
                       child: Center(
                         child: Text(widget.name,
                             style: GoogleFonts.firaSans(
-                            fontSize: 24*screenWidth/390,
+                            fontSize: 22*screenWidth/390,
                             color: const Color.fromRGBO(69, 69, 69, 1),
                             fontWeight:FontWeight.w500),
                             maxLines: 2,
