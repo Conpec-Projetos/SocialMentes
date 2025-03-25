@@ -254,7 +254,7 @@ class InformationPage extends StatefulWidget {
                       child: Center(
                         child: Text(widget.name,
                             style: GoogleFonts.firaSans(
-                            fontSize: 24,
+                            fontSize: 24*screenWidth/390,
                             color: const Color.fromRGBO(69, 69, 69, 1),
                             fontWeight:FontWeight.w500),
                             maxLines: 2,
