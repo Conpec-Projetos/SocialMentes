@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:io';
 
 class WidgetPaciente extends StatelessWidget {
   final String name;
@@ -8,9 +9,16 @@ class WidgetPaciente extends StatelessWidget {
   const WidgetPaciente({super.key,required this.name, required this.cargo, required this.foto});
 
   @override
+  
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    double space_name;
+    if(screenWidth < 370){
+      space_name = 90 * (screenWidth / 390) + 20;
+    }else{
+      space_name = 90 * (screenWidth / 390);
+    }
     return Container(
             width: screenWidth * (146 / 390),
             height: screenHeight * (138 / 844),
@@ -38,12 +46,12 @@ class WidgetPaciente extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    width: 90 * screenWidth / 390,
+                    width: space_name,
                     child: Center(
                       child: Text(
                         name,
                         style: GoogleFonts.firaSans(
-                        fontSize: 13,
+                        fontSize: 13*screenWidth/390,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromRGBO(69, 69, 69, 1),
                         ),
