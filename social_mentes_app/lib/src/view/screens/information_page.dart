@@ -243,47 +243,34 @@ class InformationPage extends StatefulWidget {
               ) ),
             Positioned(
               top: 205*screenHeight/844,
-              left: 145*screenWidth/390,
-              child: Image.network(widget.foto, height:100*screenHeight/844, width: 100*screenWidth/390,), //pensar na responsiidade do tamanho das imagens
-            ),
-            Positioned(
-              top: 320*screenHeight/844,
-              left: 130*screenWidth/390,
-              child: SizedBox(
-                width: 150*screenWidth/390,
-                height: calculateHeightText(widget.name,128*screenWidth/390) + 50,
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(widget.name,
-                      style: GoogleFonts.firaSans(
-                      fontSize: 24,
-                      color: const Color.fromRGBO(69, 69, 69, 1),
-                      fontWeight:FontWeight.w500),
-                      maxLines: 2,
-                      ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 385*screenHeight/844,
-              left: 153*screenWidth/390,
-              child: Row(
+              left: 50*screenWidth/390,
+              child: Column(
                 children: [
-                    Image.asset("images/maleta_icon.png"),
-                    const SizedBox(width: 5,),
-                    Text(widget.cargo,
-                      style: GoogleFonts.firaSans(
-                        fontSize: 16,
-                        color: Color.fromRGBO(69, 69, 69, 1),
-                        fontWeight: FontWeight.w400)
-                        ),
-                ],
-              )
-            ),
-            Positioned(
-              top: 390*screenHeight/844,
-              left: 58*screenWidth/390,
-              child: Container(
+                  Image.network(widget.foto, height:100*screenHeight/844, width: 100*screenWidth/390,), //pensar na responsiidade do tamanho das imagens
+                  Padding(
+                    padding: EdgeInsets.only(left: 17*screenWidth/390),
+                    child: SizedBox(
+                      width: 170*screenWidth/390,
+                      child: Center(
+                        child: Text(widget.name,
+                            style: GoogleFonts.firaSans(
+                            fontSize: 24,
+                            color: const Color.fromRGBO(69, 69, 69, 1),
+                            fontWeight:FontWeight.w500),
+                            maxLines: 2,
+                            )),),
+                  ),
+                  Row(
+                    children: [
+                        Image.asset("images/maleta_icon.png"),
+                        const SizedBox(width: 5,),
+                        Text(widget.cargo,
+                          style: GoogleFonts.firaSans(
+                            fontSize: 16,
+                            color: Color.fromRGBO(69, 69, 69, 1),
+                            fontWeight: FontWeight.w400)
+                            ),],),
+                Container(
                 width: 274*screenWidth/390,
                 height: 0.8*screenHeight/844,
                 decoration: const BoxDecoration(
@@ -295,218 +282,207 @@ class InformationPage extends StatefulWidget {
                     ]
                   )
                 ),
-              ) ),
-            Positioned(
-              top: 410*screenHeight/844,
-              left: 162*screenWidth/390,
-              child: Text("CARGOS", 
-                        style: GoogleFonts.firaSans(
-                          fontSize: 18,
-                          color: Color.fromRGBO(69, 69, 69, 1),
-                          fontWeight: FontWeight.w500,)
-                        )
-            ),      
-        Positioned(
-          top: 452*screenHeight/844,
-          left: 61*screenWidth/390,
-          child:GestureDetector(
-            onTap: () => setState(() {
-              _onButtonPressed("Paciente");
-              gradient_Paciente = true;
-              gradient_Administrador = false;
-              gradient_Psicologo = false;
-              gradient_Responsavel = false;
-
-              // Verifica corretamente o valor de 'gradient_Paciente'
-              if (gradient_Paciente == true) {
-                changeColorAdmnistrador();
-                changeColorPaciente();
-                changeColorPsicologo();
-                changeColorResponsavel();
-              }
-              pastState = presentState;
-              presentState = selectedButton;
-              print(presentState);
-              print(pastState);
-              if (pastState != presentState){
-                appearImage = true;
-                isChangeConfirmded = false;
-              }
-              print(isChangeConfirmded);
-            }),
-            child:Container(
-            height: 42*screenHeight/844,
-            width: 110*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
-            decoration: ShapeDecoration(
-              gradient:  _containerColorPaciente,
-              shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
-              borderRadius: BorderRadius.circular(5)),
-            ),
-            child: 
-            Align(
-              alignment: Alignment.center,
-              child:Text("Paciente", 
-            style: GoogleFonts.firaSans(
-              fontSize: screenHeight/844 * 18 ,
-              fontWeight: FontWeight.w400,
-              color: Color.fromRGBO(114, 114, 114, 1)
-            )),
-            ) 
-            ),
-          ), 
-          ),
-          
-          
-          Positioned(
-          top: 452*screenHeight/844,
-          left: screenWidth*186/390,
-          child: GestureDetector(
-            onTap: () => setState(() {
-              _onButtonPressed("Responsável");
-              gradient_Responsavel = true;
-              gradient_Administrador = false;
-              gradient_Paciente = false;
-              gradient_Psicologo = false;
-              if (gradient_Responsavel == true){
-                changeColorAdmnistrador();
-                changeColorPaciente();
-                changeColorPsicologo();
-                changeColorResponsavel();
-              }
-              pastState = presentState;
-              presentState = selectedButton;
-              print(presentState);
-              print(pastState);
-              if (pastState != presentState){
-                appearImage = true;
-                isChangeConfirmded = false;
-              }
-              print(isChangeConfirmded);
-            }),
-            child:Container(
-            height: 42*screenHeight/844,
-            width: 143*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal: 10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
-            decoration: ShapeDecoration(
-              gradient: _containerColorResponsavel,
-              shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color:Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
-              borderRadius: BorderRadius.circular(5)),
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text("Responsável",
-            style: GoogleFonts.firaSans(
-              fontSize: screenHeight/844 * 18 ,
-              fontWeight: FontWeight.w400,
-              color: Color.fromRGBO(114, 114, 114, 1)
-            )),
-            ),
-            
-            ),
-          ) , 
-          ),
-  
-          Positioned(
-          top: 514*screenHeight/844,
-          left: screenWidth*50/390,
-          child:GestureDetector(
-            onTap: () => setState(() {
-               _onButtonPressed("Administrador");
-              gradient_Administrador = true;
-              gradient_Paciente =  false;
-              gradient_Psicologo = false;
-              gradient_Responsavel = false;
-              if (gradient_Administrador = true){
-                changeColorAdmnistrador();
-                changeColorPaciente();
-                changeColorPsicologo();
-                changeColorResponsavel();
-              }
-              pastState = presentState;
-              presentState = selectedButton;
-              print(presentState);
-              print(pastState);
-              if (pastState != presentState){
-                appearImage = true;
-                isChangeConfirmded = false;
-              }
-            }),
-            child:Container(
-            height: 42*screenHeight/844,
-            width: 157*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
-            decoration: ShapeDecoration(
-              gradient: _containerColorAdministrador,
-              shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
-              borderRadius: BorderRadius.circular(5)),
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text("Administrador",
-            style: GoogleFonts.firaSans(
-              fontSize: screenHeight/844 * 18 ,
-              fontWeight: FontWeight.w400,
-              color: Color.fromRGBO(114, 114, 114, 1)
-            )),
-            ),
-            
-            ),
-          ) ,
-          ),
-          Positioned(
-          top: 514*screenHeight/844,
-          left: screenWidth*222/390,
-          child:GestureDetector(
-            onTap: () => setState(() {
-              _onButtonPressed("Psicólogo");
-              gradient_Psicologo = true;
-              gradient_Administrador = false;
-              gradient_Paciente = false;
-              gradient_Responsavel = false;
-              if (gradient_Psicologo = true){
-                changeColorAdmnistrador();
-                changeColorPaciente();
-                changeColorPsicologo();
-                changeColorResponsavel();
-              }
-              pastState = presentState;
-              presentState = selectedButton;
-              print(presentState);
-              print(pastState);
-              if (pastState != presentState){
-                appearImage = true;
-                isChangeConfirmded = false;
-              }
-            }),
-            child: Container(
-            height: 42*screenHeight/844,
-            width: 119*screenWidth/390,
-            padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
-            decoration: ShapeDecoration(
-              gradient: _containerColorPsicologo,
-              shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
-              borderRadius: BorderRadius.circular(5)),
-            ),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text("Psicólogo",
-            style: GoogleFonts.firaSans(
-              fontSize: screenHeight/844 * 18 ,
-              fontWeight: FontWeight.w400,
-              color: Color.fromRGBO(114, 114, 114, 1)
-            )),
+              ),
+              Text("CARGOS", 
+                style: GoogleFonts.firaSans(
+                fontSize: 18,
+                color: Color.fromRGBO(69, 69, 69, 1),
+                fontWeight: FontWeight.w500,)),
+                SizedBox(
+                  height: 10*screenHeight/844,
+                ),
+                //first buttons row
+                Container(
+                  //color: Colors.black,
+                  width: 300*screenWidth/390 ,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                              onTap: () => setState(() {
+                                _onButtonPressed("Paciente");
+                                gradient_Paciente = true;
+                                gradient_Administrador = false;
+                                gradient_Psicologo = false;
+                                gradient_Responsavel = false;
+                  
+                                // Verifica corretamente o valor de 'gradient_Paciente'
+                                if (gradient_Paciente == true) {
+                  changeColorAdmnistrador();
+                  changeColorPaciente();
+                  changeColorPsicologo();
+                  changeColorResponsavel();
+                                }
+                                pastState = presentState;
+                                presentState = selectedButton;
+                                print(presentState);
+                                print(pastState);
+                                if (pastState != presentState){
+                  appearImage = true;
+                  isChangeConfirmded = false;
+                                }
+                                print(isChangeConfirmded);
+                              }),
+                              child:Container(
+                              height: 42*screenHeight/844,
+                              width: 110*screenWidth/390,
+                              padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
+                              decoration: ShapeDecoration(
+                                gradient:  _containerColorPaciente,
+                                shape: RoundedRectangleBorder(
+                                side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
+                                borderRadius: BorderRadius.circular(5)),
+                              ),
+                              child: 
+                              Align(
+                                alignment: Alignment.center,
+                                child:Text("Paciente", 
+                              style: GoogleFonts.firaSans(
+                                fontSize: screenHeight/844 * 18 ,
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromRGBO(114, 114, 114, 1)
+                              )),
+                              ) 
+                              ),
+                            ),
+                            SizedBox(width: 15*screenWidth/390,),
+                            GestureDetector(
+                              onTap: () => setState(() {
+                                _onButtonPressed("Responsável");
+                                gradient_Responsavel = true;
+                                gradient_Administrador = false;
+                                gradient_Paciente = false;
+                                gradient_Psicologo = false;
+                                if (gradient_Responsavel == true){
+                  changeColorAdmnistrador();
+                  changeColorPaciente();
+                  changeColorPsicologo();
+                  changeColorResponsavel();
+                                }
+                                pastState = presentState;
+                                presentState = selectedButton;
+                                print(presentState);
+                                print(pastState);
+                                if (pastState != presentState){
+                  appearImage = true;
+                  isChangeConfirmded = false;
+                                }
+                                print(isChangeConfirmded);
+                              }),
+                              child:Container(
+                              height: 42*screenHeight/844,
+                              width: 143*screenWidth/390,
+                              padding: EdgeInsets.symmetric(horizontal: 10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
+                              decoration: ShapeDecoration(
+                                gradient: _containerColorResponsavel,
+                                shape: RoundedRectangleBorder(
+                                side: BorderSide(width: 2, color:Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
+                                borderRadius: BorderRadius.circular(5)),
+                              ),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text("Responsável",
+                              style: GoogleFonts.firaSans(
+                                fontSize: screenHeight/844 * 18 ,
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromRGBO(114, 114, 114, 1)
+                              )),),),)
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10*screenHeight/844,),
+              //second buttons row
+            Container(
+              width:320*screenWidth/390,
+              child: Row(
+                children: [
+                  GestureDetector(
+              onTap: () => setState(() {
+                 _onButtonPressed("Administrador");
+                gradient_Administrador = true;
+                gradient_Paciente =  false;
+                gradient_Psicologo = false;
+                gradient_Responsavel = false;
+                if (gradient_Administrador = true){
+                  changeColorAdmnistrador();
+                  changeColorPaciente();
+                  changeColorPsicologo();
+                  changeColorResponsavel();
+                }
+                pastState = presentState;
+                presentState = selectedButton;
+                print(presentState);
+                print(pastState);
+                if (pastState != presentState){
+                  appearImage = true;
+                  isChangeConfirmded = false;
+                }
+              }),
+              child:Container(
+              height: 42*screenHeight/844,
+              width: 157*screenWidth/390,
+              padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
+              decoration: ShapeDecoration(
+                gradient: _containerColorAdministrador,
+                shape: RoundedRectangleBorder(
+                side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
+                borderRadius: BorderRadius.circular(5)),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text("Administrador",
+              style: GoogleFonts.firaSans(
+                fontSize: screenHeight/844 * 18 ,
+                fontWeight: FontWeight.w400,
+                color: Color.fromRGBO(114, 114, 114, 1)
+              )),),),),
+              SizedBox(width: 15*screenWidth/390),
+              GestureDetector(
+              onTap: () => setState(() {
+                _onButtonPressed("Psicólogo");
+                gradient_Psicologo = true;
+                gradient_Administrador = false;
+                gradient_Paciente = false;
+                gradient_Responsavel = false;
+                if (gradient_Psicologo = true){
+                  changeColorAdmnistrador();
+                  changeColorPaciente();
+                  changeColorPsicologo();
+                  changeColorResponsavel();
+                }
+                pastState = presentState;
+                presentState = selectedButton;
+                print(presentState);
+                print(pastState);
+                if (pastState != presentState){
+                  appearImage = true;
+                  isChangeConfirmded = false;
+                }
+              }),
+              child: Container(
+              height: 42*screenHeight/844,
+              width: 119*screenWidth/390,
+              padding: EdgeInsets.symmetric(horizontal:  10*screenWidth/390, vertical:5*screenHeight/844 ), //deixar responsivo
+              decoration: ShapeDecoration(
+                gradient: _containerColorPsicologo,
+                shape: RoundedRectangleBorder(
+                side: BorderSide(width: 2, color: Color.fromRGBO(114, 114, 114, 1)), //deixar responsivo
+                borderRadius: BorderRadius.circular(5)),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text("Psicólogo",
+              style: GoogleFonts.firaSans(
+                fontSize: screenHeight/844 * 18 ,
+                fontWeight: FontWeight.w400,
+                color: Color.fromRGBO(114, 114, 114, 1)
+              ))),),)
+              
+                ],
+              ),
             ),
             
-            ),
-          ) ,
-          ),
-          
-          
+                ],)),
+                 
           if(pastState != presentState && appearImage == true)
             Positioned(
               top: screenHeight*606/844,

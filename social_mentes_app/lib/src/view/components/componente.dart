@@ -39,13 +39,14 @@ class WidgetPaciente extends StatelessWidget {
                 //color: Colors.black,
                 child: Column(
                   children: [
-                    SizedBox(
+                    Container(
+                      color: Colors.black,
                       width: 90 * screenWidth / 390,
                       child: Center(
                         child: Text(
                           name,
                           style: GoogleFonts.firaSans(
-                          fontSize: 13*screenWidth/390,
+                          fontSize: 13,
                           fontWeight: FontWeight.w500,
                           color: const Color.fromRGBO(69, 69, 69, 1),
                           ),
