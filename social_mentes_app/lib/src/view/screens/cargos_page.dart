@@ -162,14 +162,14 @@ class CargosPage extends StatelessWidget {
           ),
           // Container com os botões na parte inferior
           Positioned(
-            bottom: 30, // Define o espaço de 30 pixels da borda inferior
-            left: MediaQuery.of(context).size.width / 2 - 95, // Centraliza o container horizontalmente
+            bottom: 30*screenHeight/844, // Define o espaço de 30 pixels da borda inferior
+            left: screenWidth*100/390, // Centraliza o container horizontalmente
             child: Container(
-              width: 190,
-              height: 82,
+              width: 190*screenWidth/390,
+              height: 82*screenHeight/844,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: ShapeDecoration(
-                color: Colors.white.withOpacity(0.9),
+                color: const Color.fromRGBO(255, 255, 255, 0.01),
                 shape: RoundedRectangleBorder(
                   side: BorderSide(width: 2, color: Color(0x7FE3E3E3)),
                   borderRadius: BorderRadius.circular(15),
