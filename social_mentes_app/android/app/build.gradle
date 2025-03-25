@@ -26,9 +26,15 @@ if (flutterVersionName == null) {
 }
 
 android {
+<<<<<<< HEAD
     namespace =  "com.example.social_mentes"
     compileSdk = 34
     ndkVersion = flutter.ndkVersion
+=======
+    namespace "com.example.social_mentes"
+    compileSdk = 34
+    ndkVersion flutter.ndkVersion
+>>>>>>> origin/feature/tela_protocolo
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,10 +55,16 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion = 23
+<<<<<<< HEAD
         targetSdkVersion = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName =  flutterVersionName
         // multiDexEnable true
+=======
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+>>>>>>> origin/feature/tela_protocolo
     }
 
     buildTypes {

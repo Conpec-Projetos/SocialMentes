@@ -118,7 +118,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                 Image.asset("../images/arrow_checklist.png"),
                 SizedBox(width: 15,),
                 Text("${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(
-                  //fontSize: 18,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600
                 ),)
           
@@ -210,7 +210,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                                                 child: Row(
                                                   children: [
                                                     Padding(
-                                                      padding: EdgeInsets.only(left: 70 * screenWidht / 390),
+                                                      padding: EdgeInsets.only(left: 90 * screenWidht / 390),
                                                       child: Image.asset(
                                                         "../images/logo_socialmentes.png",
                                                         width: 100 * screenWidht / 390,
@@ -263,7 +263,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(height: 20 * screenWidht / 390),
+                                              SizedBox(height: 40 * screenWidht / 390),
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
