@@ -35,45 +35,41 @@ class WidgetPaciente extends StatelessWidget {
             Positioned(
               top: screenHeight * (70 / 844),
               left: screenWidth * (25 / 390),
-              child: Container(
-                //color: Colors.black,
-                child: Column(
-                  children: [
-                    Container(
-                      color: Colors.black,
-                      width: 90 * screenWidth / 390,
-                      child: Center(
-                        child: Text(
-                          name,
-                          style: GoogleFonts.firaSans(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          color: const Color.fromRGBO(69, 69, 69, 1),
-                          ),
-                          maxLines: 2,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 90 * screenWidth / 390,
+                    child: Center(
+                      child: Text(
+                        name,
+                        style: GoogleFonts.firaSans(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                        color: const Color.fromRGBO(69, 69, 69, 1),
                         ),
+                        maxLines: 2,
                       ),
                     ),
-                    SizedBox(
-                      height: screenHeight*5/844,
-                    ),
-                    Row(
-                      children: [
-                        Image.asset("images/maleta_icon.png"),
-                        SizedBox(
-                          width: screenWidth * (7.5 / 390),
-                        ),
-                        Text(
-                    cargo,
-                    style: GoogleFonts.firaSans(
-                      fontSize: 8,
-                      fontWeight: FontWeight.w400,
-                      color: const Color.fromRGBO(69, 69, 69, 1),
-                    ),)
-                      ],
-                    )
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: screenHeight*5/844,
+                  ),
+                  Row(
+                    children: [
+                      Image.asset("images/maleta_icon.png"),
+                      SizedBox(
+                        width: screenWidth * (7.5 / 390),
+                      ),
+                      Text(
+                  cargo,
+                  style: GoogleFonts.firaSans(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(69, 69, 69, 1),
+                  ),)
+                    ],
+                  )
+                ],
               )  
               ),
             ]),
