@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/components/componente.dart';
 import 'package:social_mentes/src/view/screens/cargos_page.dart';
-import 'package:social_mentes/src/view/screens/information_page.dart';
 import 'package:social_mentes/src/view/screens/sign_up_page.dart';
-import 'package:social_mentes/src/view/user_quantity.dart';
 
 class Temporario extends StatelessWidget {
   const Temporario({super.key});
@@ -154,7 +151,7 @@ class Temporario extends StatelessWidget {
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(onPressed: (){
+      floatingActionButton: FloatingActionButton(backgroundColor: Colors.blue[100] ,onPressed: (){
         Navigator.push(
                   context,
                   MaterialPageRoute(

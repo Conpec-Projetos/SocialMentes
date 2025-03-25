@@ -48,8 +48,8 @@ class RoteadorTela extends StatelessWidget {
     return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
       if(snapshot.hasData){
         //user logado
-        return PsicoNavegacao(user: snapshot.data!,); //Psicologo
-        //return CargosPage(); //Administrador
+        //return PsicoNavegacao(user: snapshot.data!,); //Psicologo
+        return CargosPage(); //Administrador
 
         //return AdmNavegacao(user: snapshot.data!);
       } else {

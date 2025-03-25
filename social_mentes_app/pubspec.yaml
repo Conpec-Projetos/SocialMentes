@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cross_file: ^0.3.4+2
   flutter:
     sdk: flutter
   provider: ^6.0.0
@@ -47,6 +48,7 @@ dependencies:
   logger: ^2.5.0
   image_picker: ^1.1.2
   uuid: ^4.5.1
+  image_cropper: ^1.4.1
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +72,16 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-
   assets:
+    - assets/images/back_image.png
+    - assets/images/forward.png
+    - assets/images/appBarImage.png
+    - assets/images/bottomPageImage.png
+    - assets/images/chooseImage.png
+    - assets/images/imageAvatar.png
+    - assets/images/bank.png
+    - assets/images/LogoTextoSocialMentes.png
+    - assets/images/LogoSociaMentes2 1.png
     - images/exit.png
     - images/imagem_inferior.png
     - images/satoh_lindo.png
