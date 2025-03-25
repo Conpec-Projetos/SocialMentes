@@ -250,7 +250,7 @@ class InformationPage extends StatefulWidget {
               top: 320*screenHeight/844,
               left: 130*screenWidth/390,
               child: SizedBox(
-                width: 128*screenWidth/390,
+                width: 150*screenWidth/390,
                 height: calculateHeightText(widget.name,128*screenWidth/390) + 50,
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -258,25 +258,27 @@ class InformationPage extends StatefulWidget {
                       style: GoogleFonts.firaSans(
                       fontSize: 24,
                       color: const Color.fromRGBO(69, 69, 69, 1),
-                      fontWeight:FontWeight.w500)
+                      fontWeight:FontWeight.w500),
+                      maxLines: 2,
                       ),
                 ),
               ),
             ),
             Positioned(
-              top: 360.5*screenHeight/844,
+              top: 385*screenHeight/844,
               left: 153*screenWidth/390,
-              child: Image.asset("images/maleta_icon.png"),
-            ),
-            Positioned(
-              top: 357*screenHeight/844,
-              left: 168*screenWidth/390,
-              child: Text(widget.cargo,
+              child: Row(
+                children: [
+                    Image.asset("images/maleta_icon.png"),
+                    const SizedBox(width: 5,),
+                    Text(widget.cargo,
                       style: GoogleFonts.firaSans(
                         fontSize: 16,
                         color: Color.fromRGBO(69, 69, 69, 1),
                         fontWeight: FontWeight.w400)
                         ),
+                ],
+              )
             ),
             Positioned(
               top: 390*screenHeight/844,
@@ -284,7 +286,7 @@ class InformationPage extends StatefulWidget {
               child: Container(
                 width: 274*screenWidth/390,
                 height: 0.8*screenHeight/844,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       Color.fromRGBO(206, 231, 255,0.53),
@@ -303,10 +305,7 @@ class InformationPage extends StatefulWidget {
                           color: Color.fromRGBO(69, 69, 69, 1),
                           fontWeight: FontWeight.w500,)
                         )
-            ),
-
-            //botões de paciente e psicólogo
-      
+            ),      
         Positioned(
           top: 452*screenHeight/844,
           left: 61*screenWidth/390,

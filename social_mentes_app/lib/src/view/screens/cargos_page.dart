@@ -18,10 +18,8 @@ class CargosPage extends StatelessWidget {
         children: [
           Column(
             children: [
-              // Conteúdo da página (incluindo o container azul e os cards)
-              // Container azul
               Container(
-                width: double.infinity,
+                width: screenWidth,
                 height: screenHeight * (105 / 844),
                 decoration: const ShapeDecoration(
                   gradient: LinearGradient(
@@ -32,14 +30,6 @@ class CargosPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(width: 1, color: Color(0xFF9BCFFF)),
                   ),
-                  shadows: [
-                    BoxShadow(
-                      color: Color(0x827DB8EF),
-                      blurRadius: 4,
-                      offset: Offset(0, 1),
-                      spreadRadius: 1,
-                    ),
-                  ],
                 ),
                 child: Stack(
                   children: [
@@ -135,6 +125,7 @@ class CargosPage extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
+                print(users[index]['photoUrl']);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
