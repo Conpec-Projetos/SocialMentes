@@ -9,6 +9,9 @@ import 'package:social_mentes/src/view/models/userPaciente.dart';
 import 'package:social_mentes/src/view/models/userProfissional.dart';
 import 'package:provider/provider.dart';
 
+import 'package:social_mentes/src/view/screens/cargos_page.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,8 +48,9 @@ class RoteadorTela extends StatelessWidget {
     return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
       if(snapshot.hasData){
         //user logado
-        //return PsicoNavegacao(user: snapshot.data!,);
-        return AdmNavegacao(user: snapshot.data!);
+        return PsicoNavegacao(user: snapshot.data!,);
+        //return AdmNavegacao(user: snapshot.data!);
+        //return CargosPage();
       } else {
         //user deslogado
         return LoginPage();

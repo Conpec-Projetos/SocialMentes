@@ -26,8 +26,8 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
   //Páginas
   int _paginaAtualIndex = 0;
   final List<Widget> _navigator = [
-    CargosPage(),
-    Temporario(),
+    //CargosPage(), //Se mudar para esse código, retirar a necessidade de user de CargosPage() e Temporario()
+    //Temporario(),
     ];
   
 
