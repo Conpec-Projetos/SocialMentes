@@ -1,9 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/src/view/models/userPaciente.dart';
 import 'package:provider/provider.dart';
-import 'package:logger/logger.dart';
 
 class PopUpItemsText extends StatefulWidget {
   final String text;

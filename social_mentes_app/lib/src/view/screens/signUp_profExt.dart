@@ -13,7 +13,7 @@ import 'package:logger/logger.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignupProfExt extends StatefulWidget {
-  SignupProfExt({
+  const SignupProfExt({
     super.key,
   });
 

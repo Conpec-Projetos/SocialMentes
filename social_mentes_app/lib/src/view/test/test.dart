@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/checklist_questions/objetive_questions.dart';
 import 'package:social_mentes/src/view/firebase/data_checklist.dart';
 
 
@@ -46,7 +45,6 @@ class _TestState extends State<Test> {
 }
     void _onScroll() {
     double currentOffset = _scrollController.offset;
-    double maxScroll = _scrollController.position.maxScrollExtent;
     double viewportFraction = 0.8; // Percentual necessário para considerar uma pergunta vista
 
     // Quando desliza para baixo, adicionamos ao conjunto
@@ -83,6 +81,7 @@ class _TestState extends State<Test> {
   }
 
 
+  @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidht = MediaQuery.of(context).size.width;

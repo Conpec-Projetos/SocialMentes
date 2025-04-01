@@ -7,7 +7,6 @@ import 'package:social_mentes/class.dart';
 import 'package:social_mentes/src/view/colors/colors.dart';
 import 'package:social_mentes/src/view/checklist_questions/model_questions.dart';
 import 'package:social_mentes/src/view/functions_state/func_change_state.dart';
-import 'package:social_mentes/src/view/firebase/data_checklist.dart';
 
 class CreateProtocols2 extends StatefulWidget {
   const CreateProtocols2({super.key});

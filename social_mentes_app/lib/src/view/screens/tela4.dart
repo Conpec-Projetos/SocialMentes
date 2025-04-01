@@ -381,7 +381,7 @@ class CreateProtocols extends StatefulHookWidget {
                                 competence_text = competencia_selecionada;
                               });
                               change_Icon_container(competence_text);
-                              print("A competência seleciondada é $competence_text");
+                              //print("A competência seleciondada é $competence_text");
                             }
                           });
                         }

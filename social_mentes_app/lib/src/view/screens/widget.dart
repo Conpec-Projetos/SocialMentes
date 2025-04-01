@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/class.dart';
-import 'create_cheaklist.dart';
 
 class CompetenciasList extends StatefulWidget {
 
   final ValueNotifier<bool> stateButtonNotifer;
   final String competenceText;
 
-  CompetenciasList({super.key, required this.stateButtonNotifer, required this.competenceText});
+  const CompetenciasList({super.key, required this.stateButtonNotifer, required this.competenceText});
 
   @override
   _CompetenciasListState createState() => _CompetenciasListState();

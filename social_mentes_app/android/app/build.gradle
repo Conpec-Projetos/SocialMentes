@@ -27,7 +27,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace =  "com.example.social_mentes"
-    compileSdk = 34
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -68,4 +68,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    classpath "com.android.tools.build:gradle:7.1.3"
+}

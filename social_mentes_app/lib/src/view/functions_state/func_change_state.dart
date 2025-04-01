@@ -3,13 +3,13 @@ import 'package:social_mentes/src/view/colors/colors.dart';
 
 void change_Icon_container(String type_competencia) {
     if (type_competencia != "") {
-      var container_image = const AssetImage("images/check_image.png");
+      //var container_image = const AssetImage("images/check_image.png");
     }
   }
 
   void stateArrow(bool stateArrow) {
     if (stateArrow == true) {
-      var arrow_conatiner = const Color.fromRGBO(125, 185, 240, 1);
+      //var arrow_conatiner = const Color.fromRGBO(125, 185, 240, 1);
     }
   }
 

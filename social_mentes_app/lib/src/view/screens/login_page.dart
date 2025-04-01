@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 import 'forget_password_page.dart';
 
 class LoginPage extends StatefulWidget {

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/height_text.dart';
 import 'cargos_page.dart';
 import 'package:social_mentes/src/view/update_user.dart';
 

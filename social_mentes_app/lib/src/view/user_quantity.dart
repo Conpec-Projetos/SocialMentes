@@ -12,7 +12,7 @@ Future<List<Map<String, dynamic>>> DataUser() async {
       };
     }).toList();
   } catch (e) {
-    print('Erro ao buscar os dados: $e');
+    //print('Erro ao buscar os dados: $e');
     return [];
   }
 }

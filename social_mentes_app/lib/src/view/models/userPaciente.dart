@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:social_mentes/src/view/models/responsavel.dart';
 
 class UserPaciente with ChangeNotifier {

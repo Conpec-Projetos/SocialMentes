@@ -8,11 +8,10 @@ import 'package:social_mentes/src/view/components/forwardButton.dart';
 import 'package:social_mentes/src/view/components/signUpField.dart';
 import 'package:social_mentes/src/view/screens/signUp_profExt.dart';
 import 'package:provider/provider.dart';
-import 'package:logger/logger.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpAddress extends StatefulWidget {
-  SignUpAddress({
+  const SignUpAddress({
     super.key,
     required this.paciente,
     required this.profissional,
@@ -88,7 +87,6 @@ class SignUpAddressState extends State<SignUpAddress> {
   }
 
   void nextData(bool paciente, bool profissional) {
-    final _logger = Logger();
     if (paciente) {
       Navigator.push(
         context,
