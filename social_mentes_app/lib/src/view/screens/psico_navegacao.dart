@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/src/view/screens/psico_pacientes.dart';
 
-import '../common/Cores.dart';
+import '../../../common/colors.dart';
 
 
 class PsicoNavegacao extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_mentes/src/view/models/userProfissional.dart';
-import 'package:social_mentes/src/view/screens/sign_up_page.dart';
+import 'package:social_mentes/screens/cadastro/sign_up_page.dart';
 import 'package:social_mentes/src/view/components/forwardButton.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

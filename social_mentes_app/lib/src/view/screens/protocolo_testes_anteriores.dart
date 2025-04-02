@@ -3,7 +3,7 @@ import 'package:social_mentes/src/view/components/teste_anterior_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/src/view/models/TesteModelo.dart';
 import 'package:social_mentes/src/view/services/testes_servico.dart';
-import '../common/Cores.dart';
+import '../../../common/colors.dart';
 
 import 'package:social_mentes/src/view/screens/create_cheaklist.dart';
 

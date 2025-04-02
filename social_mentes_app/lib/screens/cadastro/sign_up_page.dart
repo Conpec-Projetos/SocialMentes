@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:social_mentes/src/view/screens/signUp_data.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import 'package:social_mentes/screens/cadastro/signUp_data.dart';
 
 class GradientText extends StatelessWidget {
   const GradientText({
-    Key? key,
+    super.key,
     required this.text,
     this.style,
     required this.gradient,
-  }) : super(key: key);
+  });
   final String text;
   final TextStyle? style;
   final Gradient gradient;
@@ -69,11 +70,11 @@ class SignUpPageState extends State<SignUpPage> {
           children: [
             Align(
               alignment: Alignment.topRight,
-              child: Image.asset('../assets/images/appBarImage.png'),
+              child: Image.asset('assets/images/appBarImage.png'),
             ),
             Align(
               alignment: Alignment.bottomRight,
-              child: Image.asset('../assets/images/bottomPageImage.png'),
+              child: Image.asset('assets/images/bottomPageImage.png'),
             ),
             Align(
               alignment: Alignment.center,
@@ -91,7 +92,7 @@ class SignUpPageState extends State<SignUpPage> {
                             onPressed: () {
                               back();
                             },
-                            icon: const Image(image: AssetImage('../assets/images/back_image.png'))
+                            icon: const Image(image: AssetImage('assets/images/back_image.png'))
                           ),
                           Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                         ],
@@ -249,7 +250,7 @@ class SignUpPageState extends State<SignUpPage> {
                                   ),
                                 ), 
                                 const SizedBox(width: 10),
-                                Image.asset('../assets/images/forward.png'),                  
+                                Image.asset('assets/images/forward.png'),                  
                               ],
                             ),
                           ),

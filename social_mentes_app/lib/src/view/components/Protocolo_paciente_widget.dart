@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/common/Cores.dart';
+import 'package:social_mentes/common/colors.dart';
 import 'package:social_mentes/src/view/screens/protocolo_testes_anteriores.dart';
 
 class ProtocoloPacienteWidget extends StatelessWidget {

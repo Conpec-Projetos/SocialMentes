@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../common/Cores.dart';
+import '../../../common/colors.dart';
 
 class BarraPesquisa extends StatefulWidget {
   final Function(String query) onQueryChanged;

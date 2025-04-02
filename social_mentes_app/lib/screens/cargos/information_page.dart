@@ -1,16 +1,14 @@
-//import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'cargos_page.dart';
-import 'package:social_mentes/src/view/update_user.dart';
+
+import 'package:social_mentes/services/update_user.dart';
 
 class InformationPage extends StatefulWidget {
   final String name;
   final String cargo;
   final String foto;
   final String id;
-  InformationPage({super.key, required this.name, required this.cargo, required this.foto, required this.id});
+  const InformationPage({super.key, required this.name, required this.cargo, required this.foto, required this.id});
 
   @override
   _InformationPageState createState() => _InformationPageState();
@@ -119,21 +117,21 @@ class InformationPage extends StatefulWidget {
                         ),
                     ),
                     Positioned(
-                      child: Image.asset("images/LogoSociaMentes2.png"),
                       top: screenWidth*18/390,
                       left: screenWidth*87/390,
+                      child: Image.asset("assets/images/LogoSociaMentes2.png"),
                     ),
                     Positioned(
-                      child: Image.asset("images/Vector.png"),
                       top: screenWidth*31/390,
                       left: screenWidth*130/390,
+                      child: Image.asset("assets/images/Vector.png"),
                     ),
                     Positioned(
                       top: screenWidth*30/390,
                       left: screenWidth*240/390,
                       child:GestureDetector(
                         onTap: () => Navigator.pop(context),
-                        child: Image.asset("images/X.png"),
+                        child: Image.asset("assets/images/X.png"),
                       )
                     ),
                     Positioned(
@@ -156,7 +154,7 @@ class InformationPage extends StatefulWidget {
                     ),
                     Positioned(
                       top: screenWidth*143/390 ,
-                      child: Container(
+                      child: SizedBox(
                         width: screenWidth*249/390,
                         child: Padding(
                           padding: EdgeInsets.only(left:26),
@@ -184,7 +182,7 @@ class InformationPage extends StatefulWidget {
                       ),
                     ),
                     child: GestureDetector(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CargosPage())),
+                      onTap: () => Navigator.of(context).pop(),
                       child:const Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -213,20 +211,20 @@ class InformationPage extends StatefulWidget {
                 }else{
                   print("Estou na segunda rota");
                    setState(() {
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => CargosPage()));
+                     Navigator.of(context).pop();
                    });
                 };
                 });
                 
               },
-              child: Image.asset("images/back_button_information_page.png")
+              child: Image.asset("assets/images/back_button_information_page.png")
             )
           )
             ,
             Positioned(
               top: 0,
               right: 0,
-              child: Image.asset("images/up_image.png")),
+              child: Image.asset("assets/images/up_image.png")),
             Positioned(
               top: screenHeight*41/844,
               left: screenWidth*80/390,
@@ -261,7 +259,7 @@ class InformationPage extends StatefulWidget {
                   ),
                   Row(
                     children: [
-                        Image.asset("images/maleta_icon.png"),
+                        Image.asset("assets/images/maleta_icon.png"),
                         const SizedBox(width: 5,),
                         Text(widget.cargo,
                           style: GoogleFonts.firaSans(
@@ -291,7 +289,7 @@ class InformationPage extends StatefulWidget {
                   height: 10*screenHeight/844,
                 ),
                 //first buttons row
-                Container(
+                SizedBox(
                   //color: Colors.black,
                   width: 300*screenWidth/390 ,
                   child: Row(
@@ -494,14 +492,14 @@ class InformationPage extends StatefulWidget {
                   updatePosition(widget.id,selectedButton);
                   
                 }),
-                child:Image.asset("images/confirm_change.png", height: screenHeight*44/844, width: screenWidth*350/390,) ,
+                child:Image.asset("assets/images/confirm_change.png", height: screenHeight*44/844, width: screenWidth*350/390,) ,
               )
               ),
 
           Positioned(
               bottom: 0,
               right: 0,
-              child: Image.asset("images/down_image_information_page.png")),
+              child: Image.asset("assets/images/down_image_information_page.png")),
         ],
       ),
     );

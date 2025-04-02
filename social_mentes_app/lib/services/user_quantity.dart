@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<List<Map<String, dynamic>>> DataUser() async {
+Future<List<Map<String, dynamic>>> dataUser() async {
   try {
     // Obtenha os documentos da coleção "userProfiles"
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('userProfiles').get();
@@ -16,4 +16,3 @@ Future<List<Map<String, dynamic>>> DataUser() async {
     return [];
   }
 }
-

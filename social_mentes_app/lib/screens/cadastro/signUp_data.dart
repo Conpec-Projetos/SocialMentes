@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:io';
+import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
+
 import 'package:social_mentes/src/view/screens/signUp_address.dart';
 import 'package:social_mentes/src/view/components/positionDrawer.dart';
 import 'package:social_mentes/src/view/components/signUpField.dart';
 import 'package:social_mentes/src/view/components/forwardButton.dart';
-import 'package:social_mentes/src/view/models/userPaciente.dart';
-import 'package:social_mentes/src/view/models/userProfissional.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:provider/provider.dart';
+import 'package:social_mentes/models/userPaciente.dart';
+import 'package:social_mentes/models/userProfissional.dart';
 
 class SignUpDataPage extends StatefulWidget {
   const SignUpDataPage({
@@ -142,11 +143,11 @@ class SignUpDataPageState extends State<SignUpDataPage> {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: Image.asset('../assets/images/appBarImage.png'),
+                child: Image.asset('assets/images/appBarImage.png'),
               ),
               Align(
                 alignment: Alignment.bottomRight,
-                child: Image.asset('../assets/images/bottomPageImage.png'),
+                child: Image.asset('assets/images/bottomPageImage.png'),
               ),
               Positioned(
                 top: size.height * 35/844,
@@ -158,7 +159,7 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                         onPressed: () {
                           returnTap();
                         },
-                        icon: const Image(image: AssetImage('../assets/images/back_image.png'))
+                        icon: const Image(image: AssetImage('assets/images/back_image.png'))
                       ),
                       Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                     ],
@@ -225,7 +226,7 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                 left: size.width * 145/390,
                 right: size.width * 145/390,
                 child: _imageFile == null
-                ? Image.asset('../assets/images/imageAvatar.png')
+                ? Image.asset('assets/images/imageAvatar.png')
                 : Container(
                     width: size.width * 100/390,
                     height: size.height * 100/844,
@@ -243,7 +244,7 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                 left: size.width * 212/390,
                 right: size.width * 140/390,
                 child: IconButton(
-                  icon: Image.asset('../assets/images/chooseImage.png'),
+                  icon: Image.asset('assets/images/chooseImage.png'),
                   onPressed:() => getImage(size),
                 ),
               ),
