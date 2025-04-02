@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:social_mentes/src/view/models/userPaciente.dart';
-import 'package:social_mentes/src/view/models/userProfissional.dart';
-import 'package:social_mentes/src/view/components/forwardButton.dart';
-import 'package:social_mentes/src/view/components/signUpField.dart';
-import 'package:social_mentes/src/view/screens/signUp_profExt.dart';
+import 'package:social_mentes/models/userPaciente.dart';
+import 'package:social_mentes/models/userProfissional.dart';
+import 'package:social_mentes/components/forwardButton.dart';
+import 'package:social_mentes/components/signUpField.dart';
+import 'package:social_mentes/screens/cadastro/signUp_profExt.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -116,11 +116,11 @@ class SignUpAddressState extends State<SignUpAddress> {
               children: [
                 Align(
                   alignment: Alignment.topRight,
-                  child: Image.asset('../assets/images/appBarImage.png'),
+                  child: Image.asset('assets/images/appBarImage.png'),
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
-                  child: Image.asset('../assets/images/bottomPageImage.png'),
+                  child: Image.asset('assets/images/bottomPageImage.png'),
                 ),
                 Positioned(
                   top: size.height * 35/844,
@@ -132,7 +132,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                           onPressed: () {
                             returnTap();
                           },
-                          icon: const Image(image: AssetImage('../assets/images/back_image.png'))
+                          icon: const Image(image: AssetImage('assets/images/back_image.png'))
                         ),
                         Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                       ],
@@ -206,7 +206,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                               left: size.width * 145/390,
                               right: size.width * 145/390,
                             ),
-                            child: Image.asset('../assets/images/imageAvatar.png')//Image.file(File(widget.profissional? userProfissional.dadosProfissional[16] : userPaciente.dados['Paciente']![11]))
+                            child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(widget.profissional? userProfissional.dadosProfissional[16] : userPaciente.dados['Paciente']![11]))
                           ),
                           SizedBox(height: size.height * 20/844),
                           SignUpField(
@@ -536,7 +536,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                               left: size.width * 125/390,
                               right: size.width * 125/390,
                             ),
-                            child: Image.asset('../assets/images/imageAvatar.png')
+                            child: Image.asset('assets/images/imageAvatar.png')
                           ),
                           SizedBox(height: size.height * 20/844),
                           SignUpField(
@@ -610,7 +610,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                 identifierText: 'Banco',
                                 identifierWidth: 72.86,
                                 icon: false,
-                                identifierImage: '../assets/images/bank.png',
+                                identifierImage: 'assets/images/bank.png',
                                 userType: 'Profissional',
                                 index: 12                          
                               ),

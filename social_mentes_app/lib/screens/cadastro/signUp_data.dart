@@ -6,10 +6,10 @@ import 'dart:io';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:social_mentes/src/view/screens/signUp_address.dart';
-import 'package:social_mentes/src/view/components/positionDrawer.dart';
-import 'package:social_mentes/src/view/components/signUpField.dart';
-import 'package:social_mentes/src/view/components/forwardButton.dart';
+import 'package:social_mentes/screens/cadastro/signUp_address.dart';
+import 'package:social_mentes/components/positionDrawer.dart';
+import 'package:social_mentes/components/signUpField.dart';
+import 'package:social_mentes/components/forwardButton.dart';
 import 'package:social_mentes/models/userPaciente.dart';
 import 'package:social_mentes/models/userProfissional.dart';
 

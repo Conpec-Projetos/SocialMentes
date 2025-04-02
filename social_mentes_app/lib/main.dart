@@ -7,8 +7,8 @@ import 'package:social_mentes/models/userPaciente.dart';
 import 'package:social_mentes/models/userProfissional.dart';
 
 import 'package:social_mentes/screens/admin_navegation_page.dart';
-
 import 'package:social_mentes/screens/login/login_page.dart';
+import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -91,7 +91,7 @@ class _RoteadorTelaState extends State<RoteadorTela> {
           if(index == 0){
             return AdmNavegacao(user: snapshot.data!);
           } else {
-            return Placeholder();
+            return PsicoNavegacao(user: snapshot.data!);
           }
         }
       } else {

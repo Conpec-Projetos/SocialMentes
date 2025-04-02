@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:social_mentes/src/view/components/forwardButton.dart';
-import 'package:social_mentes/src/view/components/profissionalDrawer.dart';
-import 'package:social_mentes/src/view/components/signUpField.dart';
-import 'package:social_mentes/src/view/components/profissionalListTile.dart';
-import 'package:social_mentes/src/view/components/positionDrawer.dart';
-import 'package:social_mentes/src/view/models/userPaciente.dart';
-import 'package:social_mentes/src/view/models/userProfissional.dart';
 import 'package:provider/provider.dart';
 import 'package:logger/logger.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import 'package:social_mentes/components/forwardButton.dart';
+import 'package:social_mentes/components/signUpField.dart';
+import 'package:social_mentes/components/positionDrawer.dart';
+import 'package:social_mentes/components/profissionalDrawer.dart';
+import 'package:social_mentes/components/profissionalListTile.dart';
+import 'package:social_mentes/models/userPaciente.dart';
+import 'package:social_mentes/models/userProfissional.dart';
 
 class SignupProfExt extends StatefulWidget {
   const SignupProfExt({
@@ -169,11 +170,11 @@ class SignUpProfExtState extends State<SignupProfExt> {
                   children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: Image.asset('../assets/images/appBarImage.png'),
+                      child: Image.asset('assets/images/appBarImage.png'),
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
-                      child: Image.asset('../assets/images/bottomPageImage.png'),
+                      child: Image.asset('assets/images/bottomPageImage.png'),
                     ),
                     Positioned(
                       top: size.height * 35/844,
@@ -185,7 +186,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
                               onPressed: () {
                                 returnTap();
                               },
-                              icon: const Image(image: AssetImage('../assets/images/back_image.png'))
+                              icon: const Image(image: AssetImage('assets/images/back_image.png'))
                             ),
                             Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                           ],
@@ -256,7 +257,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
                                 left: size.width * 145/390,
                                 right: size.width * 145/390,
                               ),
-                              child: Image.asset('../assets/images/imageAvatar.png')//Image.file(File(userPaciente.dados['Paciente']![11]))
+                              child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(userPaciente.dados['Paciente']![11]))
                             ),
                             SizedBox(height: size.height * 20/844),
                             Container(

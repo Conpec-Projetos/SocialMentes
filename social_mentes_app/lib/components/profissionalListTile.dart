@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/models/userPaciente.dart';
 import 'package:provider/provider.dart';
+
+import 'package:social_mentes/models/userPaciente.dart';
 
 class PopUpItemsText extends StatefulWidget {
   final String text;
@@ -87,11 +88,11 @@ class _ProfListTileState extends State<ProfListTile> {
                 Positioned(
                   top: 23,
                   right: 153,
-                  child: Image.asset('../assets/images/LogoSociaMentes2 1.png')),
+                  child: Image.asset('assets/images/LogoSociaMentes2 1.png')),
                 Positioned(
                   top: 40,
                   right: 105,
-                  child: Image.asset('../assets/images/LogoTextoSocialMentes.png')),
+                  child: Image.asset('assets/images/LogoTextoSocialMentes.png')),
                 Positioned(
                   top: 35,
                   right: 30,

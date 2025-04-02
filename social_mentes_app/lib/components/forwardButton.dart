@@ -56,7 +56,7 @@ class _ForwardButtonState extends State<ForwardButton> {
             SizedBox(width: widget.size.width * 10/390),
             
             if (widget.continuar)
-              Image.asset('../assets/images/forward.png'),
+              Image.asset('assets/images/forward.png'),
             
             if (widget.add)
               const Icon(

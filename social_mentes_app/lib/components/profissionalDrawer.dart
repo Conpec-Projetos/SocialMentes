@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:social_mentes/src/view/components/forwardButton.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/models/userPaciente.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:social_mentes/models/userPaciente.dart';
+import 'package:social_mentes/components/forwardButton.dart';
+
+
 
 class ProfissionalDrawer extends StatefulWidget {
   final Size size;
