@@ -28,16 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cross_file: ^0.3.4+2
+  #cross_file: ^0.3.4+2
   flutter:
     sdk: flutter
   provider: ^6.0.0
   flutter_hooks: ^0.18.0
   auto_size_text: ^3.0.0
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  #cupertino_icons: ^1.0.6
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.1
   google_fonts: ^6.2.1
@@ -48,7 +45,7 @@ dependencies:
   logger: ^2.5.0
   image_picker: ^1.1.2
   uuid: ^4.5.1
-  image_cropper: ^1.4.1
+  #image_cropper: ^1.4.1
 
 dev_dependencies:
   flutter_test:
@@ -73,72 +70,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/back_image.png
-    - assets/images/forward.png
-    - assets/images/appBarImage.png
-    - assets/images/bottomPageImage.png
-    - assets/images/chooseImage.png
-    - assets/images/imageAvatar.png
-    - assets/images/bank.png
-    - assets/images/LogoTextoSocialMentes.png
-    - assets/images/LogoSociaMentes2 1.png
-    - images/exit.png
-    - images/imagem_inferior.png
-    - images/satoh_lindo.png
-    - images/seiji_lindo.png
-    - images/icon_cadastro.png
-    - images/icon_cargos_2.png
-    - images/icon_cadastro_2.png
-    - images/back_button_information_page.png
-    - images/up_image.png
-    - images/seiji_info_page.png
-    - images/maleta_icon.png
-    - images/down_image_information_page.png
-    - images/LogoSociaMentes2.png
-    - images/Vector.png
-    - images/X.png
-    - images/confirm_change.png
-    - images/Button.png
-    - images/Logo.png
-    - images/Balls.png
-    - images/blue_ball_up.png
-    - images/blue_ball_down.png
-    - images/red_ball_up.png
-    - images/red_ball_down.png
-    - images/yellow_ball_up.png
-    - images/yellow_ball_down.png
-    - images/eye_opened.png
-    - images/eye_closed.png
-    - images/back_button.png
-    - images/blue_ball_down.png
-    - images/blue_ball_up.png
-    - images/red_ball_down.png
-    - images/yellow_ball_up.png
-    - assets/images/back_image.png
-    - images/blue_ball_up.png
-    - images/red_ball_up.png
-    - images/back_button.png
-    - images/yellow_ball_down.png
-    - images/blue_ball_down.png
-    - images/icon_tabela.png
-    - images/grafico_icon.png
-    - images/relatorio_icon.png
-    - images/save_button.png
-    - images/red_icon.png
-    - images/container_arrow.png
-    - images/rectangle_detail.png
-    - images/rectangle_detail2.png
-    - images/choose_button.png
-    - images/check_image.png
-    - images/delete.png
-    - images/balls_up.png
-    - images/balls_down.png
-    - images/bolas_baixo.png
-    - images/checklist_icon.png
-    - images/arrow_checklist.png
-    - images/logo_socialmentes.png
-    - images/X_icon.png
-    - images/bolas_down.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

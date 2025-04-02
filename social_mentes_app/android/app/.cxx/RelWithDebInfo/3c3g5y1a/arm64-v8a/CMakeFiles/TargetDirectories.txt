@@ -1,0 +1,2 @@
+/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/android/app/.cxx/RelWithDebInfo/3c3g5y1a/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/android/app/.cxx/RelWithDebInfo/3c3g5y1a/arm64-v8a/CMakeFiles/edit_cache.dir

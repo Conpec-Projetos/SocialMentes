@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "/home/guilherme/snap/flutter/common/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/guilherme/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/android/app/.cxx/RelWithDebInfo/k2d2c2op/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/guilherme/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/android/app/.cxx/RelWithDebInfo/k2d2c2op/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {},
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/home/guilherme/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/home/guilherme/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}
