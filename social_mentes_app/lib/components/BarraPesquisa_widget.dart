@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/colors.dart';
+import '../common/colors.dart';
 
 class BarraPesquisa extends StatefulWidget {
   final Function(String query) onQueryChanged;
@@ -28,19 +28,19 @@ class _BarraPesquisaState extends State<BarraPesquisa> {
         
         decoration: const InputDecoration(
           hintText: 'Quem você procura?',
-          hintStyle: TextStyle(color: Cores.cinza2),
+          hintStyle: TextStyle(color: Colours.cinza2),
 
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            borderSide: BorderSide(color: Cores.cinza2, width: 2),
+            borderSide: BorderSide(color: Colours.cinza2, width: 2),
           ),
           
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            borderSide: BorderSide(color: Cores.cinza2),
+            borderSide: BorderSide(color: Colours.cinza2),
           ),
 
-          prefixIcon: Icon(Icons.search, color: Cores.cinza2,),
+          prefixIcon: Icon(Icons.search, color: Colours.cinza2,),
         ),
       ),
     );

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:social_mentes/src/view/components/teste_anterior_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/models/TesteModelo.dart';
-import 'package:social_mentes/src/view/services/testes_servico.dart';
-import '../../../common/colors.dart';
 
-import 'package:social_mentes/src/view/screens/create_cheaklist.dart';
+import 'package:social_mentes/components/teste_anterior_widget.dart';
+import 'package:social_mentes/models/TesteModelo.dart';
+import 'package:social_mentes/services/testes_servico.dart';
+import '../../common/colors.dart';
+
+import 'package:social_mentes/screens/pacientes/create_cheaklist.dart';
 
 
 
@@ -37,12 +38,12 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
           Positioned(
             right: 0,
             top: 0,
-            child: Image.asset("../images/Balls_up.png"),
+            child: Image.asset("assets/images/Balls_up.png"),
           ),
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.asset("../images/Balls_down.png"),
+            child: Image.asset("assets/images/Balls_down.png"),
           ),
 
           Positioned(
@@ -51,10 +52,10 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
             child: Row(
               children: [
                 IconButton(
-                  icon: Image.asset("../images/back_button.png"),
+                  icon: Image.asset("assets/images/back_button.png"),
                   onPressed: () => Navigator.of(context).pop(),
                 ), 
-                Text("Voltar", style: GoogleFonts.firaSans(fontSize: 24, fontWeight: FontWeight.w400, color: Cores.cinza5),),
+                Text("Voltar", style: GoogleFonts.firaSans(fontSize: 24, fontWeight: FontWeight.w400, color: Colours.cinza5),),
               ],
             )
           ),
@@ -67,15 +68,15 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
             crossAxisAlignment: CrossAxisAlignment.center,
         
             children: [
-              Text(widget.nome, style: GoogleFonts.firaSans(fontSize: 16, fontWeight: FontWeight.w400, color: Cores.cinza4),),
-              Text("testes", style: GoogleFonts.firaSans(fontSize: 24, fontWeight: FontWeight.w700, color: Cores.cinza5),),
+              Text(widget.nome, style: GoogleFonts.firaSans(fontSize: 16, fontWeight: FontWeight.w400, color: Colours.cinza4),),
+              Text("testes", style: GoogleFonts.firaSans(fontSize: 24, fontWeight: FontWeight.w700, color: Colours.cinza5),),
               
               SizedBox(
                 height: 2,
                 width: 200,
                 child: Container(
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(colors: [Cores.azul0, Cores.azul1, Cores.azul0], )
+                    gradient: LinearGradient(colors: [Colours.azul0, Colours.azul1, Colours.azul0], )
                   ),
                 ),
               ),
@@ -135,7 +136,7 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
                         height: 44.0,
                         width: 190,
                         decoration: const BoxDecoration(
-                          gradient: LinearGradient(colors: [Cores.azul1, Cores.azul2]),
+                          gradient: LinearGradient(colors: [Colours.azul1, Colours.azul2]),
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                         child: ElevatedButton(

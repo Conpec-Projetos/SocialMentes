@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/checklist_questions/objetive_questions.dart';
-import 'package:social_mentes/src/view/firebase/data_checklist.dart';
+import 'package:social_mentes/models/objetive_questions.dart';
+import 'package:social_mentes/services/data_checklist.dart';
 
 class ChecklistPage extends StatefulWidget {
     final double screenHeight;
@@ -80,7 +80,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
               onTap: (){
                 Navigator.pop(context);
               },
-              child: Image.asset("images/back_button.png") ,
+              child: Image.asset("assets/images/back_button.png") ,
             ),
           ),
     
@@ -100,7 +100,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
           Positioned(
             top: 0,
             right: 0,
-            child: Image.asset("../images/balls_up.png")),
+            child: Image.asset("assets/images/balls_up.png")),
 
             Positioned(
               top: 101*screenHeight/844,
@@ -115,7 +115,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
             width: 269*screenWidht/390,
             child: Row(
               children: [
-                Image.asset("../images/arrow_checklist.png"),
+                Image.asset("assets/images/arrow_checklist.png"),
                 SizedBox(width: 15,),
                 Text("${widget.competence} - nível ${widget.level}", style: GoogleFonts.poppins(
                   fontSize: 18,
@@ -183,7 +183,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                                     ),
                                   ),
                                   SizedBox(width: 10 * screenWidht / 390),
-                                  Image.asset("../images/checklist_icon.png")
+                                  Image.asset("assets/images/checklist_icon.png")
                                 ],
                               ),
                             ),
@@ -212,7 +212,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                                                     Padding(
                                                       padding: EdgeInsets.only(left: 90 * screenWidht / 390),
                                                       child: Image.asset(
-                                                        "../images/logo_socialmentes.png",
+                                                        "assets/images/logo_socialmentes.png",
                                                         width: 100 * screenWidht / 390,
                                                       ),
                                                     ),
@@ -222,7 +222,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
                                                         Navigator.of(context).pop();
                                                       },
                                                       child: Image.asset(
-                                                        "../images/X_icon.png",
+                                                        "assets/images/X_icon.png",
                                                         height: 14 * screenWidht / 390,
                                                         width: 14 * screenWidht / 390,
                                                       ),
@@ -356,7 +356,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
           Positioned(
             bottom: 0,
             left: 0,
-            child: Image.asset("../images/bolas_baixo.png"))
+            child: Image.asset("assets/images/bolas_baixo.png"))
             
         ],
       ),

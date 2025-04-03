@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_mentes/src/view/colors/colors.dart';
+import 'package:social_mentes/common/colors.dart';
 
 void change_Icon_container(String type_competencia) {
     if (type_competencia != "") {

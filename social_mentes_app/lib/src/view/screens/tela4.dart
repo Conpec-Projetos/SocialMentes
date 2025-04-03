@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'widget.dart';
+import '../../../screens/pacientes/competencias_list.dart';
 import 'package:social_mentes/class.dart';
 //teste
 class CreateProtocols extends StatefulHookWidget {

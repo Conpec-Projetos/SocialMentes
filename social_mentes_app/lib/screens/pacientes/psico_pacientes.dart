@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:social_mentes/src/view/components/BarraPesquisa_widget.dart';
-import 'package:social_mentes/src/view/components/Protocolo_paciente_widget.dart';
-import 'package:social_mentes/src/view/services/paciente_servico.dart';
 
-import '../models/PacienteModelo.dart';
+import 'package:social_mentes/models/PacienteModelo.dart';
+import 'package:social_mentes/components/BarraPesquisa_widget.dart';
+import 'package:social_mentes/components/Protocolo_paciente_widget.dart';
+import 'package:social_mentes/services/paciente_servico.dart';
 
 class PsicoPacientes extends StatefulWidget {
   PsicoPacientes({super.key});

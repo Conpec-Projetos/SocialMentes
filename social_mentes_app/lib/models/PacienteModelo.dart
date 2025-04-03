@@ -17,7 +17,7 @@ class PacienteModelo {
   //Contrutor nomeado, usado quando pega no banco de dados
   PacienteModelo.fromMap(Map<String, dynamic> map)
     : nome = map["children"]["name"],
-      foto = "../images/Patient1.png",
+      foto = "assets/images/Patient1.png",
       testes = (map["tests"] == null)? []: map["tests"]
       /*,
       urlImagem = map["urlImagem"]*/;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/common/colors.dart';
-import 'package:social_mentes/src/view/screens/protocolo_testes_anteriores.dart';
+import 'package:social_mentes/screens/pacientes/protocolo_testes_anteriores.dart';
 
 class ProtocoloPacienteWidget extends StatelessWidget {
   final String nome;
@@ -25,7 +25,7 @@ class ProtocoloPacienteWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: Cores.cinza2,
+          color: Colours.cinza2,
           width: 2,
         ),
       ),
@@ -40,7 +40,7 @@ class ProtocoloPacienteWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CircleAvatar(
-                  backgroundColor: Cores.cinza2,
+                  backgroundColor: Colours.cinza2,
                   radius: ((18 / 844) * screenHeight) + 2,
                   child: CircleAvatar(
                     radius: (18 / 844) * screenHeight,
@@ -54,7 +54,7 @@ class ProtocoloPacienteWidget extends StatelessWidget {
                     nome,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.firaSans(
-                      color: Cores.cinza4,
+                      color: Colours.cinza4,
                       fontSize: 16,
                       fontWeight: FontWeight.w400
                     ),
@@ -69,7 +69,7 @@ class ProtocoloPacienteWidget extends StatelessWidget {
                 onPressed:  (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProtocoloTestesAnteriores(nome: nome, testes: testes,),),);
                 },
-                icon: Image.asset("../images/Add_report.png"),
+                icon: Image.asset("assets/images/Add_report.png"),
               ),
             ),
           ],

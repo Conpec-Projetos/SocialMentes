@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/screens/checklist_page.dart';
 
+import 'package:social_mentes/screens/pacientes/checklist_page.dart';
 
 class ModelQuestions extends StatefulWidget {
   final double screenHeight;
@@ -42,7 +42,7 @@ class _ModelQuestionsState extends State<ModelQuestions> {
               padding: EdgeInsets.only(
                 left: 15*widget.screenWidht/390
               ),
-              child: Image.asset("images/container_arrow.png"),
+              child: Image.asset("assets/images/container_arrow.png"),
               ),
               SizedBox(
                 width: 10*widget.screenWidht/390,
@@ -58,7 +58,7 @@ class _ModelQuestionsState extends State<ModelQuestions> {
                 onTap: () {
                   widget.onDelete();
                 },
-                child: Image.asset("../images/delete.png", width: 40*widget.screenWidht/390,))
+                child: Image.asset("assets/images/delete.png", width: 40*widget.screenWidht/390,))
           ],
         ),
       ),

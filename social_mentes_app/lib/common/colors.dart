@@ -11,10 +11,11 @@ class Colours {
   static const cinza4 = Color(0xFF727272);
   static const cinza5 = Color(0xFF454545);
 
-  static const Color bordaButton =  Color.fromRGBO(171, 171, 171, 1);
-  static const Color bordaButton1 =  Color.fromRGBO(171, 171, 171, 1);
-  static const Color  bordaButton2 =  Color.fromRGBO(171, 171, 171, 1);
-  static const Color  bordaButton3 =  Color.fromRGBO(171, 171, 171, 1);
-  static const Color  bordaButton4 =  Color.fromRGBO(171, 171, 171, 1);
-  static const Color arrowConatiner =  Color.fromRGBO(171, 171, 171, 1);
 }
+
+Color bordaButton =  const Color.fromRGBO(171, 171, 171, 1);
+Color bordaButton1 =  const Color.fromRGBO(171, 171, 171, 1);
+Color  bordaButton2 =  const Color.fromRGBO(171, 171, 171, 1);
+Color  bordaButton3 =  const Color.fromRGBO(171, 171, 171, 1);
+Color  bordaButton4 =  const Color.fromRGBO(171, 171, 171, 1);
+Color arrowConatiner =  const Color.fromRGBO(171, 171, 171, 1);

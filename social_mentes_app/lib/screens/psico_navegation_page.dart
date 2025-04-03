@@ -1,12 +1,11 @@
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/screens/psico_pacientes.dart';
 
-import '../../../common/colors.dart';
+import 'package:social_mentes/screens/pacientes/psico_pacientes.dart';
+import '../common/colors.dart';
 
 
 class PsicoNavegacao extends StatefulWidget {
@@ -41,7 +40,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: <Color>[Cores.azul1, Cores.azul2]),
+                colors: <Color>[Colours.azul1, Colours.azul2]),
             ),
           ),
           
@@ -53,7 +52,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
               backgroundColor: Color(0xFFCEE8FF),
               child: CircleAvatar(
                 radius: (30 / 844) * screenHeight,
-                backgroundImage: ExactAssetImage("../images/Perfil_teste.png"),
+                backgroundImage: ExactAssetImage("assets/images/Perfil_teste.png"),
               ),
             ),
           ),
@@ -65,12 +64,12 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(nome, style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: Cores.cinza1)),
+                Text(nome, style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: Colours.cinza1)),
                 RichText(
                   
                   text: TextSpan(
                     text: "Editar perfil",
-                    style: GoogleFonts.firaSans(fontSize: 16, fontWeight: FontWeight.w400, color: Cores.azul0),
+                    style: GoogleFonts.firaSans(fontSize: 16, fontWeight: FontWeight.w400, color: Colours.azul0),
                     recognizer: TapGestureRecognizer()..onTap = () {} //BOTAO EDITAR PERFIL
                   ),
                 ),
@@ -86,7 +85,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                 onPressed: (){
                   FirebaseAuth.instance.signOut();
                 },
-                icon: Image.asset("../images/Logout.png"),
+                icon: Image.asset("assets/images/Logout.png"),
               ),
             ),
           ],
@@ -97,7 +96,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
         margin: EdgeInsets.fromLTRB(28, 0, 28, 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: Color(0xFFE4E4E4).withOpacity(0.5)),
+          border: Border.all(color: Color(0xFFE4E4E4).withValues(alpha: 0.5)),
         ),
         child: ClipRRect(
           child: BackdropFilter(
@@ -107,15 +106,15 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                 labelTextStyle: WidgetStateTextStyle.resolveWith(
                   (Set<WidgetState> states) => states.contains(WidgetState.selected)
                     ? GoogleFonts.firaSans(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF3777B2))
-                    : GoogleFonts.firaSans(fontSize: 14, fontWeight: FontWeight.w400, color: Cores.cinza4),
+                    : GoogleFonts.firaSans(fontSize: 14, fontWeight: FontWeight.w400, color: Colours.cinza4),
                 ),
               ),
               child: NavigationBar(
                   height: 90,
                   elevation: 200,
                   selectedIndex: _paginaAtualIndex,
-                  backgroundColor: Colors.white.withOpacity(0),
-                  indicatorColor: Colors.white.withOpacity(0),
+                  backgroundColor: Colors.white.withValues(alpha: 0),
+                  indicatorColor: Colors.white.withValues(alpha: 0),
               
                   onDestinationSelected: (index) {
                     setState(() {
@@ -129,7 +128,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("../images/Homepage_unselected.png"),
+                          Image.asset("assets/images/Homepage_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -138,10 +137,10 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                           Container(
                             width: 68,
                             height: 3,
-                            color: Cores.azul1,
+                            color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          Image.asset("../images/Homepage_selected.png"),
+                          Image.asset("assets/images/Homepage_selected.png"),
                         ],
                       ),
               
@@ -152,7 +151,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("../images/Patient_unselected.png"),
+                          Image.asset("assets/images/Patient_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -161,10 +160,10 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                           Container(
                             width: 68,
                             height: 3,
-                            color: Cores.azul1,
+                            color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          Image.asset("../images/Patient_selected.png"),
+                          Image.asset("assets/images/Patient_selected.png"),
                         ],
                       ),
               
@@ -175,7 +174,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("../images/Protocol_unselected.png"),
+                          Image.asset("assets/images/Protocol_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -184,10 +183,10 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                           Container(
                             width: 68,
                             height: 3,
-                            color: Cores.azul1,
+                            color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          Image.asset("../images/Protocol_selected.png"),
+                          Image.asset("assets/images/Protocol_selected.png"),
                         ],
                       ),
               
@@ -198,7 +197,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("../images/Agenda_unselected.png"),
+                          Image.asset("assets/images/Agenda_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -207,10 +206,10 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
                           Container(
                             width: 68,
                             height: 3,
-                            color: Cores.azul1,
+                            color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          Image.asset("../images/Agenda_selected.png"),
+                          Image.asset("assets/images/Agenda_selected.png"),
                         ],
                       ),
               
@@ -232,7 +231,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.asset("../images/Balls_down.png"),
+            child: Image.asset("assets/images/Balls_down.png"),
           ),
 
           _navigator[_paginaAtualIndex],

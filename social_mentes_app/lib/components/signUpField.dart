@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_mentes/models/userPaciente.dart';
 import 'package:social_mentes/models/userProfissional.dart';
-import 'package:social_mentes/src/view/models/validacao.dart';
+import 'package:social_mentes/models/validacao.dart';
 import 'package:provider/provider.dart';
 
 class SignUpField extends StatefulWidget {

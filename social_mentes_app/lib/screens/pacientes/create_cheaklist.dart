@@ -1,12 +1,12 @@
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:social_mentes/common/colors.dart';
 import 'package:uuid/uuid.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widget.dart';
+
+import 'competencias_list.dart';
 import 'package:social_mentes/class.dart';
-import 'package:social_mentes/src/view/colors/colors.dart';
-import 'package:social_mentes/src/view/checklist_questions/model_questions.dart';
-import 'package:social_mentes/src/view/functions_state/func_change_state.dart';
+import 'package:social_mentes/models/model_questions.dart';
+import 'package:social_mentes/components/func_change_state.dart';
 
 class CreateProtocols2 extends StatefulWidget {
   const CreateProtocols2({super.key});
@@ -26,7 +26,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
   String competence_text = "";
   String level_checklist = "";
   ImageProvider container_image =
-      const AssetImage("images/container_arrow.png");
+      const AssetImage("assets/images/container_arrow.png");
 
   List<Map<String, dynamic>> selectedCompetences = [];
   final Uuid uuid = Uuid();
@@ -65,7 +65,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
         child:Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset("../images/bolas_baixo.png"),
+                  Image.asset("assets/images/bolas_baixo.png"),
                 ],
               ),),
         body:SingleChildScrollView(
@@ -80,7 +80,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                   onTap: (){
                     Navigator.pop(context);
                   },
-                  child: Image.asset("images/back_button.png") ,
+                  child: Image.asset("assets/images/back_button.png") ,
                 ),
                 SizedBox(
                   width:10*screenWidht/392 ,
@@ -96,7 +96,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                 SizedBox(
                   width: 40*screenWidht/390,
                 ),
-                Image.asset("../images/balls_up.png"),
+                Image.asset("assets/images/balls_up.png"),
               ],
             ),      
             Row(
@@ -119,7 +119,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                               horizontal: 7 * screenWidht / 390,
                               vertical: 5 * screenHeight / 844),
                           child: Image.asset(
-                            "images/icon_tabela.png",
+                            "assets/images/icon_tabela.png",
                             height: 11 * screenHeight / 844,
                             width: 11 * screenHeight / 844,
                           )),
@@ -156,7 +156,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                               horizontal: 5 * screenWidht / 390,
                               vertical: 5 * screenHeight / 844),
                           child: Image.asset(
-                            "images/grafico_icon.png",
+                            "assets/images/grafico_icon.png",
                             height: 11 * screenHeight / 844,
                             width: 11 * screenHeight / 844,
                           )),
@@ -193,7 +193,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                             horizontal: 5 * screenWidht / 390,
                             vertical: 5 * screenHeight / 844),
                         child: Image.asset(
-                          "images/relatorio_icon.png",
+                          "assets/images/relatorio_icon.png",
                           height: 11 * screenHeight / 844,
                           width: 11 * screenHeight / 844,
                         ),
@@ -235,7 +235,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: screenWidht * 25 / 390),
-                  child: Image.asset("../images/rectangle_detail2.png"),
+                  child: Image.asset("assets/images/rectangle_detail2.png"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 5 * screenWidht / 390),
@@ -383,7 +383,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 25 * screenWidht / 390),
-                  child: Image.asset("../images/rectangle_detail2.png"),
+                  child: Image.asset("assets/images/rectangle_detail2.png"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 5 * screenWidht / 390),
@@ -406,7 +406,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                   height: 50 * screenHeight / 844,
                   width: 314 * screenWidht / 390,
                   decoration: BoxDecoration(
-                      border: Border.all(color: arrow_conatiner, width: 3),
+                      border: Border.all(color: arrowConatiner, width: 3),
                       borderRadius: BorderRadius.circular(15)),
                   child: Stack(
                     children: [
@@ -454,7 +454,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
             Row(children: [
               Padding(
                   padding: EdgeInsets.only(left: 25 * screenWidht / 390),
-                  child: Image.asset("../images/rectangle_detail2.png")),
+                  child: Image.asset("assets/images/rectangle_detail2.png")),
               Padding(
                   padding: EdgeInsets.only(left: 5 * screenWidht / 390),
                   child: Text(
@@ -504,7 +504,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 25 * screenWidht / 390),
-                  child: Image.asset("../images/rectangle_detail2.png"),
+                  child: Image.asset("assets/images/rectangle_detail2.png"),
                 ),
                 Padding(
                     padding: EdgeInsets.only(left: 5 * screenWidht / 390),
@@ -566,7 +566,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                               ),
                               child: Center(
                                 child: Image.asset(
-                                  "images/red_icon.png",
+                                  "assets/images/red_icon.png",
                                   height: 8 * screenHeight / 844,
                                   width: 14 * screenWidht / 390,
                                 ),
@@ -582,7 +582,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                         
                       });
                     },
-                    child: Image.asset("images/save_button.png",
+                    child: Image.asset("assets/images/save_button.png",
                         width: 131 * screenWidht / 390,
                         height: 44 * screenHeight / 844),
                   ),

@@ -8,7 +8,7 @@ import 'package:social_mentes/models/userProfissional.dart';
 
 import 'package:social_mentes/screens/admin_navegation_page.dart';
 import 'package:social_mentes/screens/login/login_page.dart';
-import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
+import 'package:social_mentes/screens/psico_navegation_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
-import '../../../common/colors.dart';
+import '../common/colors.dart';
 
 import 'package:intl/intl.dart';
 
@@ -31,14 +31,14 @@ class TesteAnteriorWidget extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.fromLTRB((10/390)*screenWidth, (5/844)*screenHeight, (10/390)*screenWidth, (5/844)*screenHeight),
               decoration: BoxDecoration(
-                border: Border.all(color: Cores.cinza4, width: 3),
+                border: Border.all(color: Colours.cinza4, width: 3),
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
               ),
                                 
               child: Center(
                 child: AutoSizeText(
                   id,
-                  style: GoogleFonts.poppins(fontSize: 17, fontWeight: FontWeight.w600, color: Cores.cinza4),
+                  style: GoogleFonts.poppins(fontSize: 17, fontWeight: FontWeight.w600, color: Colours.cinza4),
                 ),
               ),
             ),
@@ -54,13 +54,13 @@ class TesteAnteriorWidget extends StatelessWidget {
                 AutoSizeText(
                   dataFormat,
                   maxLines: 1,
-                  style: GoogleFonts.firaSans(fontWeight: FontWeight.w400, color: Cores.cinza3),
+                  style: GoogleFonts.firaSans(fontWeight: FontWeight.w400, color: Colours.cinza3),
                 ),
                 AutoSizeText(
                   (finalizado)? "Finalizado" : "Não finalizado",
                   maxLines: 1,
                   minFontSize: 1,
-                  style: GoogleFonts.firaSans(fontStyle: FontStyle.italic, color: (finalizado)? Cores.cinza3: const Color(0xFFFF336A)),
+                  style: GoogleFonts.firaSans(fontStyle: FontStyle.italic, color: (finalizado)? Colours.cinza3: const Color(0xFFFF336A)),
                 ),
             
                 

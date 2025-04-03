@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:social_mentes/src/view/firebase/data_checklist.dart';
+import 'package:social_mentes/services/data_checklist.dart';
 
 
 class Test extends StatefulWidget {
