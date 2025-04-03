@@ -1,7 +1,61 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'src/view/components/app_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:social_mentes/src/view/screens/adm_navegacao.dart';
+import 'package:social_mentes/src/view/screens/login_page.dart';
+import 'package:social_mentes/src/view/screens/psico_navegacao.dart';
 import 'firebase_options.dart';
-void main() {
-  runApp(const AppWidget());
+import 'package:social_mentes/src/view/models/userPaciente.dart';
+import 'package:social_mentes/src/view/models/userProfissional.dart';
+import 'package:provider/provider.dart';
+
+import 'package:social_mentes/src/view/screens/cargos_page.dart';
+
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp( 
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserPaciente()),
+        ChangeNotifierProvider(create: (context) => UserProfissional()),
+      ],
+      child: MaterialApp(
+      title: 'SocialMentes',
+      home: RoteadorTela(),
+      )
+    );
+    
+  }
+}
+
+class RoteadorTela extends StatelessWidget {
+  const RoteadorTela({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
+      if(snapshot.hasData){
+        //user logado
+        //return PsicoNavegacao(user: snapshot.data!,); //Psicologo 
+        return CargosPage(); //Administrador
+
+        //return AdmNavegacao(user: snapshot.data!);
+      } else {
+        //user deslogado
+        return LoginPage();
+      }
+    },);
+  }
 }
