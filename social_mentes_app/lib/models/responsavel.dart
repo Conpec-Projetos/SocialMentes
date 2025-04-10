@@ -60,4 +60,3 @@ class Responsavel with ChangeNotifier {
   }
   void setEmail(String value) => email = value;
 }
-

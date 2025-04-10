@@ -1,0 +1,1 @@
+/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/build/app/intermediates/cxx/RelWithDebInfo/k2d2c2op/obj/x86_64
