@@ -9,6 +9,7 @@ import 'package:social_mentes/models/userProfissional.dart';
 import 'package:social_mentes/screens/admin_navegation_page.dart';
 import 'package:social_mentes/screens/login/login_page.dart';
 import 'package:social_mentes/screens/psico_navegation_page.dart';
+import 'package:social_mentes/services/autenticacao_servico.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp( 
@@ -43,59 +44,76 @@ class RoteadorTela extends StatefulWidget {
   State<RoteadorTela> createState() => _RoteadorTelaState();
 }
 
+
 class _RoteadorTelaState extends State<RoteadorTela> {
-  bool click = false;
-  int index = 0;
 
   @override
   Widget build(BuildContext context) {
+    AutenticacaoServico auth = AutenticacaoServico();
     
 
     return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
       if(snapshot.hasData){
         //user logado
-        if(!click){
-          return Scaffold(
-            appBar: AppBar(
-              
-              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              title: Text('Social Mentes'),
-            ),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: (){
-                      setState(() {
-                        click = true;
-                        index = 0;
-                      });
-                    },
-                    child: Text("ADMINISTRAÇÃO")),
-                  TextButton(
-                    onPressed: (){
-                      setState(() {
-                        click = true;
-                        index = 1;
-                      });
-                    },
-                    child: Text("PSICÓLOGO")
-                  ),
-                ],
-              ),
-            )
+        return FutureBuilder<Map<String, dynamic>>(
+            future: auth.getUserInfo(user: snapshot.data!),
+            builder: (context, userInfoSnapshot) {
+              if (userInfoSnapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (userInfoSnapshot.hasData) {
+                String cargo = userInfoSnapshot.data!['position'];
+
+                if (cargo == "Administrador") {
+                  return AdmNavegacao(user: snapshot.data!, userInfo: userInfoSnapshot.data!,);
+                } else if (cargo == "Psicólogo") {
+                  return PsicoNavegacao(user: snapshot.data!, userInfo: userInfoSnapshot.data!);
+                } else {
+                  return Scaffold(
+                    body: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(cargo),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+                              backgroundColor: Colors.blue[100],
+                              ),
+
+                            onPressed: () => auth.deslogar(),
+                            child: Text("Deslogar"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+              } else {
+                return Scaffold(
+                    body: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Erro ao carregar o usuário"),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+                              backgroundColor: Colors.blue[100],
+                              ),
+
+                            onPressed: () => auth.deslogar(),
+                            child: Text("Deslogar"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+              }
+            },
           );
-        } else{
-          if(index == 0){
-            return AdmNavegacao(user: snapshot.data!);
-          } else {
-            return PsicoNavegacao(user: snapshot.data!);
-          }
-        }
+        
       } else {
         //user deslogado
-        click = false;
         return LoginPage();
         
       }

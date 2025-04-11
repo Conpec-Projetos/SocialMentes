@@ -10,16 +10,15 @@ import '../common/colors.dart';
 
 class PsicoNavegacao extends StatefulWidget {
   final User user;
+    final Map<String,dynamic> userInfo;
 
-  const PsicoNavegacao({super.key, required this.user});
+  const PsicoNavegacao({super.key, required this.user, required this.userInfo});
 
   @override
   State<PsicoNavegacao> createState() => _PsicoNavegacaoState();
 }
 
 class _PsicoNavegacaoState extends State<PsicoNavegacao> {
-  //TESTES
-  final String nome = "Victor Satoh";
 
   //Páginas
   int _paginaAtualIndex = 2;
@@ -52,7 +51,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
               backgroundColor: Color(0xFFCEE8FF),
               child: CircleAvatar(
                 radius: (30 / 844) * screenHeight,
-                backgroundImage: ExactAssetImage("assets/images/Perfil_teste.png"),
+                backgroundImage: NetworkImage(widget.userInfo['photoUrl']),
               ),
             ),
           ),
@@ -64,7 +63,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(nome, style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: Colours.cinza1)),
+                Text(widget.userInfo['fullName'], style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: Colours.cinza1)),
                 RichText(
                   
                   text: TextSpan(
