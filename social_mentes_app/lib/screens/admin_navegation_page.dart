@@ -27,10 +27,10 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
   //Páginas
   int _paginaAtualIndex = 0;
   final List<Widget> _navigator = [
-    CargosPage(), //Se mudar para esse código, retirar a necessidade de user de CargosPage() e Temporario()
-    //Temporario(),
+    CargosPage(),
     Temporario()
-    ];
+  ];
+
   
 
   @override
@@ -135,7 +135,7 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("assets/images/icon_cargos_2.png"),
+                          Image.asset("assets/images/cargos_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -147,7 +147,7 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
                             color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          Image.asset("assets/images/cargos.png"),
+                          Image.asset("assets/images/cargos_selected.png"),
                         ],
                       ),
               
@@ -158,7 +158,7 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(height: 12,),
-                          Image.asset("assets/images/add_user.png"),
+                          Image.asset("assets/images/Add_User_unselected.png"),
                         ],
                       ),
                       selectedIcon: Column(
@@ -170,7 +170,7 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
                             color: Colours.azul1,
                           ),
                           SizedBox(height: 9,),
-                          
+                          Image.asset("assets/images/Add_User_selected.png"),
                         ],
                       ),
               
