@@ -9,13 +9,6 @@ import 'package:social_mentes/models/userProfissional.dart';
 import 'package:social_mentes/screens/admin_navegation_page.dart';
 import 'package:social_mentes/screens/login/login_page.dart';
 import 'package:social_mentes/screens/psico_navegation_page.dart';
-
-
-
-
-
-import 'package:social_mentes/teste/cargos2.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp( 
@@ -95,7 +88,6 @@ class _RoteadorTelaState extends State<RoteadorTela> {
           );
         } else{
           if(index == 0){
-            //return CargosPage2();
             return AdmNavegacao(user: snapshot.data!);
           } else {
             return PsicoNavegacao(user: snapshot.data!);
