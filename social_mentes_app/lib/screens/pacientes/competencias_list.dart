@@ -38,7 +38,7 @@ class _CompetenciasListState extends State<CompetenciasList> {
 
   void appear_image(bool state_image) {
     if (state_image == true) {
-      image_button = AssetImage('images/choose_button.png');
+      image_button = AssetImage('assets/images/choose_button.png');
     } else {
       image_button = Null as ImageProvider<Object>;
     }
@@ -60,7 +60,7 @@ class _CompetenciasListState extends State<CompetenciasList> {
               Positioned(
                 top: screenHeight * 10 / 844,
                 left: screenWidht * 161 / 390,
-                child: Image.asset("images/rectangle_detail.png"),
+                child: Image.asset("assets/images/rectangle_detail.png"),
               ),
               Positioned(
                 top: screenHeight * 25 / 844,

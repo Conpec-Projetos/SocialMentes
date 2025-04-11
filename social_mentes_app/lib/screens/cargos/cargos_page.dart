@@ -5,9 +5,14 @@ import 'package:social_mentes/screens/cargos/information_page.dart';
 import 'package:social_mentes/services/user_quantity.dart';
 
 
-class CargosPage extends StatelessWidget {
+class CargosPage extends StatefulWidget {
   const CargosPage({super.key});
 
+  @override
+  State<CargosPage> createState() => _CargosPageState();
+}
+
+class _CargosPageState extends State<CargosPage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -53,7 +58,7 @@ class CargosPage extends StatelessWidget {
                                 id: users[index]['id'],
                               ),
                             ),
-                          );
+                          ).then((value) => setState(() {}));
                         },
                         child: Column(
                           children: [

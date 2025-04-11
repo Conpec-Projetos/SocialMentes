@@ -8,7 +8,7 @@ class InformationPage extends StatefulWidget {
   final String cargo;
   final String foto;
   final String id;
-  const InformationPage({super.key, required this.name, required this.cargo, required this.foto, required this.id});
+  InformationPage({super.key, required this.name, required this.cargo, required this.foto, required this.id});
 
   @override
   _InformationPageState createState() => _InformationPageState();
