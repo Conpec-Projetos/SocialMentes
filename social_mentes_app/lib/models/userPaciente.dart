@@ -3,7 +3,7 @@ import 'package:social_mentes/models/responsavel.dart';
 
 class UserPaciente with ChangeNotifier {
   List<List<String>> profissionais;
-  List<String> intervencao;
+  List<List<String>> intervencao;
   String nome = 'nome';
   String cep = 'nome';
   String cpf = 'nome';
@@ -23,7 +23,7 @@ class UserPaciente with ChangeNotifier {
 
   UserPaciente({
     List<List<String>>? profissionais,
-    List<String>? intervencao,
+    List<List<String>>? intervencao,
     Responsavel? resp1,
     Responsavel? resp2,
     String nome = 'nome',
@@ -49,7 +49,7 @@ class UserPaciente with ChangeNotifier {
     return 'UserPaciente(nome: $nome, cep: $cep, cpf: $cpf, celular: $celular, nascimento: $nascimento, uf: $uf, cidade: $cidade, bairro: $bairro, logradouro: $logradouro, numero: $numero, complemento: $complemento, fotoPath: $fotoPath, resp1: ${resp1.toString()}, resp2: ${resp2.toString()}, profissionais: $profissionais, intervencao: $intervencao)';
   }
 
-  void addIntervencao(String lista) {
+  void addIntervencao(List<String> lista) {
     intervencao.add(lista);
     notifyListeners();
   }

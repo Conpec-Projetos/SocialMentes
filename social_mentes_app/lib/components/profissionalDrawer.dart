@@ -20,36 +20,36 @@ class ProfissionalDrawer extends StatefulWidget {
 }
 
 class _ProfissionalDrawerState extends State<ProfissionalDrawer> {
-  List<List<String>> dadosIntervencao = [];
+  String? _addEquipeAtual;
+  int indexSelecionado = -1;
 
   void _addEquipe(String value) {
-    final userData = Provider.of<UserPaciente>(context, listen: false);
-    userData.addIntervencao(value);
+    setState(() {
+      _addEquipeAtual = value;      
+    });
   }
 
   void done() async {
     await fetchIntervencaoData();
-    Navigator.pop(context, dadosIntervencao);
+    Navigator.pop(context);
   }
 
   Future<void> fetchIntervencaoData() async {
-    final user = Provider.of<UserPaciente>(context, listen: false).intervencao;
+    final userData = Provider.of<UserPaciente>(context, listen: false);
+
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference userRef = firestore.collection('userProfiles');
-    for (var i in user) {
-      DocumentSnapshot userDoc = await userRef.doc(i).get();
-      if (userDoc.exists) {
-        setState(() {
-          dadosIntervencao.add(
-            [
-            userDoc['fullName'], 
-            userDoc['email'][0], 
-            userDoc['phone'], 
-            userDoc['specialization']
-            ]
-          );
-        });
-      }
+
+    DocumentSnapshot userDoc = await userRef.doc(_addEquipeAtual).get(); 
+
+    if(userDoc.exists){
+      userData.addIntervencao([
+        userDoc['fullName'], 
+        userDoc['email'][0], 
+        (userDoc['phone'] ?? "Telefone não disponível"), 
+        userDoc['specialization'],
+        _addEquipeAtual!
+      ]);
     }
   }
 
@@ -76,47 +76,60 @@ class _ProfissionalDrawerState extends State<ProfissionalDrawer> {
     return FutureBuilder<List<List<dynamic>>>(
       future: fetchProfissionais(),
       builder: (context, snapshot) {
-        final profissional = snapshot.data!;
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: widget.size.height * 300/844,
-                child: ListView.separated(
-                  separatorBuilder: (BuildContext context, int index) => SizedBox(
-                    height: widget.size.height * 13/844,
-                  ),
-                  itemCount: profissional.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: TextButton(
-                        onPressed: () => _addEquipe(profissional[index][2]),
-                        child: Center(
-                          child: Text(
-                            '${profissional[index][0]}(${profissional[index][1]})',
-                            style: GoogleFonts.firaSans(
-                              color: const Color.fromARGB(255, 171, 171, 171),
+        if(snapshot.data != null){
+          final profissional = snapshot.data!;
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: widget.size.height * 300/844,
+                  child: ListView.separated(
+                    separatorBuilder: (BuildContext context, int index) => SizedBox(
+                      height: widget.size.height * 13/844,
+                    ),
+                    itemCount: profissional.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              indexSelecionado=index;  
+                            });
+                            
+                            _addEquipe(profissional[index][2]);
+                          },
+                          child: Center(
+                            child: Text(
+                              '${profissional[index][0]}(${profissional[index][1]})',
+                              style: GoogleFonts.firaSans(
+                                color: (index == indexSelecionado)?const Color.fromARGB(206, 80, 149, 213):const Color.fromARGB(255, 171, 171, 171),
+                              ),
                             ),
-                          ),
-                        )
-                      ),
-                    );
-                  }
+                          )
+                        ),
+                      );
+                    }
+                  ),
                 ),
-              ),
-              InkWell(
-                onTap: () => done(),
-                child: ForwardButton(
-                  size: widget.size,
-                  continuar: false,
-                  text: 'SELECIONAR',
-                  width: 350,
-                  height: 44,
-                ),
-              )
-            ],
-          ),
-        );
+                InkWell(
+                  onTap: () => done(),
+                  child: ForwardButton(
+                    size: widget.size,
+                    continuar: false,
+                    text: 'SELECIONAR',
+                    width: 350,
+                    height: 44,
+                  ),
+                )
+              ],
+            ),
+          );
+        }else{
+          return SizedBox(height: widget.size.height * 300/844,);
+        }
+        
+        
+        
       }
     );
   }

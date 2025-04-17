@@ -1,3 +1,4 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cmake.sourceDirectory": "/home/guilherme/Documentos/SocialMentes_SSH/SocialMentes/social_mentes_app/linux"
 }
