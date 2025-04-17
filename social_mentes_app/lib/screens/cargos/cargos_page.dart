@@ -28,7 +28,7 @@ class _CargosPageState extends State<CargosPage> {
             future: dataUser(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return Expanded(child: Center(child: CircularProgressIndicator()));
               } else if (snapshot.hasError) {
                 return Center(child: Text('Erro ao carregar dados'));
               } else {

@@ -93,7 +93,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
   }
 
   void mostrarProfissionais(Size size) async {
-    final result = await showModalBottomSheet<List<List<String>>>(
+    await showModalBottomSheet<List<List<String>>>(
       context: context,
       builder: (BuildContext bc){
         return ProfissionalDrawer(
@@ -101,11 +101,6 @@ class SignUpProfExtState extends State<SignupProfExt> {
         );
       }
     );
-    if (result != null) {
-      setState(() {
-        dadosIntervencao = result;
-      });
-    }
   }
 
   void mostrarCargos(Size size, context) async {
@@ -160,435 +155,462 @@ class SignUpProfExtState extends State<SignupProfExt> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
+    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
     bool cargo = (p1 || p2 || p3 || p4);
     return SafeArea(
-          child: Scaffold(
-            backgroundColor: Colors.white,
-            body: Consumer2<UserPaciente, UserProfissional>(
-              builder: (context, userPaciente, userProfissional, child) {
-                return Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Image.asset('assets/images/appBarImage.png'),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Image.asset('assets/images/bottomPageImage.png'),
-                    ),
-                    Positioned(
-                      top: size.height * 35/844,
-                      left: size.width * 30/390,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+          child: Container(
+            color: Colors.white,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Image.asset('assets/images/appBarImage.png'),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.asset('assets/images/bottomPageImage.png'),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    bottom: bottomInset>0
+                      ? 0 //Teclado aberto
+                      : size.height * 158/844, //Teclado fechado
+                  ),
+                  child: Scaffold(
+                    resizeToAvoidBottomInset: true,
+                    backgroundColor: Colors.transparent,
+                    body: Consumer2<UserPaciente, UserProfissional>(
+                      builder: (context, userPaciente, userProfissional, child) {
+                        return Stack(
                           children: [
-                            IconButton(
-                              onPressed: () {
-                                returnTap();
-                              },
-                              icon: const Image(image: AssetImage('assets/images/back_image.png'))
+                            Positioned(
+                              top: size.height * 35/844,
+                              left: size.width * 30/390,
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        returnTap();
+                                      },
+                                      icon: const Image(image: AssetImage('assets/images/back_image.png'))
+                                    ),
+                                    Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
+                                  ],
+                                ),
                             ),
-                            Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
-                          ],
-                        ),
-                    ),
-                    Positioned(
-                      top: size.height * 95/844,
-                      left: size.width * 58/390,
-                      right: size.width * 58/390,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text('cadastro', style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            color: const Color.fromRGBO(69, 69, 69, 1),
-                            fontSize: size.width * 0.05
-                          )),
-                          SizedBox(height: size.height * 0.01),
-                          Container(
-                            height: 4,
-                            width: size.width * 0.65,
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                Color.fromRGBO(206, 231, 255, 0.53),
-                                Color.fromRGBO(125, 185, 240, 1),
-                                Color.fromRGBO(206, 231, 255, 1)
-                              ])
+                            Positioned(
+                              top: size.height * 95/844,
+                              left: size.width * 58/390,
+                              right: size.width * 58/390,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text('cadastro', style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color.fromRGBO(69, 69, 69, 1),
+                                    fontSize: size.width * 0.05
+                                  )),
+                                  SizedBox(height: size.height * 0.01),
+                                  Container(
+                                    height: 4,
+                                    width: size.width * 0.65,
+                                    decoration: const BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromRGBO(206, 231, 255, 0.53),
+                                        Color.fromRGBO(125, 185, 240, 1),
+                                        Color.fromRGBO(206, 231, 255, 1)
+                                      ])
+                                    ),
+                                  ),
+                                  SizedBox(height: size.height * 0.01),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(height: size.height * 0.01),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: size.height * 141/844,
-                      left: size.width * 80/390,
-                      right: size.width * 76/390,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          LinearPercentIndicator(width: size.width * 0.15,
-                            percent: 1,
-                            progressColor: const Color.fromRGBO(206, 231, 255, 1),
-                          ),
-                          LinearPercentIndicator(width: size.width * 0.15,
-                            percent: 1,
-                            progressColor: const Color.fromRGBO(206, 231, 255, 1),
-                          ),
-                          LinearPercentIndicator(width: size.width * 0.15,
-                            percent: 1,
-                            progressColor: const Color.fromRGBO(206, 231, 255, 1),
-                          ),
-                          LinearPercentIndicator(width: size.width * 0.15,
-                            percent: 1,
-                            progressColor: const Color.fromRGBO(206, 231, 255, 1),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: size.height * 156/844,
-                      bottom: size.height * 158/844,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
+                            Positioned(
+                              top: size.height * 141/844,
+                              left: size.width * 80/390,
+                              right: size.width * 76/390,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  LinearPercentIndicator(width: size.width * 0.15,
+                                    percent: 1,
+                                    progressColor: const Color.fromRGBO(206, 231, 255, 1),
+                                  ),
+                                  LinearPercentIndicator(width: size.width * 0.15,
+                                    percent: 1,
+                                    progressColor: const Color.fromRGBO(206, 231, 255, 1),
+                                  ),
+                                  LinearPercentIndicator(width: size.width * 0.15,
+                                    percent: 1,
+                                    progressColor: const Color.fromRGBO(206, 231, 255, 1),
+                                  ),
+                                  LinearPercentIndicator(width: size.width * 0.15,
+                                    percent: 1,
+                                    progressColor: const Color.fromRGBO(206, 231, 255, 1),
+                                  ),
+                                ],
+                              ),
+                            ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: size.width * 145/390,
-                                right: size.width * 145/390,
+                                top: size.height * 156/844,
                               ),
-                              child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(userPaciente.dados['Paciente']![11]))
-                            ),
-                            SizedBox(height: size.height * 20/844),
-                            Container(
-                              width: size.width * 350/390,
-                              height: size.height * 50/844,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: cargo
-                                  ? const Color.fromARGB(255, 80, 149, 213)
-                                  : const Color.fromARGB(255, 114, 114, 114),
-                                ),
-                              ),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 15,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          p1
-                                          ? 'Fonoaudiólogo' : p2
-                                            ? 'Psicólogo' : p3
-                                              ? 'Pedagogo' : p4 
-                                                ? 'Terapêuta Ocupacional' : 'Selecione o acompanhamento',
-                                          style:  GoogleFonts.firaSans(
-                                            fontStyle: FontStyle.italic,
-                                            color: const Color.fromARGB(255, 171, 171, 171),
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: (){
-                                            mostrarCargos(size, context);
-                                          }, 
-                                          icon: const Icon(
-                                            Icons.arrow_downward,
-                                            color:Color.fromARGB(255, 171, 171, 171), 
-                                            size: 15,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Positioned(
-                                    top: -10,
-                                    left: 20,
-                                    child: Container(
-                                      width:  size.width * 219/390,
-                                      height: size.height * 19/844,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                      ),
+                              //bottom: size.height * 158/844,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
                                       padding: EdgeInsets.only(
-                                        left: size.width * 5/390,
-                                        right: size.width * 5/390,
+                                        left: size.width * 145/390,
+                                        right: size.width * 145/390,
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                      child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(userPaciente.dados['Paciente']![11]))
+                                    ),
+                                    SizedBox(height: size.height * 20/844),
+                                    Container(
+                                      width: size.width * 350/390,
+                                      height: size.height * 50/844,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(
+                                          color: cargo
+                                          ? const Color.fromARGB(255, 80, 149, 213)
+                                          : const Color.fromARGB(255, 114, 114, 114),
+                                        ),
+                                      ),
+                                      child: Stack(
+                                        clipBehavior: Clip.none,
                                         children: [
-                                          Icon(
-                                              Icons.person,
-                                              color: cargo
-                                              ? const Color.fromARGB(255, 80, 149, 213)
-                                              : const Color.fromARGB(255, 114, 114, 114),
-                                              size: 15,
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 15,
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  p1
+                                                  ? 'Fonoaudiólogo' : p2
+                                                    ? 'Psicólogo' : p3
+                                                      ? 'Pedagogo' : p4 
+                                                        ? 'Terapêuta Ocupacional' : 'Selecione o acompanhamento',
+                                                  style:  GoogleFonts.firaSans(
+                                                    fontStyle: FontStyle.italic,
+                                                    color: const Color.fromARGB(255, 171, 171, 171),
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                  onPressed: (){
+                                                    mostrarCargos(size, context);
+                                                  }, 
+                                                  icon: const Icon(
+                                                    Icons.arrow_downward,
+                                                    color:Color.fromARGB(255, 171, 171, 171), 
+                                                    size: 15,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          SizedBox(width: size.width * 5/390),
-                                          Text(
-                                            'Acompanhamento externo',
-                                            style: GoogleFonts.firaSans(
-                                              color: cargo
-                                              ? const Color.fromARGB(255, 80, 149, 213)
-                                              : const Color.fromARGB(255, 114, 114, 114),
-                                            ), 
+                                          Positioned(
+                                            top: -10,
+                                            left: 20,
+                                            child: Container(
+                                              width:  size.width * 219/390,
+                                              height: size.height * 19/844,
+                                              decoration: const BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                              padding: EdgeInsets.only(
+                                                left: size.width * 5/390,
+                                                right: size.width * 5/390,
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  Icon(
+                                                      Icons.person,
+                                                      color: cargo
+                                                      ? const Color.fromARGB(255, 80, 149, 213)
+                                                      : const Color.fromARGB(255, 114, 114, 114),
+                                                      size: 15,
+                                                  ),
+                                                  SizedBox(width: size.width * 5/390),
+                                                  Text(
+                                                    'Acompanhamento externo',
+                                                    style: GoogleFonts.firaSans(
+                                                      color: cargo
+                                                      ? const Color.fromARGB(255, 80, 149, 213)
+                                                      : const Color.fromARGB(255, 114, 114, 114),
+                                                    ), 
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: size.height * 20/844),
-                            SignUpField(
-                              controller: _nameController,
-                              width: 350, 
-                              height: 50, 
-                              size: size, 
-                              text: 'Digite o nome do profissional',
-                              identifierText: 'Nome do profissional',
-                              identifierWidth: 180.33,
-                              icon: true,
-                              identifierIcon: Icons.person,
-                            ),
-                            SizedBox(height: size.height * 20/844),
-                            SignUpField(
-                              controller: _emailController,
-                              width: 350,
-                              height: 50, 
-                              size: size, 
-                              text: 'exemplo@email.com',
-                              identifierText: 'Email',
-                              identifierWidth: 69,
-                              icon: true,
-                              identifierIcon: Icons.email_sharp,
-                            ),
-                            SizedBox(height: size.height * 20/844),
-                            Container(
-                              width: size.width * 350/390,
-                              height: size.height * 59/844,
-                              child: Stack(
-                                children: [
-                                  SignUpField(
-                                    controller: _celularController,
-                                    width: 180, 
-                                    height: 50, 
-                                    size: size, 
-                                    text: '(NN) NNNNN-NNNN',
-                                    identifierText: 'Celular',
-                                    identifierWidth: 78.82,
-                                    icon: true,
-                                    identifierIcon: Icons.local_phone,
-                                  ),
-                                  Positioned(
-                                    top: 2,
-                                    left: 195,
-                                    child: InkWell(
-                                      onTap: ()  => _addProExt(),
-                                      splashColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
+                                    SizedBox(height: size.height * 20/844),
+                                    SignUpField(
+                                      controller: _nameController,
+                                      width: 350, 
+                                      height: 50, 
+                                      size: size, 
+                                      text: 'Digite o nome do profissional',
+                                      identifierText: 'Nome do profissional',
+                                      identifierWidth: 180.33,
+                                      icon: true,
+                                      identifierIcon: Icons.person,
+                                    ),
+                                    SizedBox(height: size.height * 20/844),
+                                    SignUpField(
+                                      controller: _emailController,
+                                      width: 350,
+                                      height: 50, 
+                                      size: size, 
+                                      text: 'exemplo@email.com',
+                                      identifierText: 'Email',
+                                      identifierWidth: 69,
+                                      icon: true,
+                                      identifierIcon: Icons.email_sharp,
+                                    ),
+                                    SizedBox(height: size.height * 20/844),
+                                    Container(
+                                      width: size.width * 350/390,
+                                      height: size.height * 59/844,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          SignUpField(
+                                            controller: _celularController,
+                                            width: 180, 
+                                            height: 50, 
+                                            size: size, 
+                                            text: '(NN) NNNNN-NNNN',
+                                            identifierText: 'Celular',
+                                            identifierWidth: 78.82,
+                                            icon: true,
+                                            identifierIcon: Icons.local_phone,
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                              top: 2,
+                                              left: 15,
+                                            ),
+                                            
+                                            child: InkWell(
+                                              onTap: ()  => _addProExt(),
+                                              splashColor: Colors.transparent,
+                                              highlightColor: Colors.transparent,
+                                              child: ForwardButton(
+                                                size: size, 
+                                                width: 155, 
+                                                height: 44, 
+                                                text: 'ADICIONAR', 
+                                                add: true),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(height: size.height * 10/844),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: size.width * 1/390),
+                                          child: Text(
+                                            'nome do profissional externo',
+                                            style: GoogleFonts.poppins(
+                                              color: const Color.fromARGB(255, 114, 114, 114),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(width: size.width * 5/390),
+                                        Container(
+                                          width: size.width * 37/390,
+                                          height: size.height * 3/844,
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromARGB(255, 114, 114, 114),
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.height * 5/844),
+                                    SizedBox(
+                                      width: size.width * 350/390,
+                                      height: size.height * 56/844,
+                                      child: ListView.separated(
+                                        separatorBuilder: (BuildContext context, int index) => SizedBox(
+                                          height: size.height * 13/844,
+                                        ),
+                                        itemCount: userPaciente.profissionais.length,
+                                        itemBuilder: (context, index) {
+                                          return ProfListTile(
+                                            size: size, 
+                                            list: userPaciente.profissionais[index], 
+                                            index: index,
+                                            type: 'Profissional',
+                                          );
+                                        }
+                                      ),
+                                    ),
+                                    SizedBox(height: size.height * 30/844),
+                                    Container(
+                                      width: size.width * 350/390,
+                                      height: size.height * 50/844,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(
+                                          color: const Color.fromARGB(255, 114, 114, 114),
+                                        ),
+                                      ),
+                                      child: Stack(
+                                        clipBehavior: Clip.none,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 15,
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'Selecione os profissionais',
+                                                  style:  GoogleFonts.firaSans(
+                                                    fontStyle: FontStyle.italic,
+                                                    color: const Color.fromARGB(255, 171, 171, 171),
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                  onPressed: () => mostrarProfissionais(size),
+                                                  icon: const Icon(
+                                                    Icons.arrow_downward,
+                                                    color:Color.fromARGB(255, 171, 171, 171), 
+                                                    size: 15,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: -10,
+                                            left: 20,
+                                            child: Container(
+                                              width:  size.width * 219/390,
+                                              height: size.height * 19/844,
+                                              decoration: const BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                              padding: EdgeInsets.only(
+                                                left: size.width * 5/390,
+                                                right: size.width * 5/390,
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  const Icon(
+                                                      Icons.person,
+                                                      color: Color.fromARGB(255, 114, 114, 114),
+                                                      size: 15,
+                                                  ),
+                                                  SizedBox(width: size.width * 5/390),
+                                                  Text(
+                                                    'Equipe de intervenção',
+                                                    style: GoogleFonts.firaSans(
+                                                      color:const Color.fromARGB(255, 114, 114, 114),
+                                                    ), 
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(height: size.height * 10/844),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: size.width * 1/390),
+                                          child: Text(
+                                            'equipe de intervenção',
+                                            style: GoogleFonts.poppins(
+                                              color: const Color.fromARGB(255, 114, 114, 114),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ), 
+                                          ),
+                                        ),
+                                        SizedBox(width: size.width * 5/390),
+                                        Container(
+                                          width: size.width * 111/390,
+                                          height: size.height * 3/844,
+                                          decoration: BoxDecoration(
+                                            color: const Color.fromARGB(255, 114, 114, 114),
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.height * 5/844),
+                                    SizedBox(
+                                      width: size.width * 350/390,
+                                      height: size.height * 56/844,
+                                      child: ListView.separated(
+                                        separatorBuilder: (BuildContext context, int index) => SizedBox(
+                                          height: size.height * 12/844,
+                                        ), 
+                                        itemCount: userPaciente.intervencao.length,
+                                        itemBuilder: (context, index) {
+                                          return ProfListTile(
+                                            size: size, 
+                                            list: userPaciente.intervencao[index],
+                                            index: index,
+                                            type: 'Intervenção',
+                                          );
+                                        }
+                                      ),
+                                    ),
+                                    SizedBox(height: size.height * 25/844),
+                                    InkWell(
+                                      onTap: () => concluirCadastro(),
                                       child: ForwardButton(
                                         size: size, 
-                                        width: 155, 
+                                        width: 350, 
                                         height: 44, 
-                                        text: 'ADICIONAR', 
-                                        add: true),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: size.height * 10/844),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: size.width * 1/390),
-                                  child: Text(
-                                    'nome do profissional externo',
-                                    style: GoogleFonts.poppins(
-                                      color: const Color.fromARGB(255, 114, 114, 114),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: size.width * 5/390),
-                                Container(
-                                  width: size.width * 37/390,
-                                  height: size.height * 3/844,
-                                  decoration: BoxDecoration(
-                                    color: const Color.fromARGB(255, 114, 114, 114),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: size.height * 5/844),
-                            SizedBox(
-                              width: size.width * 350/390,
-                              height: size.height * 56/844,
-                              child: ListView.separated(
-                                separatorBuilder: (BuildContext context, int index) => SizedBox(
-                                  height: size.height * 13/844,
-                                ),
-                                itemCount: userPaciente.profissionais.length,
-                                itemBuilder: (context, index) {
-                                  return ProfListTile(
-                                    size: size, 
-                                    list: userPaciente.profissionais[index], 
-                                    index: index,
-                                    type: 'Profissional',
-                                  );
-                                }
-                              ),
-                            ),
-                            SizedBox(height: size.height * 30/844),
-                            Container(
-                              width: size.width * 350/390,
-                              height: size.height * 50/844,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: const Color.fromARGB(255, 114, 114, 114),
-                                ),
-                              ),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 15,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          'Selecione os profissionais',
-                                          style:  GoogleFonts.firaSans(
-                                            fontStyle: FontStyle.italic,
-                                            color: const Color.fromARGB(255, 171, 171, 171),
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: () => mostrarProfissionais(size),
-                                          icon: const Icon(
-                                            Icons.arrow_downward,
-                                            color:Color.fromARGB(255, 171, 171, 171), 
-                                            size: 15,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Positioned(
-                                    top: -10,
-                                    left: 20,
-                                    child: Container(
-                                      width:  size.width * 219/390,
-                                      height: size.height * 19/844,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                      ),
-                                      padding: EdgeInsets.only(
-                                        left: size.width * 5/390,
-                                        right: size.width * 5/390,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          const Icon(
-                                              Icons.person,
-                                              color: Color.fromARGB(255, 114, 114, 114),
-                                              size: 15,
-                                          ),
-                                          SizedBox(width: size.width * 5/390),
-                                          Text(
-                                            'Equipe de intervenção',
-                                            style: GoogleFonts.firaSans(
-                                              color:const Color.fromARGB(255, 114, 114, 114),
-                                            ), 
-                                          ),
-                                        ],
+                                        text: 'CONFIRMAR',
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: size.height * 10/844),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: size.width * 1/390),
-                                  child: Text(
-                                    'equipe de intervenção',
-                                    style: GoogleFonts.poppins(
-                                      color: const Color.fromARGB(255, 114, 114, 114),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ), 
-                                  ),
+                                  ],
                                 ),
-                                SizedBox(width: size.width * 5/390),
-                                Container(
-                                  width: size.width * 111/390,
-                                  height: size.height * 3/844,
-                                  decoration: BoxDecoration(
-                                    color: const Color.fromARGB(255, 114, 114, 114),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: size.height * 5/844),
-                            SizedBox(
-                              width: size.width * 350/390,
-                              height: size.height * 56/844,
-                              child: ListView.separated(
-                                separatorBuilder: (BuildContext context, int index) => SizedBox(
-                                  height: size.height * 12/844,
-                                ), 
-                                itemCount: userPaciente.intervencao.length,
-                                itemBuilder: (context, index) {
-                                  return ProfListTile(
-                                    size: size, 
-                                    list: dadosIntervencao[index],
-                                    index: index,
-                                    type: 'Intervenção',
-                                  );
-                                }
-                              ),
-                            ),
-                            SizedBox(height: size.height * 25/844),
-                            InkWell(
-                              onTap: () => concluirCadastro(),
-                              child: ForwardButton(
-                                size: size, 
-                                width: 350, 
-                                height: 44, 
-                                text: 'CONFIRMAR',
                               ),
                             ),
                           ],
-                        ),
-                      ),
+                        );
+                      }
                     ),
-                  ],
-                );
-              }
+                  ),
+                ),
+              ],
             ),
           )
     );
