@@ -172,7 +172,7 @@ class _ProfListTileState extends State<ProfListTile> {
             ),
           ),
           Positioned(
-            left: 295,
+            right: 0,
             top: 0,
             child: InkWell(
               onTap: () => _deleteProExt(),
@@ -180,7 +180,7 @@ class _ProfListTileState extends State<ProfListTile> {
               highlightColor: Colors.transparent,
               child: Container(
                 width: 55,
-                height: 23,
+                height: widget.size.height * 23/844,
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(width: 2.50, color: Color(0xFFFF87A8),
