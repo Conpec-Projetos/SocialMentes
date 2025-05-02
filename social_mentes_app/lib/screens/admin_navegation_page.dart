@@ -25,17 +25,20 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
 
   //Páginas
   int _paginaAtualIndex = 0;
-  final List<Widget> _navigator = [
-    CargosPage(),
-    Temporario()
-  ];
 
-  
+
 
   @override
   Widget build(BuildContext context) {
+    //Tamanho tela
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
+    final List<Widget> navigator = [
+      CargosPage(userId: widget.user.uid,),
+      Temporario()
+    ];
+  
 
     return Scaffold(
       extendBody: true,
@@ -54,10 +57,10 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
           leading: Container(
             padding: EdgeInsets.only(left: (24.0 / 390) * screenWidth, top: (32.0 / 844) * screenHeight, bottom: (13.0 / 844) * screenHeight),
             child: CircleAvatar(
-              radius: ((30 / 844) * screenHeight) +2,
+              radius: ((30 / 844) * screenHeight),
               backgroundColor: Color(0xFFCEE8FF),
               child: CircleAvatar(
-                radius: (30 / 844) * screenHeight,
+                radius: ((30 / 844) * screenHeight) - 2,
                 backgroundImage: NetworkImage(widget.userInfo['photoUrl']),
               ),
             ),
@@ -98,8 +101,9 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
         ),
       
 
+      //Barra de navegação
       bottomNavigationBar: Container(
-        margin: EdgeInsets.fromLTRB(28, 0, 28, 30),
+        margin: EdgeInsets.fromLTRB(30, 0, 30, 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: Color(0xFFE4E4E4).withValues(alpha: 0.5)),
@@ -191,10 +195,11 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.asset("assets/images/Balls_down.png"),
+            child: Image.asset("assets/images/defaultBG_down.png"),
           ),
 
-          _navigator[_paginaAtualIndex],
+          navigator[_paginaAtualIndex],
+
         ],
       ),
       
