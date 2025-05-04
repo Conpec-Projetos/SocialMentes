@@ -60,6 +60,7 @@ class TesteAnteriorWidget extends StatelessWidget {
                   (finalizado)? "Finalizado" : "Não finalizado",
                   maxLines: 1,
                   minFontSize: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.firaSans(fontStyle: FontStyle.italic, color: (finalizado)? Colours.cinza3: const Color(0xFFFF336A)),
                 ),
             

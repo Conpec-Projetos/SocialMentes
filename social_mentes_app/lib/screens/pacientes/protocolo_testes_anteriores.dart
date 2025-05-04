@@ -38,12 +38,12 @@ class _ProtocoloTestesAnterioresState extends State<ProtocoloTestesAnteriores> {
           Positioned(
             right: 0,
             top: 0,
-            child: Image.asset("assets/images/Balls_up.png"),
+            child: Image.asset("assets/images/defaultBG_up.png"),
           ),
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.asset("assets/images/Balls_down.png"),
+            child: Image.asset("assets/images/defaultBG_down.png"),
           ),
 
           Positioned(

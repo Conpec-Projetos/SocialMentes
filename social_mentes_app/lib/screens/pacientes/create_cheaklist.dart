@@ -96,7 +96,7 @@ class _CreateProtocols2State extends State<CreateProtocols2> {
                 SizedBox(
                   width: 40*screenWidht/390,
                 ),
-                Image.asset("assets/images/balls_up.png"),
+                Image.asset("assets/images/defaultBG_up.png"),
               ],
             ),      
             Row(

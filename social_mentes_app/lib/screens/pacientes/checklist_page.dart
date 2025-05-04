@@ -100,7 +100,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
           Positioned(
             top: 0,
             right: 0,
-            child: Image.asset("assets/images/balls_up.png")),
+            child: Image.asset("assets/images/defaultBG_up.png")),
 
             Positioned(
               top: 101*screenHeight/844,
