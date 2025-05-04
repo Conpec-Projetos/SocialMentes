@@ -143,12 +143,12 @@ class SignUpDataPageState extends State<SignUpDataPage> {
             Positioned(
               top: 0,
               right: 0,
-              child: Image.asset('assets/images/appBarImage.png'),
+              child: Image.asset('assets/images/defaultBG_up.png'),
             ),
             Positioned(
               bottom: 0,
               right: 0,
-              child: Image.asset('assets/images/bottomPageImage.png'),
+              child: Image.asset('assets/images/defaultBG_down.png'),
             ),
             Scaffold(
               resizeToAvoidBottomInset: true,
@@ -169,7 +169,7 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                               onPressed: () {
                                 returnTap();
                               },
-                              icon: const Image(image: AssetImage('assets/images/back_image.png'))
+                              icon: const Image(image: AssetImage('assets/images/back_button.png'))
                             ),
                             Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                           ],
@@ -268,6 +268,7 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                       child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          
                           children: [
                             SignUpField(
                               controller: _nameController,

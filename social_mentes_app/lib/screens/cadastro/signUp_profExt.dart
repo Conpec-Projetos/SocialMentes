@@ -165,12 +165,12 @@ class SignUpProfExtState extends State<SignupProfExt> {
                 Positioned(
                   top: 0,
                   right: 0,
-                  child: Image.asset('assets/images/appBarImage.png'),
+                  child: Image.asset('assets/images/defaultBG_up.png'),
                 ),
                 Positioned(
                   bottom: 0,
                   right: 0,
-                  child: Image.asset('assets/images/bottomPageImage.png'),
+                  child: Image.asset('assets/images/defaultBG_down.png'),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -195,7 +195,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
                                       onPressed: () {
                                         returnTap();
                                       },
-                                      icon: const Image(image: AssetImage('assets/images/back_image.png'))
+                                      icon: const Image(image: AssetImage('assets/images/back_button.png'))
                                     ),
                                     Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                                   ],
@@ -404,8 +404,8 @@ class SignUpProfExtState extends State<SignupProfExt> {
                                           ),
                                           Container(
                                             margin: EdgeInsets.only(
-                                              top: 2,
-                                              left: 15,
+                                              //top: 2,
+                                              left: (15/390) * size.width,
                                             ),
                                             
                                             child: InkWell(
@@ -573,7 +573,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
                                     ),
                                     SizedBox(height: size.height * 5/844),
                                     SizedBox(
-                                      width: size.width * 350/390,
+                                      width: size.width * 351/390,
                                       height: size.height * 56/844,
                                       child: ListView.separated(
                                         separatorBuilder: (BuildContext context, int index) => SizedBox(

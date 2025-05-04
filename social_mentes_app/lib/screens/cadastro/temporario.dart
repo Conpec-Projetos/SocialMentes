@@ -7,9 +7,9 @@ class Temporario extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F4F4),
-      body: Center(
+    return Container(
+      margin: EdgeInsets.only(bottom: 126),
+      child: Center(
         child: FloatingActionButton(backgroundColor: Colors.blue[100] ,onPressed: (){
           Navigator.push(
                     context,

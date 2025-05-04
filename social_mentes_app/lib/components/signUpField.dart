@@ -176,7 +176,7 @@ class _SignUpFieldState extends State<SignUpField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width,
+      width: widget.size.width * widget.width/390,
       height: 59,
       child: Stack(
         clipBehavior: Clip.none,
@@ -245,7 +245,6 @@ class _SignUpFieldState extends State<SignUpField> {
               ),
               padding: EdgeInsets.only(
                 left: widget.size.width * 5/390,
-                right: widget.size.width * 5/390,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,

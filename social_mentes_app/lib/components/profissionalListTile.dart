@@ -140,61 +140,58 @@ class _ProfListTileState extends State<ProfListTile> {
     return SizedBox(
       width: widget.size.width * 350/390,
       height: widget.size.height * 23/844,
-      child: Stack(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Positioned(
-            left: 0,
-            top: 2,
-            child: SizedBox(
-              width: widget.size.width * 194/390,
-              height: widget.size.height * 19/844,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  InkWell(
-                    onTap:() => showProfExt(),
-                    child: const Icon(
-                      Icons.info,
-                      color: Color.fromARGB(255, 114, 114, 114),
-                      size: 15,
-                    ),
+          SizedBox(
+            width: widget.size.width * 194/390,
+            height: widget.size.height * 19/844,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap:() => showProfExt(),
+                  child: const Icon(
+                    Icons.info,
+                    color: Color.fromARGB(255, 114, 114, 114),
+                    size: 15,
                   ),
-                  Text(
+                ),
+                SizedBox(width: widget.size.width * (5/390),),
+                Flexible(
+                  child: Text(
                     widget.list[0],
                     style: GoogleFonts.firaSans(
                       color: const Color.fromARGB(255, 114, 114, 114),
-                    ),  
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            right: 0,
-            top: 0,
-            child: InkWell(
-              onTap: () => _deleteProExt(),
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              child: Container(
-                width: 55,
-                height: widget.size.height * 23/844,
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 2.50, color: Color(0xFFFF87A8),
                     ),
-                    borderRadius: BorderRadius.circular(10),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                child: Center(
-                  child: Text(
-                    'APAGAR',
-                    style: GoogleFonts.poppins(
-                      color: const Color(0xFFFF87A8),
-                      fontSize: 10,
-                    ),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () => _deleteProExt(),
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            child: Container(
+              width: 55,
+              height: widget.size.height * 23/844,
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 2.50, color: Color(0xFFFF87A8),
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'APAGAR',
+                  style: GoogleFonts.poppins(
+                    color: const Color(0xFFFF87A8),
+                    fontSize: 10,
                   ),
                 ),
               ),

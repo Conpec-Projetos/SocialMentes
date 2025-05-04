@@ -230,7 +230,7 @@ class _PsicoNavegacaoState extends State<PsicoNavegacao> {
           Positioned(
             right: 0,
             bottom: 0,
-            child: Image.asset("assets/images/Balls_down.png"),
+            child: Image.asset("assets/images/defaultBG_down.png"),
           ),
 
           _navigator[_paginaAtualIndex],

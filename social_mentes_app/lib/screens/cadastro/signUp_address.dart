@@ -116,12 +116,12 @@ class SignUpAddressState extends State<SignUpAddress> {
             Positioned(
               top: 0,
               right: 0,
-              child: Image.asset('assets/images/appBarImage.png'),
+              child: Image.asset('assets/images/defaultBG_up.png'),
             ),
             Positioned(
               bottom: 0,
               right: 0,
-              child: Image.asset('assets/images/bottomPageImage.png'),
+              child: Image.asset('assets/images/defaultBG_down.png'),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -146,7 +146,7 @@ class SignUpAddressState extends State<SignUpAddress> {
                                   onPressed: () {
                                     returnTap();
                                   },
-                                  icon: const Image(image: AssetImage('assets/images/back_image.png'))
+                                  icon: const Image(image: AssetImage('assets/images/back_button.png'))
                                 ),
                                 Text('Voltar', style: GoogleFonts.firaSans(fontSize: size.width * 0.05, color: const Color.fromRGBO(69, 69, 69, 1)),)
                               ],

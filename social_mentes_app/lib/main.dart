@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      //Providers para cadastrar usuário
       providers: [
         ChangeNotifierProvider(create: (context) => UserPaciente()),
         ChangeNotifierProvider(create: (context) => UserProfissional()),
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Rotear a tela entre a tela de login e as telas logadas de cada Position
 class RoteadorTela extends StatefulWidget {
   const RoteadorTela({super.key});
 
@@ -49,9 +51,9 @@ class _RoteadorTelaState extends State<RoteadorTela> {
 
   @override
   Widget build(BuildContext context) {
+    //Autenticar os usuários
     AutenticacaoServico auth = AutenticacaoServico();
     
-
     return StreamBuilder<User?>(stream: FirebaseAuth.instance.userChanges(), builder: (context, snapshot) {
       if(snapshot.hasData){
         //user logado

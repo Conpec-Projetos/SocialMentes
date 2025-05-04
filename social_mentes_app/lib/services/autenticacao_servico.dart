@@ -26,7 +26,7 @@ class AutenticacaoServico{
     Map<String, dynamic> userInfo = {
       "position":null,
       "photoUrl": null,
-      'fullName': null
+      'fullName': null,
     };
 
     try {

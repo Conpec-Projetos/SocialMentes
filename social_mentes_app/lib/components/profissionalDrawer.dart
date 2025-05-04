@@ -42,6 +42,7 @@ class _ProfissionalDrawerState extends State<ProfissionalDrawer> {
 
     DocumentSnapshot userDoc = await userRef.doc(_addEquipeAtual).get(); 
 
+
     if(userDoc.exists){
       userData.addIntervencao([
         userDoc['fullName'], 
