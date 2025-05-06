@@ -19,9 +19,10 @@ class _CargosPageState extends State<CargosPage> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Stack(
+    return Container(
+      color: Colors.transparent,
+      margin: EdgeInsets.only(bottom: 126),
+      child: Stack(
         children: [
           Column(
             children: [
