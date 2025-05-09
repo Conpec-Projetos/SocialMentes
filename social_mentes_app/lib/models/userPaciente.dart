@@ -15,7 +15,7 @@ class UserPaciente with ChangeNotifier {
   String logradouro = 'nome';
   String numero = 'nome';
   String complemento = 'nome';
-  String fotoPath = 'nome';
+  String fotoPath = '';
   Responsavel resp1 = Responsavel();
   Responsavel resp2 = Responsavel();
   // profissionais (lista dos profissionais externos) = [[nome, email, celular, cargo]]

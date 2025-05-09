@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +31,8 @@ class SignUpProfExtState extends State<SignupProfExt> {
   bool p3 = false;
   bool p4 = false;
   List<List<String>> dadosIntervencao = [];
+
+  String? _imagePath;
 
   Future<void> setUpFirebase() async {
     final data = Provider.of<UserPaciente>(context, listen: false);
@@ -153,6 +157,16 @@ class SignUpProfExtState extends State<SignupProfExt> {
   }
 
   @override
+  void initState(){
+    super.initState();
+
+    final userData = Provider.of<UserPaciente>(context, listen: false);
+    _imagePath = userData.getFotoPath();
+
+    
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
@@ -269,7 +283,24 @@ class SignUpProfExtState extends State<SignupProfExt> {
                                         left: size.width * 145/390,
                                         right: size.width * 145/390,
                                       ),
-                                      child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(userPaciente.dados['Paciente']![11]))
+                                      child: _imagePath == ''
+                                      ? Image.asset('assets/images/imageAvatar.png')
+                                      : Container(
+                                          width: size.height * 100/844,
+                                          height: size.height * 100/844,
+                                          decoration: const ShapeDecoration(
+                                            color: Color(0xFFFCFCFC),
+                                            shape: OvalBorder(
+                                              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)
+                                              ),
+                                            ),
+                                          ),
+                                          child: CircleAvatar(
+                                            radius: size.height * 99/844 ,
+                                            backgroundImage: Image.file(File(_imagePath!)).image,
+                                          ),
+                                          
+                                        ),
                                     ),
                                     SizedBox(height: size.height * 20/844),
                                     Container(

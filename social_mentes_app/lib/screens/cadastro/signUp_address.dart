@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -50,6 +52,8 @@ class SignUpAddressState extends State<SignUpAddress> {
   final TextEditingController _email2Controller = TextEditingController();
   final TextEditingController _data2Controller = TextEditingController();
 
+  String? _imagePath;
+
   Future<void> fireBaseSetup(UserProfissional data) async {
     final Map<String, dynamic> userData = {
       'address': {
@@ -101,6 +105,21 @@ class SignUpAddressState extends State<SignUpAddress> {
 
   void returnTap() {
     Navigator.pop(context);
+  }
+
+  @override
+  void initState(){
+    super.initState();
+
+    if (widget.paciente) {
+      final userData = Provider.of<UserPaciente>(context, listen: false);
+      _imagePath = userData.getFotoPath();
+
+    } else if (widget.profissional) {
+      final userData = Provider.of<UserProfissional>(context, listen: false);
+      _imagePath = userData.getFotoPath();
+
+    }
   }
 
   @override
@@ -220,7 +239,24 @@ class SignUpAddressState extends State<SignUpAddress> {
                                       left: size.width * 145/390,
                                       right: size.width * 145/390,
                                     ),
-                                    child: Image.asset('assets/images/imageAvatar.png')//Image.file(File(widget.profissional? userProfissional.dadosProfissional[16] : userPaciente.dados['Paciente']![11]))
+                                    child: _imagePath == ''
+                                      ? Image.asset('assets/images/imageAvatar.png')
+                                      : Container(
+                                          width: size.height * 100/844,
+                                          height: size.height * 100/844,
+                                          decoration: const ShapeDecoration(
+                                            color: Color(0xFFFCFCFC),
+                                            shape: OvalBorder(
+                                              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)
+                                              ),
+                                            ),
+                                          ),
+                                          child: CircleAvatar(
+                                            radius: size.height * 99/844 ,
+                                            backgroundImage: Image.file(File(_imagePath!)).image,
+                                          ),
+                                          
+                                        ),
                                   ),
                                   SizedBox(height: size.height * 20/844),
                                   SignUpField(
@@ -556,7 +592,24 @@ class SignUpAddressState extends State<SignUpAddress> {
                                       left: size.width * 125/390,
                                       right: size.width * 125/390,
                                     ),
-                                    child: Image.asset('assets/images/imageAvatar.png')
+                                    child: _imagePath == ''
+                                      ? Image.asset('assets/images/imageAvatar.png')
+                                      : Container(
+                                          width: size.height * 100/844,
+                                          height: size.height * 100/844,
+                                          decoration: const ShapeDecoration(
+                                            color: Color(0xFFFCFCFC),
+                                            shape: OvalBorder(
+                                              side: BorderSide(width: 2, color: Color(0xFFD7D7D7)
+                                              ),
+                                            ),
+                                          ),
+                                          child: CircleAvatar(
+                                            radius: size.height * 99/844 ,
+                                            backgroundImage: Image.file(File(_imagePath!)).image,
+                                          ),
+                                          
+                                        ),
                                   ),
                                   SizedBox(height: size.height * 20/844),
                                   SignUpField(

@@ -17,7 +17,7 @@ class UserProfissional with ChangeNotifier{
   String agencia = 'nome';
   String conta = 'nome';
   String pix = 'nome';
-  String fotoPath = 'nome';
+  String fotoPath = '';
 
   UserProfissional({  
     String nome = 'nome',

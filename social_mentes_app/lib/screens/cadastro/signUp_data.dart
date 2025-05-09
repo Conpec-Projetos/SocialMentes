@@ -86,14 +86,28 @@ class SignUpDataPageState extends State<SignUpDataPage> {
     if (isCamera == null) return;
 
     final pickedFile = await _picker.pickImage(source: isCamera ? ImageSource.camera : ImageSource.gallery);
-    _imageFile = pickedFile;
-    if (widget.paciente && _imageFile != null) {
+    setState(() {
+      _imageFile = pickedFile;  
+    });
+    
+    if (widget.paciente) {
       final userData = Provider.of<UserPaciente>(context, listen: false);
-      userData.setFotoPath(_imageFile!.path);
-    } else if (widget.profissional && _imageFile != null) {
+      if(_imageFile != null){
+        userData.setFotoPath(_imageFile!.path);
+      } else {
+        userData.setFotoPath('');
+      }
+      
+      
+    } else if (widget.profissional) {
       final userData = Provider.of<UserProfissional>(context, listen: false);
-      userData.setFotoPath(_imageFile!.path);
+      if(_imageFile != null){
+        userData.setFotoPath(_imageFile!.path);
+      } else {
+        userData.setFotoPath('');
+      }
     }
+
   }
 
   void nextData(bool paciente, bool profissional) {
@@ -234,11 +248,11 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                     Positioned(
                       top: size.height * 156/844,
                       left: size.width * 145/390,
-                      right: size.width * 145/390,
+                      //right: size.width * 145/390,
                       child: _imageFile == null
                       ? Image.asset('assets/images/imageAvatar.png')
                       : Container(
-                          width: size.width * 100/390,
+                          width: size.height * 100/844,
                           height: size.height * 100/844,
                           decoration: const ShapeDecoration(
                             color: Color(0xFFFCFCFC),
@@ -247,7 +261,12 @@ class SignUpDataPageState extends State<SignUpDataPage> {
                               ),
                             ),
                           ),
-                          child: Image.file(File(_imageFile!.path))),
+                          child: CircleAvatar(
+                            radius: size.height * 100/844 ,
+                            backgroundImage: Image.file(File(_imageFile!.path )).image,
+                          ),
+                          
+                        ),
                     ),
                     Positioned(
                       top: size.height * 218/844,
