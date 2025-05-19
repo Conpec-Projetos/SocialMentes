@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:logger/logger.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-// import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:social_mentes/components/forwardButton.dart';
 import 'package:social_mentes/components/signUpField.dart';
@@ -39,18 +39,25 @@ class SignUpProfExtState extends State<SignupProfExt> {
     final data = Provider.of<UserPaciente>(context, listen: false);
 
     // String? photoUrl;
-    // if (data.getFotoPath().isNotEmpty) {
-    //   try {
-    //     final file = File(data.getFotoPath());
-    //     final fileName = file.path.split('/').last;
-    //     final storageRef = FirebaseStorage.instance.ref().child('profile_photos/$fileName');
-    //     final uploadTask = await storageRef.putFile(file);
-    //     photoUrl = await storageRef.getDownloadURL();
-    //   } catch (e) {
-    //     photoUrl = null;
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(content: Text('Erro ao enviar foto: $e')),
-    //     );
+    // final fotoPath = data.getFotoPath();
+    // if (fotoPath.isNotEmpty) {
+    //   final file = File(fotoPath);
+    //   if (file.existsSync()) {
+    //     try {
+    //       final fileName = file.path.split('/').last;
+    //       final storageRef =
+    //           FirebaseStorage.instance.ref().child('profile_photos/$fileName');
+    //       await storageRef.putFile(file);
+    //       photoUrl = await storageRef.getDownloadURL();
+    //     } catch (e) {
+    //       _logger.e('Erro ao subir imagem: $e');
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: Text('Erro ao enviar foto: $e')),
+    //       );
+    //       return;
+    //     }
+    //   } else {
+    //     _logger.w('Arquivo de imagem não encontrado em: $fotoPath');
     //   }
     // }
 
@@ -111,7 +118,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
       'externalMonitoring': profissionais,
       'financialResponsible': data.getNome('Resp1'),
       'interventionTeams': intervencao,
-      // 'photoUrl': photoUrl ?? '',
+      'photoUrl': photoUrl ?? '',
     };
 
     try {

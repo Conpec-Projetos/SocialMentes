@@ -10,11 +10,19 @@ import 'package:social_mentes/screens/admin_navegation_page.dart';
 import 'package:social_mentes/screens/login/login_page.dart';
 import 'package:social_mentes/screens/psico_navegation_page.dart';
 import 'package:social_mentes/services/autenticacao_servico.dart';
+
+// import 'package:firebase_app_check/firebase_app_check.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp( 
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // await FirebaseAppCheck.instance.activate(
+  //   webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+  //   androidProvider: AndroidProvider.debug,
+  //   appleProvider: AppleProvider.appAttest,
+  // );
   runApp(MyApp());
 }
 
