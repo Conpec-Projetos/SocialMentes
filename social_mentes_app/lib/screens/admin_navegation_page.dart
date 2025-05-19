@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:social_mentes/screens/cadastro/temporario.dart';
+import 'package:social_mentes/screens/cadastro/cadastro_list.dart';
 import 'package:social_mentes/screens/cargos/cargos_page.dart';
 import 'package:social_mentes/services/autenticacao_servico.dart';
 
@@ -36,7 +36,7 @@ class _AdmNavegacaoState extends State<AdmNavegacao> {
 
     final List<Widget> navigator = [
       CargosPage(userId: widget.user.uid,),
-      Temporario()
+      CadastroList()
     ];
   
 
