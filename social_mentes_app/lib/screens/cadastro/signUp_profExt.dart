@@ -38,7 +38,7 @@ class SignUpProfExtState extends State<SignupProfExt> {
   Future<void> setUpFirebase() async {
     final data = Provider.of<UserPaciente>(context, listen: false);
 
-    // String? photoUrl;
+    String? photoUrl;
     // final fotoPath = data.getFotoPath();
     // if (fotoPath.isNotEmpty) {
     //   final file = File(fotoPath);
