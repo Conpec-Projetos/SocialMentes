@@ -63,19 +63,19 @@ class SignUpProfExtState extends State<SignupProfExt> {
 
     List<Map<String, String>> profissionais = data.profissionais.map((prof) {
       return {
-        'nome': prof[0],
+        'name': prof[0],
         'email': prof[1],
-        'celular': prof[2],
-        'cargo': prof[3],
+        'phone': prof[2],
+        'professional': prof[3],
       };
     }).toList();
 
     List<Map<String, String>> intervencao = data.intervencao.map((item) {
       return {
-        'nome': item[0],
+        'name': item[0],
         'email': item[1],
-        'celular': item[2],
-        'cargo': item[3],
+        'phone': item[2],
+        'professional': item[3],
         'uid': item.length > 4 ? item[4] : '',
       };
     }).toList();
